@@ -1,0 +1,5 @@
+Server Hardware Modules
+Blade Server - DELL M630 13G Blade Server Hardware CFG02, Physical RACK - HP DL560 G9 Server Hardware CFG01 (12x1024GB), Physical RACK - DELL R730 Server Hardware CFG01, Physical RACK - DELL R730 Server Hardware CFG04 (8x384GB), Physical RACK - DELL Server Hardware CFG05 (16x512GB), Virtual Server (Zone), Virtual Machine (VMWare), Custom Server
+
+Standard Hosting Sys. Options
+TIBCO, OPOD, Hadoop

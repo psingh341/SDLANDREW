@@ -1,0 +1,38 @@
+num_servers
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
+environment
+ , Production, Pre-Pro, QA, I-Test, E-Test, A-Test
+
+business_units
+ , Affinity, Agency Distribution-Sales, AIMCO, Allstate Benefits, Allstate Business Insurance(Commercial), Allstate Dealer Services(Credit Division), Allstate Finance Company, Allstate Financial Technology, Allstate Independent Agents, Allstate Investments, Allstate Roadside Services(ARS), Allstate Solutions Private Limited(ASPL), Allstate Vehicle & Property(AVPIC), ANI, ANJ, Architecture & Simplification, ASAP, ASIC, ATO-Prod Ops, ATO, Finance, ATO Strategy, B2B Technology, Broker Dealer, Canada, CEO COO, CIC, Claims Technology Services, Connected Car Technologies, Consumer Household(SPL), Corporate Relations, Customer Experience & Retention, Dealer Lab, Delivery & Risk Management, Direct Channel of Bind - CIC, Direct Channel of Bind - Internet, DRM - Business / Application Architecture, DRM - Enterprise Testing & Release Mgmt, DRM - Information Security, DRM - Program Management Office, DRM - Program Management Office, DRM - Risk Mgmt & Compliance, Encompass, Encompass Claims, Encompass Support, Enterprise, Enterprise Shared Services, Esurance, Facility Services, Finance, Human Resources, Information Services Group, Infrastructure Services, Investments Technology, IS - ANIIS, IS - Client & Middlew are Platforms, IS - Foundation Platforms, IS - Infrastructure Operations, IS - Network Services, IS - Production Operations, IS - Production Processes, IS - Server Platforms, IS - Solutions Engineering & Service Mgmt, ISG - Business Intelligence & Analytics, ISG - Customer Data Strategy & Data Quality, ISG - Data Solutions, ISG - Data Administrator, ISG - ICS / Customer Data Strategy, ISG - Integrated Customer Services, IVANTAGE, Kennett, Law & Reg Claim, Litigation, Law & Regulation, Life, Marketing, Motor Club, North Light, Northbrook Services, Operations, Ops - ATO Effectiveness & Engagement, Ops - BPM & Quality, Ops - Business Process Competency Center, Ops - Business Process Deliver, Ops - Enterprise Support, Ops - Global Delivery Integration & Sourcing, Ops - Operations CIO, Ops - Policy Administration, Ops - Processing Support for Claims, Ops - Selling Policies & Agency Support, Partnership Marketing Grop (PMG), Personal Lines, Personal Lines - California, Personal Lines (Exc. ANJ), Personal Lines (Incl. ANJ), Protection Risk & Return Mgmt, Real Estate & Construction, Research Center, RMBC, Sales Mktg & Customer Experience, SMCE - Agency Facing, SMCE - Customer Facing, Sourcing & Procurement Solutions, Specialty Ops, Sterling, Techcor, 
+
+data_center
+ , Hudson, Rochelle
+
+enterprise_controller
+ , None, sxm0029, sxm0034
+
+security_zone_0
+ , MPN_Other_0, DMZ_AccessMgmt_0, DMZ_AccessMgmt_0_Pub, DMZ_Vendor_0, DMZ_Vendor_0_Pub, N/A (for Tier 0 Servers)
+
+security_zone_hudson
+ , MPN_DatabaseServers_Hudson, DMZ_INET_DevQaTpt_Hudson, MPN_Isonet_Hudson, AD_Hudson, Sysman_Hudson, openapi_Hudson, OPENAPI_DMZ_Hudson, MPN_Other_Hudson, AllMPNZones (limited to GlobalZone and ESX host), DMZ_AccessMgmt_Hudson, DMZ_AccessMgmt_Hudson_Pub, DMZ_Enterprise_Hudson, DMZ_Device_Mngmnt_Hud, DMZ_Enterprise_Hudson_Pub, DMZ_Internet_Hudson, DMZ_Extranet_Hudson(Declining consult w/ Network), glic-tpt-revproxy, glic-revproxy, DMZ_Vendor_Hudson, DMZ_Vendor_Hudson_Pub, PCI-Private_Hudson, Collab_Hudson, DMZ_DevQaTpt_Hudson, DMZ_NRG_Hudson, DMZ_IMT_Hudson, DMZ_IMT_Hudson, DMZ_APN_Hudson, DMZ_PCL_Hudson, AllPCIZones_Hudson, DMZ_MPNX_Pub_Hudson, DMZ_MPNX_Pvt_Hudson, ADPZ_Hudson, AllEXTZones_Hudson, DMZ_AllsateVendorPortal_Hud_Pvt, DMZ_AllstateVendorPortal_Hud_Pub, N/A (for Tier 0 Servers)
+
+security_zone_rochelle
+ , MPN_DatabaseServers_Rochelle, DMZ_INET_DevQaTpt_Rochelle, MPN_Isonet_Rochelle, AD_Rochelle, Sysman_Rochelle, openapi_Rochelle, OPENAPI_DMZ_Rochelle, MPN_Other_Rochelle, AllMPNZones (limited to GlobalZone and ESX host), DMZ_AccessMgmt_Rochelle, DMZ_AccessMgmt_Rochell_Pub, DMZ_Vendor_Rochelle, DMZ_Vendor_Rochelle_Pub, PCI-Private_Rochelle, Collab_Rochelle, DMZ_DevQaTpt_Rochelle, DMZ_NRG_Rochelle, DMZ_IMT_Rochelle, DMZ_IMT_Rochelle, DMZ_APN_Rochelle, DMZ_PCI_Rochelle, AllPCIZones_Rochelle, DMZ_MPNX_Pub_Rochelle, DMZ_MPNX_Pvt_Rochelle, ADPZ_Rochelle, AllEXTZones_Rochelle, DMZ_AllstateVendorPortal_Roc_Pvt, DMZ_AllstateVendorPortal_Roc_Pub, DMZ_CsExternal_Rochelle, DMZ_CsInternal_Rochelle, DMZ_EmailInternet_Rochelle, rdc-tpt-revproxy, rdc-revproxy, DMZ_TamExternal_Rochelle, DMZ_TamInternal_Rochelle, DMZ_Enterprise_Rochelle, N/A (for Tier 0 Servers)
+
+wing_location
+ , East, West
+
+tibco_behavior
+ , Active / Active, Swappable
+
+tibco_module
+ , Business, EMS, Other
+
+maintenance_window
+ , M4, M5
+
+tibco_options
+ , Tibco Express Build - HP BL460C G9
