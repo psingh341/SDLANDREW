@@ -31,6 +31,9 @@ public class GUI {
 	public Tibco tibco = new Tibco();
 	public Hadoop hadoop = new Hadoop();
 	public Opod opod = new Opod();
+	
+	//JLabel lblTibcoWingLocation;
+	//JComboBox tibcoWingLocationCB;
 
 	/**
 	 * Create the application.
@@ -139,19 +142,19 @@ public class GUI {
 		JPanel panel_7 = new JPanel();
 		tabbedPane.addTab("New tab", null, panel_7, null);
 
-		JComboBox comboBox = new JComboBox(unixConfig.getModelNames());
-		comboBox.setBounds(10, 126, 429, 20);
-		UnixHWConfig.add(comboBox);
+		JComboBox serverModulesCB = new JComboBox(unixConfig.getModelNames());
+		serverModulesCB.setBounds(10, 126, 429, 20);
+		UnixHWConfig.add(serverModulesCB);
 
-		JButton btnNewButton = new JButton("Proceed with the selected option");
-		btnNewButton.setBounds(485, 125, 279, 23);
-		UnixHWConfig.add(btnNewButton);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton serverModulesBtn = new JButton("Proceed with the selected option");
+		serverModulesBtn.setBounds(485, 125, 279, 23);
+		UnixHWConfig.add(serverModulesBtn);
+		serverModulesBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (comboBox.getSelectedItem().toString().startsWith("Blade")) {
+				if (serverModulesCB.getSelectedItem().toString().startsWith("Blade")) {
 					UnixHWConfig.setVisible(false);
 					BladeServers.setVisible(true);
-				} else if (comboBox.getSelectedItem().toString().startsWith("Physical")) {
+				} else if (serverModulesCB.getSelectedItem().toString().startsWith("Physical")) {
 					UnixHWConfig.setVisible(false);
 					PhysicalRack.setVisible(true);
 				}
@@ -180,11 +183,11 @@ public class GUI {
 				open(uriOne);
 			}
 		}
-		JButton btnLinkToThe = new JButton("Link to the module selections and options");
-		btnLinkToThe.setBounds(10, 375, 429, 85);
-		btnLinkToThe.setToolTipText(uriOne.toString());
-		btnLinkToThe.addActionListener(new OpenUrlAction1());
-		UnixHWConfig.add(btnLinkToThe);
+		JButton websiteLinkBtn = new JButton("Link to the module selections and options");
+		websiteLinkBtn.setBounds(10, 375, 429, 85);
+		websiteLinkBtn.setToolTipText(uriOne.toString());
+		websiteLinkBtn.addActionListener(new OpenUrlAction1());
+		UnixHWConfig.add(websiteLinkBtn);
 		
 		JPanel Hadoop = new JPanel();
 		frame.getContentPane().add(Hadoop, "name_166765278662121");
@@ -194,26 +197,26 @@ public class GUI {
 		frame.getContentPane().add(OPOD, "name_166927836447044");
 		OPOD.setLayout(null);
 		
-		JComboBox comboBox_18 = new JComboBox(unixConfig.getStandardHostingOps());
-		comboBox_18.setBounds(10, 267, 429, 20);
-		UnixHWConfig.add(comboBox_18);
+		JComboBox standardHostingSysCB = new JComboBox(unixConfig.getStandardHostingOps());
+		standardHostingSysCB.setBounds(10, 267, 429, 20);
+		UnixHWConfig.add(standardHostingSysCB);
 		JPanel TIBCO = new JPanel();
 		frame.getContentPane().add(TIBCO, "name_166686193052355");
 		TIBCO.setLayout(null);
-		JButton button_1 = new JButton("Proceed with the selected option");
-		button_1.setBounds(485, 266, 279, 23);
-		UnixHWConfig.add(button_1);
-		button_1.addActionListener(new ActionListener() {
+		JButton standardHostingSysBtn = new JButton("Proceed with the selected option");
+		standardHostingSysBtn.setBounds(485, 266, 279, 23);
+		UnixHWConfig.add(standardHostingSysBtn);
+		standardHostingSysBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (comboBox_18.getSelectedItem().toString().equals("TIBCO")) {
+				if (standardHostingSysCB.getSelectedItem().toString().equals("TIBCO")) {
 					UnixHWConfig.setVisible(false);
 					TIBCO.setVisible(true);
 				}
-				if (comboBox_18.getSelectedItem().toString().equals("Hadoop")) {
+				if (standardHostingSysCB.getSelectedItem().toString().equals("Hadoop")) {
 					UnixHWConfig.setVisible(false);
 					Hadoop.setVisible(true);
 				}
-				if (comboBox_18.getSelectedItem().toString().equals("OPOD")) {
+				if (standardHostingSysCB.getSelectedItem().toString().equals("OPOD")) {
 					UnixHWConfig.setVisible(false);
 					OPOD.setVisible(true);
 				}
@@ -223,492 +226,461 @@ public class GUI {
 		JPanel AltServer = new JPanel();
 		frame.getContentPane().add(AltServer, "name_240502931499002");
 
-		JLabel lblNewLabel_2 = new JLabel("TIBCO");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel_2.setBounds(10, 11, 978, 44);
-		TIBCO.add(lblNewLabel_2);
+		JLabel lblTibcoTitle = new JLabel("TIBCO");
+		lblTibcoTitle.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblTibcoTitle.setBounds(10, 11, 978, 44);
+		TIBCO.add(lblTibcoTitle);
 
 		JSeparator separator_7 = new JSeparator();
 		separator_7.setBounds(0, 55, 998, 2);
 		TIBCO.add(separator_7);
 
-		JLabel label = new JLabel("Required UNIQUE fields to be filled in prior to selecting the SHS Option");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label.setBounds(10, 69, 479, 26);
-		TIBCO.add(label);
+		JLabel lblTibcoUniqueFields = new JLabel("Required UNIQUE fields to be filled in prior to selecting the SHS Option");
+		lblTibcoUniqueFields.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTibcoUniqueFields.setBounds(10, 69, 479, 26);
+		TIBCO.add(lblTibcoUniqueFields);
 
-		JLabel label_1 = new JLabel("How many Unix Server(s) total are planned?");
-		label_1.setBounds(10, 119, 261, 14);
-		TIBCO.add(label_1);
+		JLabel lblTibcoNumServers = new JLabel("How many Unix Server(s) total are planned?");
+		lblTibcoNumServers.setBounds(10, 119, 261, 14);
+		TIBCO.add(lblTibcoNumServers);
 
-		JComboBox comboBox_8 = new JComboBox(tibco.getNumServers());
-		comboBox_8.setBounds(353, 116, 241, 20);
-		TIBCO.add(comboBox_8);
+		JComboBox tibcoNumServersCB = new JComboBox(tibco.getNumServers());
+		tibcoNumServersCB.setBounds(353, 116, 241, 20);
+		TIBCO.add(tibcoNumServersCB);
 
-		JComboBox comboBox_9 = new JComboBox(tibco.getEnvironmentOpts());
-		comboBox_9.setBounds(263, 162, 226, 20);
-		TIBCO.add(comboBox_9);
+		JComboBox tibcoEnvironmentCB = new JComboBox(tibco.getEnvironmentOpts());
+		tibcoEnvironmentCB.setBounds(263, 162, 226, 20);
+		TIBCO.add(tibcoEnvironmentCB);
 
-		JComboBox comboBox_10 = new JComboBox(tibco.getBusinessUnitsOpts());
-		comboBox_10.setBounds(263, 207, 226, 20);
-		TIBCO.add(comboBox_10);
+		JComboBox tibcoBusinessUnitCB = new JComboBox(tibco.getBusinessUnitsOpts());
+		tibcoBusinessUnitCB.setBounds(263, 207, 226, 20);
+		TIBCO.add(tibcoBusinessUnitCB);
 
 		
-		JComboBox comboBox_19 = new JComboBox(tibco.getSecurityZoneHudsonOpts());
-		comboBox_19.setBounds(263, 350, 226, 20);
-		TIBCO.add(comboBox_19);
-
-		JComboBox comboBox_20 = new JComboBox(tibco.getSecurityZoneRochelleOpts());
-		comboBox_20.setVisible(false);
-		comboBox_20.setBounds(263, 350, 226, 20);
-		TIBCO.add(comboBox_20);
+		JComboBox tibcoSecurityZoneCB = new JComboBox(tibco.getSecurityZoneZeroOpts());
+		tibcoSecurityZoneCB.setBounds(263, 350, 226, 20);
+		TIBCO.add(tibcoSecurityZoneCB);
 		
-		JComboBox comboBox_13 = new JComboBox(tibco.getWingLocationOpts());
-		comboBox_13.setVisible(false);
-		comboBox_13.setBounds(750, 350, 226, 20);
-		TIBCO.add(comboBox_13);
+		JComboBox tibcoWingLocationCB = new JComboBox(tibco.getWingLocationOpts());
+		tibcoWingLocationCB.setVisible(false);
+		tibcoWingLocationCB.setBounds(750, 350, 226, 20);
+		TIBCO.add(tibcoWingLocationCB);
 		
-		JLabel lblWingLocation = new JLabel("Wing Location in the DC:");
-		lblWingLocation.setVisible(false);
-		lblWingLocation.setBounds(548, 353, 179, 14);
-		TIBCO.add(lblWingLocation);
+		JLabel lblTibcoWingLocation = new JLabel("Wing Location in the DC:");
+		lblTibcoWingLocation.setVisible(false);
+		lblTibcoWingLocation.setBounds(548, 353, 179, 14);
+		TIBCO.add(lblTibcoWingLocation);
 		
-		JComboBox comboBox_11 = new JComboBox(tibco.getDataCenterOpts());
-		comboBox_11.setBounds(263, 255, 226, 20);
-		TIBCO.add(comboBox_11);
+		JComboBox tibcoDataCenterCB = new JComboBox(tibco.getDataCenterOpts());
+		tibcoDataCenterCB.setBounds(263, 255, 226, 20);
+		TIBCO.add(tibcoDataCenterCB);
 		
-		JComboBox comboBox_22 = new JComboBox(tibco.getSecurityZoneZeroOpts());
-		comboBox_22.setBounds(263, 350, 226, 20);
-		TIBCO.add(comboBox_22);
-		
-		comboBox_11.addActionListener(new ActionListener() {
+		tibcoDataCenterCB.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				if (comboBox_11.getSelectedItem().toString().equals("Hudson")) {
-					comboBox_19.setVisible(true);
-					comboBox_20.setVisible(false);
-					comboBox_13.setVisible(true);
-					comboBox_22.setVisible(false);
-					lblWingLocation.setVisible(true);
-				}
-				else if (comboBox_11.getSelectedItem().toString().equals("Rochelle")) {
-					comboBox_19.setVisible(false);
-					comboBox_20.setVisible(true);
-					comboBox_13.setVisible(false);
-					comboBox_22.setVisible(false);
-					lblWingLocation.setVisible(false);
+				dataCenterRtn retVals = tibco.dataCenterUpdate(tibcoDataCenterCB.getSelectedItem().toString());
+
+				if(retVals.addWingLocation == true) {
+					lblTibcoWingLocation.setVisible(true);
+					tibcoWingLocationCB.setVisible(true);
 				}
 				else {
-					comboBox_13.setVisible(false);
-					lblWingLocation.setVisible(false);
-					comboBox_19.setVisible(false);
-					comboBox_22.setVisible(true);
-					comboBox_20.setVisible(false);
+					lblTibcoWingLocation.setVisible(false);
+					tibcoWingLocationCB.setVisible(false);
 				}
 				
+				// Update security zone options
+				tibcoSecurityZoneCB.removeAllItems();
+				for(int i =0; i < retVals.securityZoneOptions.length; i++) {
+					tibcoSecurityZoneCB.addItem(retVals.securityZoneOptions[i]);
+				}
 			}
 			
 		});		
 		
-		JComboBox comboBox_12 = new JComboBox(tibco.getEnterpriseControllerOpts());
-		comboBox_12.setBounds(263, 302, 226, 20);
-		TIBCO.add(comboBox_12);
+		JComboBox tibcoEnterpriseControllerCB = new JComboBox(tibco.getEnterpriseControllerOpts());
+		tibcoEnterpriseControllerCB.setBounds(263, 302, 226, 20);
+		TIBCO.add(tibcoEnterpriseControllerCB);
 
-		JLabel label_2 = new JLabel("Environment Selection:");
-		label_2.setBounds(10, 165, 161, 14);
-		TIBCO.add(label_2);
+		JLabel lblTibcoEnvironment = new JLabel("Environment Selection:");
+		lblTibcoEnvironment.setBounds(10, 165, 161, 14);
+		TIBCO.add(lblTibcoEnvironment);
 
-		JLabel label_3 = new JLabel("Business Unit:");
-		label_3.setBounds(10, 210, 112, 14);
-		TIBCO.add(label_3);
+		JLabel lblTibcoBusinessUnit = new JLabel("Business Unit:");
+		lblTibcoBusinessUnit.setBounds(10, 210, 112, 14);
+		TIBCO.add(lblTibcoBusinessUnit);
 
-		JLabel label_4 = new JLabel("Data Center:");
-		label_4.setBounds(10, 258, 76, 14);
-		TIBCO.add(label_4);
+		JLabel lblTibcoDataCenter = new JLabel("Data Center:");
+		lblTibcoDataCenter.setBounds(10, 258, 76, 14);
+		TIBCO.add(lblTibcoDataCenter);
 
-		JLabel label_5 = new JLabel("Enterprise Controller:");
-		label_5.setBounds(10, 305, 112, 14);
-		TIBCO.add(label_5);
+		JLabel lblTibcoEnterpriseController = new JLabel("Enterprise Controller:");
+		lblTibcoEnterpriseController.setBounds(10, 305, 161, 14);
+		TIBCO.add(lblTibcoEnterpriseController);
 
-		JLabel label_6 = new JLabel("Security Zone:");
-		label_6.setBounds(10, 353, 112, 14);
-		TIBCO.add(label_6);
+		JLabel lblTibcoSecurityZone = new JLabel("Security Zone:");
+		lblTibcoSecurityZone.setBounds(10, 353, 112, 14);
+		TIBCO.add(lblTibcoSecurityZone);
 
-		JComboBox comboBox_14 = new JComboBox(tibco.getTibcoBehaviorOpts());
-		comboBox_14.setBounds(263, 400, 226, 20);
-		TIBCO.add(comboBox_14);
+		JComboBox tibcoBehaviorCB = new JComboBox(tibco.getTibcoBehaviorOpts());
+		tibcoBehaviorCB.setBounds(263, 400, 226, 20);
+		TIBCO.add(tibcoBehaviorCB);
 
-		JComboBox comboBox_15 = new JComboBox(tibco.getTibcoModuleOpts());
-		comboBox_15.setBounds(263, 449, 226, 20);
-		TIBCO.add(comboBox_15);
+		JComboBox tibcoModuleCB = new JComboBox(tibco.getTibcoModuleOpts());
+		tibcoModuleCB.setBounds(263, 449, 226, 20);
+		TIBCO.add(tibcoModuleCB);
 
-		JComboBox comboBox_16 = new JComboBox(tibco.getMaintenanceWindowOpts());
-		comboBox_16.setBounds(263, 495, 226, 20);
-		TIBCO.add(comboBox_16);
+		JComboBox tibcoMaintenanceWindowCB = new JComboBox(tibco.getMaintenanceWindowOpts());
+		tibcoMaintenanceWindowCB.setBounds(263, 495, 226, 20);
+		TIBCO.add(tibcoMaintenanceWindowCB);
 
 		JLabel lblTibcoBehavior = new JLabel("Tibco Behavior:");
 		lblTibcoBehavior.setBounds(10, 403, 93, 14);
 		TIBCO.add(lblTibcoBehavior);
 
-		JLabel lblTibcoModul = new JLabel("Tibco Module:");
-		lblTibcoModul.setBounds(10, 452, 112, 14);
-		TIBCO.add(lblTibcoModul);
+		JLabel lblTibcoModule = new JLabel("Tibco Module:");
+		lblTibcoModule.setBounds(10, 452, 112, 14);
+		TIBCO.add(lblTibcoModule);
 
-		JLabel lblMaintenanceWindow = new JLabel("Maintenance Window:");
-		lblMaintenanceWindow.setBounds(10, 498, 140, 14);
-		TIBCO.add(lblMaintenanceWindow);
+		JLabel lblTibcoMaintenanceWindow = new JLabel("Maintenance Window:");
+		lblTibcoMaintenanceWindow.setBounds(10, 498, 140, 14);
+		TIBCO.add(lblTibcoMaintenanceWindow);
 
 		JSeparator separator_8 = new JSeparator();
 		separator_8.setBounds(0, 544, 998, 2);
 		TIBCO.add(separator_8);
 
-		JLabel label_7 = new JLabel("Please select one of the following options");
-		label_7.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_7.setBounds(10, 557, 479, 37);
-		TIBCO.add(label_7);
+		JLabel lblTibcoOptions = new JLabel("Please select one of the following options");
+		lblTibcoOptions.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTibcoOptions.setBounds(10, 557, 479, 37);
+		TIBCO.add(lblTibcoOptions);
 
-		JComboBox comboBox_17 = new JComboBox(tibco.getTibcoOpts());
-		comboBox_17.setBounds(20, 607, 418, 20);
-		TIBCO.add(comboBox_17);
+		JComboBox tibcoOptionsCB = new JComboBox(tibco.getTibcoOpts());
+		tibcoOptionsCB.setBounds(20, 607, 418, 20);
+		TIBCO.add(tibcoOptionsCB);
 
-		JButton button = new JButton("Proceed with the selected option");
-		button.setBounds(448, 605, 241, 23);
-		TIBCO.add(button);
+		JButton tibcoOptionsBtn = new JButton("Proceed with the selected option");
+		tibcoOptionsBtn.setBounds(448, 605, 241, 23);
+		TIBCO.add(tibcoOptionsBtn);
 		
 		
 
-		JLabel lblHadoop = new JLabel("Hadoop");
-		lblHadoop.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblHadoop.setBounds(10, 11, 978, 43);
-		Hadoop.add(lblHadoop);
+		JLabel lblHadoopTitle = new JLabel("Hadoop");
+		lblHadoopTitle.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblHadoopTitle.setBounds(10, 11, 978, 43);
+		Hadoop.add(lblHadoopTitle);
 
 		JSeparator separator_5 = new JSeparator();
 		separator_5.setBounds(0, 65, 998, 2);
 		Hadoop.add(separator_5);
 
-		JLabel lblRequiredUniqueFields = new JLabel(
+		JLabel lblHadoopRequiredFields = new JLabel(
 				"Required UNIQUE fields to be filled in prior to selecting the SHS Option");
-		lblRequiredUniqueFields.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblRequiredUniqueFields.setBounds(10, 78, 479, 26);
-		Hadoop.add(lblRequiredUniqueFields);
+		lblHadoopRequiredFields.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblHadoopRequiredFields.setBounds(10, 78, 479, 26);
+		Hadoop.add(lblHadoopRequiredFields);
 
-		JLabel lblHowManyUnic = new JLabel("How many Unix Server(s) total are planned?");
-		lblHowManyUnic.setBounds(10, 125, 259, 14);
-		Hadoop.add(lblHowManyUnic);
+		JLabel lblHadoopNumServers = new JLabel("How many Unix Server(s) total are planned?");
+		lblHadoopNumServers.setBounds(10, 125, 259, 14);
+		Hadoop.add(lblHadoopNumServers);
 
-		JComboBox comboBox_1 = new JComboBox(hadoop.getNumServers());
-		comboBox_1.setBounds(314, 122, 226, 20);
-		Hadoop.add(comboBox_1);
+		JComboBox hadoopNumServersCB = new JComboBox(hadoop.getNumServers());
+		hadoopNumServersCB.setBounds(314, 122, 226, 20);
+		Hadoop.add(hadoopNumServersCB);
 
-		JLabel lblEnvironmentSelection = new JLabel("Environment Selection:");
-		lblEnvironmentSelection.setBounds(10, 164, 161, 14);
-		Hadoop.add(lblEnvironmentSelection);
+		JLabel lblHadoopEnvironmentSelection = new JLabel("Environment Selection:");
+		lblHadoopEnvironmentSelection.setBounds(10, 164, 161, 14);
+		Hadoop.add(lblHadoopEnvironmentSelection);
 
-		JComboBox comboBox_2 = new JComboBox(hadoop.getEnvironmentOpts());
-		comboBox_2.setBounds(246, 161, 226, 20);
-		Hadoop.add(comboBox_2);
+		JComboBox hadoopEnvironmentCB = new JComboBox(hadoop.getEnvironmentOpts());
+		hadoopEnvironmentCB.setBounds(246, 161, 226, 20);
+		Hadoop.add(hadoopEnvironmentCB);
 
-		JLabel lblBusinessUnit = new JLabel("Business Unit:");
-		lblBusinessUnit.setBounds(10, 207, 112, 14);
-		Hadoop.add(lblBusinessUnit);
+		JLabel lblHadoopBusinessUnit = new JLabel("Business Unit:");
+		lblHadoopBusinessUnit.setBounds(10, 207, 112, 14);
+		Hadoop.add(lblHadoopBusinessUnit);
 
-		JComboBox comboBox_3 = new JComboBox(hadoop.getBusinessUnitsOpts());
-		comboBox_3.setBounds(246, 204, 226, 20);
-		Hadoop.add(comboBox_3);
+		JComboBox hadoopBusinessUnitCB = new JComboBox(hadoop.getBusinessUnitsOpts());
+		hadoopBusinessUnitCB.setBounds(246, 204, 226, 20);
+		Hadoop.add(hadoopBusinessUnitCB);
 
-		JLabel lblNewLabel = new JLabel("Data Center:");
-		lblNewLabel.setBounds(10, 248, 76, 14);
-		Hadoop.add(lblNewLabel);
+		JLabel lblHadoopDataCenter = new JLabel("Data Center:");
+		lblHadoopDataCenter.setBounds(10, 248, 76, 14);
+		Hadoop.add(lblHadoopDataCenter);
 		
-		JComboBox comboBox_6 = new JComboBox(hadoop.getSecurityZoneZeroOpts());
-		comboBox_6.setVisible(true);
-		comboBox_6.setBounds(246, 331, 226, 20);
-		Hadoop.add(comboBox_6);
+		JComboBox hadoopSecurityZoneCB = new JComboBox(hadoop.getSecurityZoneZeroOpts());
+		hadoopSecurityZoneCB.setVisible(true);
+		hadoopSecurityZoneCB.setBounds(246, 331, 226, 20);
+		Hadoop.add(hadoopSecurityZoneCB);
 
-		JComboBox comboBox_21 = new JComboBox(hadoop.getSecurityZoneHudsonOpts());
-		comboBox_21.setVisible(false);
-		comboBox_21.setBounds(246, 331, 226, 20);
-		Hadoop.add(comboBox_21);
+		JLabel lblHadoopWingLocation = new JLabel("Wing location in the DC:");
+		lblHadoopWingLocation.setVisible(false);
+		lblHadoopWingLocation.setBounds(602, 248, 161, 14);
+		Hadoop.add(lblHadoopWingLocation);
 		
-		JComboBox comboBox_23 = new JComboBox(hadoop.getSecurityZoneRochelleOpts());
-		comboBox_23.setVisible(false);
-		comboBox_23.setBounds(246, 331, 226, 20);
-		Hadoop.add(comboBox_23);
+		JComboBox hadoopWingLocationCB = new JComboBox(hadoop.getWingLocationOpts());
+		hadoopWingLocationCB.setVisible(false);
+		hadoopWingLocationCB.setBounds(762, 245, 226, 20);
+		Hadoop.add(hadoopWingLocationCB);
 		
-
-		JLabel lblNewLabel_3 = new JLabel("Wing location in the DC:");
-		lblNewLabel_3.setVisible(false);
-		lblNewLabel_3.setBounds(602, 248, 161, 14);
-		Hadoop.add(lblNewLabel_3);
-		
-		JComboBox comboBox_24 = new JComboBox(hadoop.getWingLocationOpts());
-		comboBox_24.setVisible(false);
-		comboBox_24.setBounds(762, 245, 226, 20);
-		Hadoop.add(comboBox_24);
-		
-		JComboBox comboBox_4 = new JComboBox(hadoop.getDataCenterOpts());
-		comboBox_4.setBounds(246, 245, 226, 20);
-		Hadoop.add(comboBox_4);
-		comboBox_4.addActionListener(new ActionListener() {
+		JComboBox hadoopDataCenterCB = new JComboBox(hadoop.getDataCenterOpts());
+		hadoopDataCenterCB.setBounds(246, 245, 226, 20);
+		Hadoop.add(hadoopDataCenterCB);
+		hadoopDataCenterCB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(comboBox_4.getSelectedItem().toString().equals("Hudson")) {
-					comboBox_21.setVisible(true);
-					comboBox_23.setVisible(false);
-					comboBox_6.setVisible(false);
-					comboBox_24.setVisible(true);
-					lblNewLabel_3.setVisible(true);
-				}
-				else if(comboBox_4.getSelectedItem().toString().equals("Rochelle")) {
-					comboBox_21.setVisible(false);
-					comboBox_23.setVisible(true);
-					comboBox_6.setVisible(false);
-					comboBox_24.setVisible(false);
-					lblNewLabel_3.setVisible(false);
+				dataCenterRtn retVals = hadoop.dataCenterUpdate(hadoopDataCenterCB.getSelectedItem().toString());
+
+				if(retVals.addWingLocation == true) {
+					lblHadoopWingLocation.setVisible(true);
+					hadoopWingLocationCB.setVisible(true);
 				}
 				else {
-					comboBox_21.setVisible(false);
-					comboBox_23.setVisible(false);
-					comboBox_6.setVisible(true);
-					comboBox_24.setVisible(false);
-					lblNewLabel_3.setVisible(false);
+					lblHadoopWingLocation.setVisible(false);
+					hadoopWingLocationCB.setVisible(false);
+				}
+				
+				// Update security zone options
+				hadoopSecurityZoneCB.removeAllItems();
+				for(int i =0; i < retVals.securityZoneOptions.length; i++) {
+					hadoopSecurityZoneCB.addItem(retVals.securityZoneOptions[i]);
 				}
 			}
 		});
 
-		JLabel lblNewLabel_1 = new JLabel("Enterprise Controller:");
-		lblNewLabel_1.setBounds(10, 292, 192, 14);
-		Hadoop.add(lblNewLabel_1);
+		JLabel lblHadoopEnterpriseController = new JLabel("Enterprise Controller:");
+		lblHadoopEnterpriseController.setBounds(10, 292, 192, 14);
+		Hadoop.add(lblHadoopEnterpriseController);
 
-		JComboBox comboBox_5 = new JComboBox(hadoop.getEnterpriseControllerOpts());
-		comboBox_5.setBounds(246, 289, 226, 20);
-		Hadoop.add(comboBox_5);
+		JComboBox hadoopEnterpriseControllerCB = new JComboBox(hadoop.getEnterpriseControllerOpts());
+		hadoopEnterpriseControllerCB.setBounds(246, 289, 226, 20);
+		Hadoop.add(hadoopEnterpriseControllerCB);
 
-		JLabel lblSecurityZone = new JLabel("Security Zone:");
-		lblSecurityZone.setBounds(10, 334, 112, 14);
-		Hadoop.add(lblSecurityZone);
+		JLabel lblHadoopSecurityZone = new JLabel("Security Zone:");
+		lblHadoopSecurityZone.setBounds(10, 334, 112, 14);
+		Hadoop.add(lblHadoopSecurityZone);
 
 
-		JLabel lblPleaseSelectOne = new JLabel("Please select one of the following options");
-		lblPleaseSelectOne.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblPleaseSelectOne.setBounds(10, 392, 479, 37);
-		Hadoop.add(lblPleaseSelectOne);
+		JLabel lblHadoopModules = new JLabel("Please select one of the following options");
+		lblHadoopModules.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblHadoopModules.setBounds(10, 392, 479, 37);
+		Hadoop.add(lblHadoopModules);
 
 		JSeparator separator_6 = new JSeparator();
 		separator_6.setBounds(0, 379, 998, 2);
 		Hadoop.add(separator_6);
 
-		JComboBox comboBox_7 = new JComboBox(hadoop.hadoopOpts());
-		comboBox_7.setBounds(20, 440, 418, 20);
-		Hadoop.add(comboBox_7);
+		JComboBox hadoopModulesCB = new JComboBox(hadoop.hadoopOpts());
+		hadoopModulesCB.setBounds(20, 440, 418, 20);
+		Hadoop.add(hadoopModulesCB);
 
-		JButton btnNewButton_2 = new JButton("Proceed with the selected option");
-		btnNewButton_2.setBounds(448, 439, 241, 23);
-		Hadoop.add(btnNewButton_2);
+		JButton hadoopModulesBtn = new JButton("Proceed with the selected option");
+		hadoopModulesBtn.setBounds(448, 439, 241, 23);
+		Hadoop.add(hadoopModulesBtn);
 		
 		
-		JLabel lblOpod = new JLabel("OPOD");
-		lblOpod.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblOpod.setBounds(10, 11, 978, 43);
-		OPOD.add(lblOpod);
+		JLabel lblOpodTitle = new JLabel("OPOD");
+		lblOpodTitle.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblOpodTitle.setBounds(10, 11, 978, 43);
+		OPOD.add(lblOpodTitle);
 		
 		JSeparator separator_9 = new JSeparator();
 		separator_9.setBounds(0, 52, 998, 2);
 		OPOD.add(separator_9);
 		
-		JLabel label_8 = new JLabel("Required UNIQUE fields to be filled in prior to selecting the SHS Option");
-		label_8.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_8.setBounds(10, 65, 479, 26);
-		OPOD.add(label_8);
+		JLabel lblOpodUniqueFields = new JLabel("Required UNIQUE fields to be filled in prior to selecting the SHS Option");
+		lblOpodUniqueFields.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblOpodUniqueFields.setBounds(10, 65, 479, 26);
+		OPOD.add(lblOpodUniqueFields);
 		
-		JLabel label_9 = new JLabel("How many Unix Server(s) total are planned?");
-		label_9.setBounds(10, 114, 261, 14);
-		OPOD.add(label_9);
+		JLabel lblOpodNumServers = new JLabel("How many Unix Server(s) total are planned?");
+		lblOpodNumServers.setBounds(10, 114, 261, 14);
+		OPOD.add(lblOpodNumServers);
 		
-		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setBounds(627, 206, 148, 22);
-		OPOD.add(textArea_1);
+		JTextArea opodLogicalName1 = new JTextArea();
+		opodLogicalName1.setBounds(627, 206, 148, 22);
+		OPOD.add(opodLogicalName1);
 		
-		JComboBox comboBox_51 = new JComboBox();
-		comboBox_51.setBounds(510, 587, 161, 20);
-		OPOD.add(comboBox_51);
+		JComboBox opodPrimaryCB1 = new JComboBox();
+		opodPrimaryCB1.setBounds(510, 587, 161, 20);
+		OPOD.add(opodPrimaryCB1);
 		
-		JComboBox comboBox_52 = new JComboBox();
-		comboBox_52.setVisible(false);
-		comboBox_52.setBounds(510, 622, 161, 20);
-		OPOD.add(comboBox_52);
+		JComboBox opodPrimaryCB2 = new JComboBox();
+		opodPrimaryCB2.setVisible(false);
+		opodPrimaryCB2.setBounds(510, 622, 161, 20);
+		OPOD.add(opodPrimaryCB2);
 		
-		JComboBox comboBox_53 = new JComboBox();
-		comboBox_53.setVisible(false);
-		comboBox_53.setBounds(510, 655, 161, 20);
-		OPOD.add(comboBox_53);
+		JComboBox opodPrimaryCB3 = new JComboBox();
+		opodPrimaryCB3.setVisible(false);
+		opodPrimaryCB3.setBounds(510, 655, 161, 20);
+		OPOD.add(opodPrimaryCB3);
 		
-		JComboBox comboBox_54 = new JComboBox();
-		comboBox_54.setVisible(false);
-		comboBox_54.setBounds(510, 688, 161, 20);
-		OPOD.add(comboBox_54);
+		JComboBox opodPrimaryCB4 = new JComboBox();
+		opodPrimaryCB4.setVisible(false);
+		opodPrimaryCB4.setBounds(510, 688, 161, 20);
+		OPOD.add(opodPrimaryCB4);
 		
-		JComboBox comboBox_55 = new JComboBox();
-		comboBox_55.setVisible(false);
-		comboBox_55.setBounds(510, 721, 161, 20);
-		OPOD.add(comboBox_55);
+		JComboBox opodPrimaryCB5 = new JComboBox();
+		opodPrimaryCB5.setVisible(false);
+		opodPrimaryCB5.setBounds(510, 721, 161, 20);
+		OPOD.add(opodPrimaryCB5);
 		
-		JComboBox comboBox_56 = new JComboBox();
-		comboBox_56.setVisible(false);
-		comboBox_56.setBounds(510, 754, 161, 20);
-		OPOD.add(comboBox_56);
+		JComboBox opodPrimaryCB6 = new JComboBox();
+		opodPrimaryCB6.setVisible(false);
+		opodPrimaryCB6.setBounds(510, 754, 161, 20);
+		OPOD.add(opodPrimaryCB6);
 		
-		JComboBox comboBox_57 = new JComboBox();
-		comboBox_57.setVisible(false);
-		comboBox_57.setBounds(510, 787, 161, 20);
-		OPOD.add(comboBox_57);
+		JComboBox opodPrimaryCB7 = new JComboBox();
+		opodPrimaryCB7.setVisible(false);
+		opodPrimaryCB7.setBounds(510, 787, 161, 20);
+		OPOD.add(opodPrimaryCB7);
 		
-		JComboBox comboBox_58 = new JComboBox();
-		comboBox_58.setVisible(false);
-		comboBox_58.setBounds(510, 820, 161, 20);
-		OPOD.add(comboBox_58);
+		JComboBox opodPrimaryCB8 = new JComboBox();
+		opodPrimaryCB8.setVisible(false);
+		opodPrimaryCB8.setBounds(510, 820, 161, 20);
+		OPOD.add(opodPrimaryCB8);
 		
-		JTextArea textArea_2 = new JTextArea();
-		textArea_2.setBounds(785, 206, 148, 22);
-		OPOD.add(textArea_2);
+		JTextArea opodServerRelationship1 = new JTextArea();
+		opodServerRelationship1.setBounds(785, 206, 148, 22);
+		OPOD.add(opodServerRelationship1);
 		//primaryOpts[0] = textArea_2.getText();
 		
-		JTextArea textArea_4 = new JTextArea();
-		textArea_4.setVisible(false);
-		textArea_4.setBounds(785, 239, 148, 22);
-		OPOD.add(textArea_4);
+		JTextArea opodServerRelationship2 = new JTextArea();
+		opodServerRelationship2.setVisible(false);
+		opodServerRelationship2.setBounds(785, 239, 148, 22);
+		OPOD.add(opodServerRelationship2);
 		
-		JTextArea textArea_6 = new JTextArea();
-		textArea_6.setVisible(false);
-		textArea_6.setBounds(785, 272, 148, 22);
-		OPOD.add(textArea_6);
+		JTextArea opodServerRelationship3 = new JTextArea();
+		opodServerRelationship3.setVisible(false);
+		opodServerRelationship3.setBounds(785, 272, 148, 22);
+		OPOD.add(opodServerRelationship3);
 		
-		JTextArea textArea_8 = new JTextArea();
-		textArea_8.setVisible(false);
-		textArea_8.setBounds(785, 305, 148, 22);
-		OPOD.add(textArea_8);
+		JTextArea opodServerRelationship4 = new JTextArea();
+		opodServerRelationship4.setVisible(false);
+		opodServerRelationship4.setBounds(785, 305, 148, 22);
+		OPOD.add(opodServerRelationship4);
 		
-		JTextArea textArea_10 = new JTextArea();
-		textArea_10.setVisible(false);
-		textArea_10.setBounds(785, 337, 148, 22);
-		OPOD.add(textArea_10);
+		JTextArea opodServerRelationship5 = new JTextArea();
+		opodServerRelationship5.setVisible(false);
+		opodServerRelationship5.setBounds(785, 337, 148, 22);
+		OPOD.add(opodServerRelationship5);
 		
-		JTextArea textArea_12 = new JTextArea();
-		textArea_12.setVisible(false);
-		textArea_12.setBounds(785, 370, 148, 22);
-		OPOD.add(textArea_12);
+		JTextArea opodServerRelationship6 = new JTextArea();
+		opodServerRelationship6.setVisible(false);
+		opodServerRelationship6.setBounds(785, 370, 148, 22);
+		OPOD.add(opodServerRelationship6);
 		
-		JTextArea textArea_14 = new JTextArea();
-		textArea_14.setVisible(false);
-		textArea_14.setBounds(785, 403, 148, 22);
-		OPOD.add(textArea_14);
+		JTextArea opodServerRelationship7 = new JTextArea();
+		opodServerRelationship7.setVisible(false);
+		opodServerRelationship7.setBounds(785, 403, 148, 22);
+		OPOD.add(opodServerRelationship7);
 		
-		JTextArea textArea_16 = new JTextArea();
-		textArea_16.setBounds(785, 436, 148, 22);
-		textArea_16.setVisible(false);
-		OPOD.add(textArea_16);
+		JTextArea opodServerRelationship8 = new JTextArea();
+		opodServerRelationship8.setBounds(785, 436, 148, 22);
+		opodServerRelationship8.setVisible(false);
+		OPOD.add(opodServerRelationship8);
 		
-		JTextArea textArea_18 = new JTextArea();
-		textArea_18.setBounds(785, 471, 148, 22);
-		textArea_18.setVisible(false);
-		OPOD.add(textArea_18);
+		JTextArea opodServerRelationship9 = new JTextArea();
+		opodServerRelationship9.setBounds(785, 471, 148, 22);
+		opodServerRelationship9.setVisible(false);
+		OPOD.add(opodServerRelationship9);
 		
-		JTextArea textArea_20 = new JTextArea();
-		textArea_20.setBounds(785, 504, 148, 22);
-		textArea_20.setVisible(false);
-		OPOD.add(textArea_20);
+		JTextArea opodServerRelationship10 = new JTextArea();
+		opodServerRelationship10.setBounds(785, 504, 148, 22);
+		opodServerRelationship10.setVisible(false);
+		OPOD.add(opodServerRelationship10);
 
-		textArea_2.addFocusListener(new FocusListener() {
+		opodServerRelationship1.addFocusListener(new FocusListener() {
 	
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_51.removeAllItems();
-				comboBox_52.removeAllItems();
-				comboBox_53.removeAllItems();
-				comboBox_54.removeAllItems();
-				comboBox_55.removeAllItems();
-				comboBox_56.removeAllItems();
-				comboBox_57.removeAllItems();
-				comboBox_58.removeAllItems();
-				comboBox_51.addItem(textArea_2.getText());
-				comboBox_52.addItem(textArea_2.getText());
-				comboBox_53.addItem(textArea_2.getText());
-				comboBox_54.addItem(textArea_2.getText());
-				comboBox_55.addItem(textArea_2.getText());
-				comboBox_56.addItem(textArea_2.getText());
-				comboBox_57.addItem(textArea_2.getText());
-				comboBox_58.addItem(textArea_2.getText());
-				comboBox_51.addItem(textArea_4.getText());
-				comboBox_52.addItem(textArea_4.getText());
-				comboBox_53.addItem(textArea_4.getText());
-				comboBox_54.addItem(textArea_4.getText());
-				comboBox_55.addItem(textArea_4.getText());
-				comboBox_56.addItem(textArea_4.getText());
-				comboBox_57.addItem(textArea_4.getText());
-				comboBox_58.addItem(textArea_4.getText());
-				comboBox_51.addItem(textArea_6.getText());
-				comboBox_52.addItem(textArea_6.getText());
-				comboBox_53.addItem(textArea_6.getText());
-				comboBox_54.addItem(textArea_6.getText());
-				comboBox_55.addItem(textArea_6.getText());
-				comboBox_56.addItem(textArea_6.getText());
-				comboBox_57.addItem(textArea_6.getText());
-				comboBox_58.addItem(textArea_6.getText());
-				comboBox_51.addItem(textArea_8.getText());
-				comboBox_52.addItem(textArea_8.getText());
-				comboBox_53.addItem(textArea_8.getText());
-				comboBox_54.addItem(textArea_8.getText());
-				comboBox_55.addItem(textArea_8.getText());
-				comboBox_56.addItem(textArea_8.getText());
-				comboBox_57.addItem(textArea_8.getText());
-				comboBox_58.addItem(textArea_8.getText());
-				comboBox_51.addItem(textArea_10.getText());
-				comboBox_52.addItem(textArea_10.getText());
-				comboBox_53.addItem(textArea_10.getText());
-				comboBox_54.addItem(textArea_10.getText());
-				comboBox_55.addItem(textArea_10.getText());
-				comboBox_56.addItem(textArea_10.getText());
-				comboBox_57.addItem(textArea_10.getText());
-				comboBox_58.addItem(textArea_10.getText());
-				comboBox_51.addItem(textArea_12.getText());
-				comboBox_52.addItem(textArea_12.getText());
-				comboBox_53.addItem(textArea_12.getText());
-				comboBox_54.addItem(textArea_12.getText());
-				comboBox_55.addItem(textArea_12.getText());
-				comboBox_56.addItem(textArea_12.getText());
-				comboBox_57.addItem(textArea_12.getText());
-				comboBox_58.addItem(textArea_12.getText());
-				comboBox_51.addItem(textArea_14.getText());
-				comboBox_52.addItem(textArea_14.getText());
-				comboBox_53.addItem(textArea_14.getText());
-				comboBox_54.addItem(textArea_14.getText());
-				comboBox_55.addItem(textArea_14.getText());
-				comboBox_56.addItem(textArea_14.getText());
-				comboBox_57.addItem(textArea_14.getText());
-				comboBox_58.addItem(textArea_14.getText());
-				comboBox_51.addItem(textArea_16.getText());
-				comboBox_52.addItem(textArea_16.getText());
-				comboBox_53.addItem(textArea_16.getText());
-				comboBox_54.addItem(textArea_16.getText());
-				comboBox_55.addItem(textArea_16.getText());
-				comboBox_56.addItem(textArea_16.getText());
-				comboBox_57.addItem(textArea_16.getText());
-				comboBox_58.addItem(textArea_16.getText());
-				comboBox_51.addItem(textArea_18.getText());
-				comboBox_52.addItem(textArea_18.getText());
-				comboBox_53.addItem(textArea_18.getText());
-				comboBox_54.addItem(textArea_18.getText());
-				comboBox_55.addItem(textArea_18.getText());
-				comboBox_56.addItem(textArea_18.getText());
-				comboBox_57.addItem(textArea_18.getText());
-				comboBox_58.addItem(textArea_18.getText());
-				comboBox_51.addItem(textArea_20.getText());
-				comboBox_52.addItem(textArea_20.getText());
-				comboBox_53.addItem(textArea_20.getText());
-				comboBox_54.addItem(textArea_20.getText());
-				comboBox_55.addItem(textArea_20.getText());
-				comboBox_56.addItem(textArea_20.getText());
-				comboBox_57.addItem(textArea_20.getText());
-				comboBox_58.addItem(textArea_20.getText());
+				opodPrimaryCB1.removeAllItems();
+				opodPrimaryCB2.removeAllItems();
+				opodPrimaryCB3.removeAllItems();
+				opodPrimaryCB4.removeAllItems();
+				opodPrimaryCB5.removeAllItems();
+				opodPrimaryCB6.removeAllItems();
+				opodPrimaryCB7.removeAllItems();
+				opodPrimaryCB8.removeAllItems();
+				opodPrimaryCB1.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship10.getText());
 			}
 
 			@Override
@@ -718,206 +690,206 @@ public class GUI {
 			}
 		});
 		
-		JTextArea textArea_3 = new JTextArea();
-		textArea_3.setVisible(false);
-		textArea_3.setBounds(627, 239, 148, 22);
-		OPOD.add(textArea_3);
+		JTextArea opodLogicalName2 = new JTextArea();
+		opodLogicalName2.setVisible(false);
+		opodLogicalName2.setBounds(627, 239, 148, 22);
+		OPOD.add(opodLogicalName2);
 		
-		JTextArea textArea_5 = new JTextArea();
-		textArea_5.setVisible(false);
-		textArea_5.setBounds(627, 272, 148, 22);
-		OPOD.add(textArea_5);
-		
-
-		
-		JTextArea textArea_7 = new JTextArea();
-		textArea_7.setVisible(false);
-		textArea_7.setBounds(627, 305, 148, 22);
-		OPOD.add(textArea_7);
+		JTextArea opodLogicalName3 = new JTextArea();
+		opodLogicalName3.setVisible(false);
+		opodLogicalName3.setBounds(627, 272, 148, 22);
+		OPOD.add(opodLogicalName3);
 		
 
 		
-		JTextArea textArea_9 = new JTextArea();
-		textArea_9.setVisible(false);
-		textArea_9.setBounds(627, 337, 148, 22);
-		OPOD.add(textArea_9);
+		JTextArea opodLogicalName4 = new JTextArea();
+		opodLogicalName4.setVisible(false);
+		opodLogicalName4.setBounds(627, 305, 148, 22);
+		OPOD.add(opodLogicalName4);
 		
 
 		
-		JTextArea textArea_11 = new JTextArea();
-		textArea_11.setVisible(false);
-		textArea_11.setBounds(627, 370, 148, 22);
-		OPOD.add(textArea_11);
+		JTextArea opodLogicalName5 = new JTextArea();
+		opodLogicalName5.setVisible(false);
+		opodLogicalName5.setBounds(627, 337, 148, 22);
+		OPOD.add(opodLogicalName5);
 		
 
 		
-		JTextArea textArea_13 = new JTextArea();
-		textArea_13.setVisible(false);
-		textArea_13.setBounds(627, 403, 148, 22);
-		OPOD.add(textArea_13);
+		JTextArea opodLogicalName6 = new JTextArea();
+		opodLogicalName6.setVisible(false);
+		opodLogicalName6.setBounds(627, 370, 148, 22);
+		OPOD.add(opodLogicalName6);
 		
 
 		
-		JTextArea textArea_15 = new JTextArea();
-		textArea_15.setVisible(false);
-		textArea_15.setBounds(627, 436, 148, 22);
-		OPOD.add(textArea_15);
+		JTextArea opodLogicalName7 = new JTextArea();
+		opodLogicalName7.setVisible(false);
+		opodLogicalName7.setBounds(627, 403, 148, 22);
+		OPOD.add(opodLogicalName7);
 		
 
 		
-		JTextArea textArea_17 = new JTextArea();
-		textArea_17.setBounds(627, 471, 148, 22);
-		textArea_17.setVisible(false);
-		OPOD.add(textArea_17);
+		JTextArea opodLogicalName8 = new JTextArea();
+		opodLogicalName8.setVisible(false);
+		opodLogicalName8.setBounds(627, 436, 148, 22);
+		OPOD.add(opodLogicalName8);
 		
 
 		
-		JTextArea textArea_19 = new JTextArea();
-		textArea_19.setBounds(627, 504, 148, 22);
-		textArea_19.setVisible(false);
-		OPOD.add(textArea_19);
+		JTextArea opodLogicalName9 = new JTextArea();
+		opodLogicalName9.setBounds(627, 471, 148, 22);
+		opodLogicalName9.setVisible(false);
+		OPOD.add(opodLogicalName9);
+		
+
+		
+		JTextArea opodLogicalName10 = new JTextArea();
+		opodLogicalName10.setBounds(627, 504, 148, 22);
+		opodLogicalName10.setVisible(false);
+		OPOD.add(opodLogicalName10);
 		
 		String[] relate = {"","M5000"};
-		JComboBox comboBox_43 = new JComboBox(relate);
-		comboBox_43.setBounds(339, 587, 161, 20);
-		OPOD.add(comboBox_43);
+		JComboBox opodRelationshipCB1 = new JComboBox(relate);
+		opodRelationshipCB1.setBounds(339, 587, 161, 20);
+		OPOD.add(opodRelationshipCB1);
 		
-		JComboBox comboBox_44 = new JComboBox(relate);
-		comboBox_44.setVisible(false);
-		comboBox_44.setBounds(339, 622, 161, 20);
-		OPOD.add(comboBox_44);
+		JComboBox opodRelationshipCB2 = new JComboBox(relate);
+		opodRelationshipCB2.setVisible(false);
+		opodRelationshipCB2.setBounds(339, 622, 161, 20);
+		OPOD.add(opodRelationshipCB2);
 		
-		JComboBox comboBox_45 = new JComboBox(relate);
-		comboBox_45.setVisible(false);
-		comboBox_45.setBounds(339, 655, 161, 20);
-		OPOD.add(comboBox_45);
+		JComboBox opodRelationshipCB3 = new JComboBox(relate);
+		opodRelationshipCB3.setVisible(false);
+		opodRelationshipCB3.setBounds(339, 655, 161, 20);
+		OPOD.add(opodRelationshipCB3);
 		
-		JComboBox comboBox_46 = new JComboBox(relate);
-		comboBox_46.setVisible(false);
-		comboBox_46.setBounds(339, 688, 161, 20);
-		OPOD.add(comboBox_46);
+		JComboBox opodRelationshipCB4 = new JComboBox(relate);
+		opodRelationshipCB4.setVisible(false);
+		opodRelationshipCB4.setBounds(339, 688, 161, 20);
+		OPOD.add(opodRelationshipCB4);
 		
-		JComboBox comboBox_47 = new JComboBox(relate);
-		comboBox_47.setVisible(false);
-		comboBox_47.setBounds(339, 721, 161, 20);
-		OPOD.add(comboBox_47);
+		JComboBox opodRelationshipCB5 = new JComboBox(relate);
+		opodRelationshipCB5.setVisible(false);
+		opodRelationshipCB5.setBounds(339, 721, 161, 20);
+		OPOD.add(opodRelationshipCB5);
 		
-		JComboBox comboBox_48 = new JComboBox(relate);
-		comboBox_48.setVisible(false);
-		comboBox_48.setBounds(339, 754, 161, 20);
-		OPOD.add(comboBox_48);
+		JComboBox opodRelationshipCB6 = new JComboBox(relate);
+		opodRelationshipCB6.setVisible(false);
+		opodRelationshipCB6.setBounds(339, 754, 161, 20);
+		OPOD.add(opodRelationshipCB6);
 		
-		JComboBox comboBox_49 = new JComboBox(relate);
-		comboBox_49.setVisible(false);
-		comboBox_49.setBounds(339, 787, 161, 20);
-		OPOD.add(comboBox_49);
+		JComboBox opodRelationshipCB7 = new JComboBox(relate);
+		opodRelationshipCB7.setVisible(false);
+		opodRelationshipCB7.setBounds(339, 787, 161, 20);
+		OPOD.add(opodRelationshipCB7);
 		
-		JComboBox comboBox_50 = new JComboBox(relate);
-		comboBox_50.setVisible(false);
-		comboBox_50.setBounds(339, 820, 161, 20);
-		OPOD.add(comboBox_50);
+		JComboBox opodRelationshipCB8 = new JComboBox(relate);
+		opodRelationshipCB8.setVisible(false);
+		opodRelationshipCB8.setBounds(339, 820, 161, 20);
+		OPOD.add(opodRelationshipCB8);
 		
 
-		textArea_1.addFocusListener(new FocusListener() {
+		opodLogicalName1.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_43.removeAllItems();
-				comboBox_44.removeAllItems();
-				comboBox_45.removeAllItems();
-				comboBox_46.removeAllItems();
-				comboBox_47.removeAllItems();
-				comboBox_48.removeAllItems();
-				comboBox_49.removeAllItems();
-				comboBox_50.removeAllItems();
-				comboBox_43.addItem(textArea_1.getText());
-				comboBox_44.addItem(textArea_1.getText());
-				comboBox_45.addItem(textArea_1.getText());
-				comboBox_46.addItem(textArea_1.getText());
-				comboBox_47.addItem(textArea_1.getText());
-				comboBox_48.addItem(textArea_1.getText());
-				comboBox_49.addItem(textArea_1.getText());
-				comboBox_50.addItem(textArea_1.getText());
-				comboBox_43.addItem(textArea_3.getText());
-				comboBox_44.addItem(textArea_3.getText());
-				comboBox_45.addItem(textArea_3.getText());
-				comboBox_46.addItem(textArea_3.getText());
-				comboBox_47.addItem(textArea_3.getText());
-				comboBox_48.addItem(textArea_3.getText());
-				comboBox_49.addItem(textArea_3.getText());
-				comboBox_50.addItem(textArea_3.getText());
-				comboBox_43.addItem(textArea_5.getText());
-				comboBox_44.addItem(textArea_5.getText());
-				comboBox_45.addItem(textArea_5.getText());
-				comboBox_46.addItem(textArea_5.getText());
-				comboBox_47.addItem(textArea_5.getText());
-				comboBox_48.addItem(textArea_5.getText());
-				comboBox_49.addItem(textArea_5.getText());
-				comboBox_50.addItem(textArea_5.getText());
-				comboBox_43.addItem(textArea_7.getText());
-				comboBox_44.addItem(textArea_7.getText());
-				comboBox_45.addItem(textArea_7.getText());
-				comboBox_46.addItem(textArea_7.getText());
-				comboBox_47.addItem(textArea_7.getText());
-				comboBox_48.addItem(textArea_7.getText());
-				comboBox_49.addItem(textArea_7.getText());
-				comboBox_50.addItem(textArea_7.getText());
-				comboBox_43.addItem(textArea_9.getText());
-				comboBox_44.addItem(textArea_9.getText());
-				comboBox_45.addItem(textArea_9.getText());
-				comboBox_46.addItem(textArea_9.getText());
-				comboBox_47.addItem(textArea_9.getText());
-				comboBox_48.addItem(textArea_9.getText());
-				comboBox_49.addItem(textArea_9.getText());
-				comboBox_50.addItem(textArea_9.getText());
-				comboBox_43.addItem(textArea_11.getText());
-				comboBox_44.addItem(textArea_11.getText());
-				comboBox_45.addItem(textArea_11.getText());
-				comboBox_46.addItem(textArea_11.getText());
-				comboBox_47.addItem(textArea_11.getText());
-				comboBox_48.addItem(textArea_11.getText());
-				comboBox_49.addItem(textArea_11.getText());
-				comboBox_50.addItem(textArea_11.getText());
-				comboBox_43.addItem(textArea_13.getText());
-				comboBox_44.addItem(textArea_13.getText());
-				comboBox_45.addItem(textArea_13.getText());
-				comboBox_46.addItem(textArea_13.getText());
-				comboBox_47.addItem(textArea_13.getText());
-				comboBox_48.addItem(textArea_13.getText());
-				comboBox_49.addItem(textArea_13.getText());
-				comboBox_50.addItem(textArea_13.getText());
-				comboBox_43.addItem(textArea_15.getText());
-				comboBox_44.addItem(textArea_15.getText());
-				comboBox_45.addItem(textArea_15.getText());
-				comboBox_46.addItem(textArea_15.getText());
-				comboBox_47.addItem(textArea_15.getText());
-				comboBox_48.addItem(textArea_15.getText());
-				comboBox_49.addItem(textArea_15.getText());
-				comboBox_50.addItem(textArea_15.getText());
-				comboBox_43.addItem(textArea_17.getText());
-				comboBox_44.addItem(textArea_17.getText());
-				comboBox_45.addItem(textArea_17.getText());
-				comboBox_46.addItem(textArea_17.getText());
-				comboBox_47.addItem(textArea_17.getText());
-				comboBox_48.addItem(textArea_17.getText());
-				comboBox_49.addItem(textArea_17.getText());
-				comboBox_50.addItem(textArea_17.getText());
-				comboBox_43.addItem(textArea_19.getText());
-				comboBox_44.addItem(textArea_19.getText());
-				comboBox_45.addItem(textArea_19.getText());
-				comboBox_46.addItem(textArea_19.getText());
-				comboBox_47.addItem(textArea_19.getText());
-				comboBox_48.addItem(textArea_19.getText());
-				comboBox_49.addItem(textArea_19.getText());
-				comboBox_50.addItem(textArea_19.getText());
-				comboBox_43.addItem("M5000");
-				comboBox_44.addItem("M5000");
-				comboBox_45.addItem("M5000");
-				comboBox_46.addItem("M5000");
-				comboBox_47.addItem("M5000");
-				comboBox_48.addItem("M5000");
-				comboBox_49.addItem("M5000");
-				comboBox_50.addItem("M5000");
+				opodRelationshipCB1.removeAllItems();
+				opodRelationshipCB2.removeAllItems();
+				opodRelationshipCB3.removeAllItems();
+				opodRelationshipCB4.removeAllItems();
+				opodRelationshipCB5.removeAllItems();
+				opodRelationshipCB6.removeAllItems();
+				opodRelationshipCB7.removeAllItems();
+				opodRelationshipCB8.removeAllItems();
+				opodRelationshipCB1.addItem(opodLogicalName1.getText());
+				opodRelationshipCB2.addItem(opodLogicalName1.getText());
+				opodRelationshipCB3.addItem(opodLogicalName1.getText());
+				opodRelationshipCB4.addItem(opodLogicalName1.getText());
+				opodRelationshipCB5.addItem(opodLogicalName1.getText());
+				opodRelationshipCB6.addItem(opodLogicalName1.getText());
+				opodRelationshipCB7.addItem(opodLogicalName1.getText());
+				opodRelationshipCB8.addItem(opodLogicalName1.getText());
+				opodRelationshipCB1.addItem(opodLogicalName2.getText());
+				opodRelationshipCB2.addItem(opodLogicalName2.getText());
+				opodRelationshipCB3.addItem(opodLogicalName2.getText());
+				opodRelationshipCB4.addItem(opodLogicalName2.getText());
+				opodRelationshipCB5.addItem(opodLogicalName2.getText());
+				opodRelationshipCB6.addItem(opodLogicalName2.getText());
+				opodRelationshipCB7.addItem(opodLogicalName2.getText());
+				opodRelationshipCB8.addItem(opodLogicalName2.getText());
+				opodRelationshipCB1.addItem(opodLogicalName3.getText());
+				opodRelationshipCB2.addItem(opodLogicalName3.getText());
+				opodRelationshipCB3.addItem(opodLogicalName3.getText());
+				opodRelationshipCB4.addItem(opodLogicalName3.getText());
+				opodRelationshipCB5.addItem(opodLogicalName3.getText());
+				opodRelationshipCB6.addItem(opodLogicalName3.getText());
+				opodRelationshipCB7.addItem(opodLogicalName3.getText());
+				opodRelationshipCB8.addItem(opodLogicalName3.getText());
+				opodRelationshipCB1.addItem(opodLogicalName4.getText());
+				opodRelationshipCB2.addItem(opodLogicalName4.getText());
+				opodRelationshipCB3.addItem(opodLogicalName4.getText());
+				opodRelationshipCB4.addItem(opodLogicalName4.getText());
+				opodRelationshipCB5.addItem(opodLogicalName4.getText());
+				opodRelationshipCB6.addItem(opodLogicalName4.getText());
+				opodRelationshipCB7.addItem(opodLogicalName4.getText());
+				opodRelationshipCB8.addItem(opodLogicalName4.getText());
+				opodRelationshipCB1.addItem(opodLogicalName5.getText());
+				opodRelationshipCB2.addItem(opodLogicalName5.getText());
+				opodRelationshipCB3.addItem(opodLogicalName5.getText());
+				opodRelationshipCB4.addItem(opodLogicalName5.getText());
+				opodRelationshipCB5.addItem(opodLogicalName5.getText());
+				opodRelationshipCB6.addItem(opodLogicalName5.getText());
+				opodRelationshipCB7.addItem(opodLogicalName5.getText());
+				opodRelationshipCB8.addItem(opodLogicalName5.getText());
+				opodRelationshipCB1.addItem(opodLogicalName6.getText());
+				opodRelationshipCB2.addItem(opodLogicalName6.getText());
+				opodRelationshipCB3.addItem(opodLogicalName6.getText());
+				opodRelationshipCB4.addItem(opodLogicalName6.getText());
+				opodRelationshipCB5.addItem(opodLogicalName6.getText());
+				opodRelationshipCB6.addItem(opodLogicalName6.getText());
+				opodRelationshipCB7.addItem(opodLogicalName6.getText());
+				opodRelationshipCB8.addItem(opodLogicalName6.getText());
+				opodRelationshipCB1.addItem(opodLogicalName7.getText());
+				opodRelationshipCB2.addItem(opodLogicalName7.getText());
+				opodRelationshipCB3.addItem(opodLogicalName7.getText());
+				opodRelationshipCB4.addItem(opodLogicalName7.getText());
+				opodRelationshipCB5.addItem(opodLogicalName7.getText());
+				opodRelationshipCB6.addItem(opodLogicalName7.getText());
+				opodRelationshipCB7.addItem(opodLogicalName7.getText());
+				opodRelationshipCB8.addItem(opodLogicalName7.getText());
+				opodRelationshipCB1.addItem(opodLogicalName8.getText());
+				opodRelationshipCB2.addItem(opodLogicalName8.getText());
+				opodRelationshipCB3.addItem(opodLogicalName8.getText());
+				opodRelationshipCB4.addItem(opodLogicalName8.getText());
+				opodRelationshipCB5.addItem(opodLogicalName8.getText());
+				opodRelationshipCB6.addItem(opodLogicalName8.getText());
+				opodRelationshipCB7.addItem(opodLogicalName8.getText());
+				opodRelationshipCB8.addItem(opodLogicalName8.getText());
+				opodRelationshipCB1.addItem(opodLogicalName9.getText());
+				opodRelationshipCB2.addItem(opodLogicalName9.getText());
+				opodRelationshipCB3.addItem(opodLogicalName9.getText());
+				opodRelationshipCB4.addItem(opodLogicalName9.getText());
+				opodRelationshipCB5.addItem(opodLogicalName9.getText());
+				opodRelationshipCB6.addItem(opodLogicalName9.getText());
+				opodRelationshipCB7.addItem(opodLogicalName9.getText());
+				opodRelationshipCB8.addItem(opodLogicalName9.getText());
+				opodRelationshipCB1.addItem(opodLogicalName10.getText());
+				opodRelationshipCB2.addItem(opodLogicalName10.getText());
+				opodRelationshipCB3.addItem(opodLogicalName10.getText());
+				opodRelationshipCB4.addItem(opodLogicalName10.getText());
+				opodRelationshipCB5.addItem(opodLogicalName10.getText());
+				opodRelationshipCB6.addItem(opodLogicalName10.getText());
+				opodRelationshipCB7.addItem(opodLogicalName10.getText());
+				opodRelationshipCB8.addItem(opodLogicalName10.getText());
+				opodRelationshipCB1.addItem("M5000");
+				opodRelationshipCB2.addItem("M5000");
+				opodRelationshipCB3.addItem("M5000");
+				opodRelationshipCB4.addItem("M5000");
+				opodRelationshipCB5.addItem("M5000");
+				opodRelationshipCB6.addItem("M5000");
+				opodRelationshipCB7.addItem("M5000");
+				opodRelationshipCB8.addItem("M5000");
 			}
 
 			@Override
@@ -926,215 +898,106 @@ public class GUI {
 				
 			}
 		});
-		textArea_3.addFocusListener(new FocusListener() {
+		opodLogicalName2.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_43.removeAllItems();
-				comboBox_44.removeAllItems();
-				comboBox_45.removeAllItems();
-				comboBox_46.removeAllItems();
-				comboBox_47.removeAllItems();
-				comboBox_48.removeAllItems();
-				comboBox_49.removeAllItems();
-				comboBox_50.removeAllItems();
-				comboBox_43.addItem(textArea_1.getText());
-				comboBox_44.addItem(textArea_1.getText());
-				comboBox_45.addItem(textArea_1.getText());
-				comboBox_46.addItem(textArea_1.getText());
-				comboBox_47.addItem(textArea_1.getText());
-				comboBox_48.addItem(textArea_1.getText());
-				comboBox_49.addItem(textArea_1.getText());
-				comboBox_50.addItem(textArea_1.getText());
-				comboBox_43.addItem(textArea_3.getText());
-				comboBox_44.addItem(textArea_3.getText());
-				comboBox_45.addItem(textArea_3.getText());
-				comboBox_46.addItem(textArea_3.getText());
-				comboBox_47.addItem(textArea_3.getText());
-				comboBox_48.addItem(textArea_3.getText());
-				comboBox_49.addItem(textArea_3.getText());
-				comboBox_50.addItem(textArea_3.getText());
-				comboBox_43.addItem(textArea_5.getText());
-				comboBox_44.addItem(textArea_5.getText());
-				comboBox_45.addItem(textArea_5.getText());
-				comboBox_46.addItem(textArea_5.getText());
-				comboBox_47.addItem(textArea_5.getText());
-				comboBox_48.addItem(textArea_5.getText());
-				comboBox_49.addItem(textArea_5.getText());
-				comboBox_50.addItem(textArea_5.getText());
-				comboBox_43.addItem(textArea_7.getText());
-				comboBox_44.addItem(textArea_7.getText());
-				comboBox_45.addItem(textArea_7.getText());
-				comboBox_46.addItem(textArea_7.getText());
-				comboBox_47.addItem(textArea_7.getText());
-				comboBox_48.addItem(textArea_7.getText());
-				comboBox_49.addItem(textArea_7.getText());
-				comboBox_50.addItem(textArea_7.getText());
-				comboBox_43.addItem(textArea_9.getText());
-				comboBox_44.addItem(textArea_9.getText());
-				comboBox_45.addItem(textArea_9.getText());
-				comboBox_46.addItem(textArea_9.getText());
-				comboBox_47.addItem(textArea_9.getText());
-				comboBox_48.addItem(textArea_9.getText());
-				comboBox_49.addItem(textArea_9.getText());
-				comboBox_50.addItem(textArea_9.getText());
-				comboBox_43.addItem(textArea_11.getText());
-				comboBox_44.addItem(textArea_11.getText());
-				comboBox_45.addItem(textArea_11.getText());
-				comboBox_46.addItem(textArea_11.getText());
-				comboBox_47.addItem(textArea_11.getText());
-				comboBox_48.addItem(textArea_11.getText());
-				comboBox_49.addItem(textArea_11.getText());
-				comboBox_50.addItem(textArea_11.getText());
-				comboBox_43.addItem(textArea_13.getText());
-				comboBox_44.addItem(textArea_13.getText());
-				comboBox_45.addItem(textArea_13.getText());
-				comboBox_46.addItem(textArea_13.getText());
-				comboBox_47.addItem(textArea_13.getText());
-				comboBox_48.addItem(textArea_13.getText());
-				comboBox_49.addItem(textArea_13.getText());
-				comboBox_50.addItem(textArea_13.getText());
-				comboBox_43.addItem(textArea_15.getText());
-				comboBox_44.addItem(textArea_15.getText());
-				comboBox_45.addItem(textArea_15.getText());
-				comboBox_46.addItem(textArea_15.getText());
-				comboBox_47.addItem(textArea_15.getText());
-				comboBox_48.addItem(textArea_15.getText());
-				comboBox_49.addItem(textArea_15.getText());
-				comboBox_50.addItem(textArea_15.getText());
-				comboBox_43.addItem(textArea_17.getText());
-				comboBox_44.addItem(textArea_17.getText());
-				comboBox_45.addItem(textArea_17.getText());
-				comboBox_46.addItem(textArea_17.getText());
-				comboBox_47.addItem(textArea_17.getText());
-				comboBox_48.addItem(textArea_17.getText());
-				comboBox_49.addItem(textArea_17.getText());
-				comboBox_50.addItem(textArea_17.getText());
-				comboBox_43.addItem(textArea_19.getText());
-				comboBox_44.addItem(textArea_19.getText());
-				comboBox_45.addItem(textArea_19.getText());
-				comboBox_46.addItem(textArea_19.getText());
-				comboBox_47.addItem(textArea_19.getText());
-				comboBox_48.addItem(textArea_19.getText());
-				comboBox_49.addItem(textArea_19.getText());
-				comboBox_50.addItem(textArea_19.getText());
-				comboBox_43.addItem("M5000");
-				comboBox_44.addItem("M5000");
-				comboBox_45.addItem("M5000");
-				comboBox_46.addItem("M5000");
-				comboBox_47.addItem("M5000");
-				comboBox_48.addItem("M5000");
-				comboBox_49.addItem("M5000");
-				comboBox_50.addItem("M5000");
-			}
-
-			@Override
-			public void focusGained(FocusEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-
-		textArea_5.addFocusListener(new FocusListener() {
-			
-			@Override
-			public void focusLost(FocusEvent arg0) {
-				comboBox_43.removeAllItems();
-				comboBox_44.removeAllItems();
-				comboBox_45.removeAllItems();
-				comboBox_46.removeAllItems();
-				comboBox_47.removeAllItems();
-				comboBox_48.removeAllItems();
-				comboBox_49.removeAllItems();
-				comboBox_50.removeAllItems();
-				comboBox_43.addItem(textArea_1.getText());
-				comboBox_44.addItem(textArea_1.getText());
-				comboBox_45.addItem(textArea_1.getText());
-				comboBox_46.addItem(textArea_1.getText());
-				comboBox_47.addItem(textArea_1.getText());
-				comboBox_48.addItem(textArea_1.getText());
-				comboBox_49.addItem(textArea_1.getText());
-				comboBox_50.addItem(textArea_1.getText());
-				comboBox_43.addItem(textArea_3.getText());
-				comboBox_44.addItem(textArea_3.getText());
-				comboBox_45.addItem(textArea_3.getText());
-				comboBox_46.addItem(textArea_3.getText());
-				comboBox_47.addItem(textArea_3.getText());
-				comboBox_48.addItem(textArea_3.getText());
-				comboBox_49.addItem(textArea_3.getText());
-				comboBox_50.addItem(textArea_3.getText());
-				comboBox_43.addItem(textArea_5.getText());
-				comboBox_44.addItem(textArea_5.getText());
-				comboBox_45.addItem(textArea_5.getText());
-				comboBox_46.addItem(textArea_5.getText());
-				comboBox_47.addItem(textArea_5.getText());
-				comboBox_48.addItem(textArea_5.getText());
-				comboBox_49.addItem(textArea_5.getText());
-				comboBox_50.addItem(textArea_5.getText());
-				comboBox_43.addItem(textArea_7.getText());
-				comboBox_44.addItem(textArea_7.getText());
-				comboBox_45.addItem(textArea_7.getText());
-				comboBox_46.addItem(textArea_7.getText());
-				comboBox_47.addItem(textArea_7.getText());
-				comboBox_48.addItem(textArea_7.getText());
-				comboBox_49.addItem(textArea_7.getText());
-				comboBox_50.addItem(textArea_7.getText());
-				comboBox_43.addItem(textArea_9.getText());
-				comboBox_44.addItem(textArea_9.getText());
-				comboBox_45.addItem(textArea_9.getText());
-				comboBox_46.addItem(textArea_9.getText());
-				comboBox_47.addItem(textArea_9.getText());
-				comboBox_48.addItem(textArea_9.getText());
-				comboBox_49.addItem(textArea_9.getText());
-				comboBox_50.addItem(textArea_9.getText());
-				comboBox_43.addItem(textArea_11.getText());
-				comboBox_44.addItem(textArea_11.getText());
-				comboBox_45.addItem(textArea_11.getText());
-				comboBox_46.addItem(textArea_11.getText());
-				comboBox_47.addItem(textArea_11.getText());
-				comboBox_48.addItem(textArea_11.getText());
-				comboBox_49.addItem(textArea_11.getText());
-				comboBox_50.addItem(textArea_11.getText());
-				comboBox_43.addItem(textArea_13.getText());
-				comboBox_44.addItem(textArea_13.getText());
-				comboBox_45.addItem(textArea_13.getText());
-				comboBox_46.addItem(textArea_13.getText());
-				comboBox_47.addItem(textArea_13.getText());
-				comboBox_48.addItem(textArea_13.getText());
-				comboBox_49.addItem(textArea_13.getText());
-				comboBox_50.addItem(textArea_13.getText());
-				comboBox_43.addItem(textArea_15.getText());
-				comboBox_44.addItem(textArea_15.getText());
-				comboBox_45.addItem(textArea_15.getText());
-				comboBox_46.addItem(textArea_15.getText());
-				comboBox_47.addItem(textArea_15.getText());
-				comboBox_48.addItem(textArea_15.getText());
-				comboBox_49.addItem(textArea_15.getText());
-				comboBox_50.addItem(textArea_15.getText());
-				comboBox_43.addItem(textArea_17.getText());
-				comboBox_44.addItem(textArea_17.getText());
-				comboBox_45.addItem(textArea_17.getText());
-				comboBox_46.addItem(textArea_17.getText());
-				comboBox_47.addItem(textArea_17.getText());
-				comboBox_48.addItem(textArea_17.getText());
-				comboBox_49.addItem(textArea_17.getText());
-				comboBox_50.addItem(textArea_17.getText());
-				comboBox_43.addItem(textArea_19.getText());
-				comboBox_44.addItem(textArea_19.getText());
-				comboBox_45.addItem(textArea_19.getText());
-				comboBox_46.addItem(textArea_19.getText());
-				comboBox_47.addItem(textArea_19.getText());
-				comboBox_48.addItem(textArea_19.getText());
-				comboBox_49.addItem(textArea_19.getText());
-				comboBox_50.addItem(textArea_19.getText());
-				comboBox_43.addItem("M5000");
-				comboBox_44.addItem("M5000");
-				comboBox_45.addItem("M5000");
-				comboBox_46.addItem("M5000");
-				comboBox_47.addItem("M5000");
-				comboBox_48.addItem("M5000");
-				comboBox_49.addItem("M5000");
-				comboBox_50.addItem("M5000");
+				opodRelationshipCB1.removeAllItems();
+				opodRelationshipCB2.removeAllItems();
+				opodRelationshipCB3.removeAllItems();
+				opodRelationshipCB4.removeAllItems();
+				opodRelationshipCB5.removeAllItems();
+				opodRelationshipCB6.removeAllItems();
+				opodRelationshipCB7.removeAllItems();
+				opodRelationshipCB8.removeAllItems();
+				opodRelationshipCB1.addItem(opodLogicalName1.getText());
+				opodRelationshipCB2.addItem(opodLogicalName1.getText());
+				opodRelationshipCB3.addItem(opodLogicalName1.getText());
+				opodRelationshipCB4.addItem(opodLogicalName1.getText());
+				opodRelationshipCB5.addItem(opodLogicalName1.getText());
+				opodRelationshipCB6.addItem(opodLogicalName1.getText());
+				opodRelationshipCB7.addItem(opodLogicalName1.getText());
+				opodRelationshipCB8.addItem(opodLogicalName1.getText());
+				opodRelationshipCB1.addItem(opodLogicalName2.getText());
+				opodRelationshipCB2.addItem(opodLogicalName2.getText());
+				opodRelationshipCB3.addItem(opodLogicalName2.getText());
+				opodRelationshipCB4.addItem(opodLogicalName2.getText());
+				opodRelationshipCB5.addItem(opodLogicalName2.getText());
+				opodRelationshipCB6.addItem(opodLogicalName2.getText());
+				opodRelationshipCB7.addItem(opodLogicalName2.getText());
+				opodRelationshipCB8.addItem(opodLogicalName2.getText());
+				opodRelationshipCB1.addItem(opodLogicalName3.getText());
+				opodRelationshipCB2.addItem(opodLogicalName3.getText());
+				opodRelationshipCB3.addItem(opodLogicalName3.getText());
+				opodRelationshipCB4.addItem(opodLogicalName3.getText());
+				opodRelationshipCB5.addItem(opodLogicalName3.getText());
+				opodRelationshipCB6.addItem(opodLogicalName3.getText());
+				opodRelationshipCB7.addItem(opodLogicalName3.getText());
+				opodRelationshipCB8.addItem(opodLogicalName3.getText());
+				opodRelationshipCB1.addItem(opodLogicalName4.getText());
+				opodRelationshipCB2.addItem(opodLogicalName4.getText());
+				opodRelationshipCB3.addItem(opodLogicalName4.getText());
+				opodRelationshipCB4.addItem(opodLogicalName4.getText());
+				opodRelationshipCB5.addItem(opodLogicalName4.getText());
+				opodRelationshipCB6.addItem(opodLogicalName4.getText());
+				opodRelationshipCB7.addItem(opodLogicalName4.getText());
+				opodRelationshipCB8.addItem(opodLogicalName4.getText());
+				opodRelationshipCB1.addItem(opodLogicalName5.getText());
+				opodRelationshipCB2.addItem(opodLogicalName5.getText());
+				opodRelationshipCB3.addItem(opodLogicalName5.getText());
+				opodRelationshipCB4.addItem(opodLogicalName5.getText());
+				opodRelationshipCB5.addItem(opodLogicalName5.getText());
+				opodRelationshipCB6.addItem(opodLogicalName5.getText());
+				opodRelationshipCB7.addItem(opodLogicalName5.getText());
+				opodRelationshipCB8.addItem(opodLogicalName5.getText());
+				opodRelationshipCB1.addItem(opodLogicalName6.getText());
+				opodRelationshipCB2.addItem(opodLogicalName6.getText());
+				opodRelationshipCB3.addItem(opodLogicalName6.getText());
+				opodRelationshipCB4.addItem(opodLogicalName6.getText());
+				opodRelationshipCB5.addItem(opodLogicalName6.getText());
+				opodRelationshipCB6.addItem(opodLogicalName6.getText());
+				opodRelationshipCB7.addItem(opodLogicalName6.getText());
+				opodRelationshipCB8.addItem(opodLogicalName6.getText());
+				opodRelationshipCB1.addItem(opodLogicalName7.getText());
+				opodRelationshipCB2.addItem(opodLogicalName7.getText());
+				opodRelationshipCB3.addItem(opodLogicalName7.getText());
+				opodRelationshipCB4.addItem(opodLogicalName7.getText());
+				opodRelationshipCB5.addItem(opodLogicalName7.getText());
+				opodRelationshipCB6.addItem(opodLogicalName7.getText());
+				opodRelationshipCB7.addItem(opodLogicalName7.getText());
+				opodRelationshipCB8.addItem(opodLogicalName7.getText());
+				opodRelationshipCB1.addItem(opodLogicalName8.getText());
+				opodRelationshipCB2.addItem(opodLogicalName8.getText());
+				opodRelationshipCB3.addItem(opodLogicalName8.getText());
+				opodRelationshipCB4.addItem(opodLogicalName8.getText());
+				opodRelationshipCB5.addItem(opodLogicalName8.getText());
+				opodRelationshipCB6.addItem(opodLogicalName8.getText());
+				opodRelationshipCB7.addItem(opodLogicalName8.getText());
+				opodRelationshipCB8.addItem(opodLogicalName8.getText());
+				opodRelationshipCB1.addItem(opodLogicalName9.getText());
+				opodRelationshipCB2.addItem(opodLogicalName9.getText());
+				opodRelationshipCB3.addItem(opodLogicalName9.getText());
+				opodRelationshipCB4.addItem(opodLogicalName9.getText());
+				opodRelationshipCB5.addItem(opodLogicalName9.getText());
+				opodRelationshipCB6.addItem(opodLogicalName9.getText());
+				opodRelationshipCB7.addItem(opodLogicalName9.getText());
+				opodRelationshipCB8.addItem(opodLogicalName9.getText());
+				opodRelationshipCB1.addItem(opodLogicalName10.getText());
+				opodRelationshipCB2.addItem(opodLogicalName10.getText());
+				opodRelationshipCB3.addItem(opodLogicalName10.getText());
+				opodRelationshipCB4.addItem(opodLogicalName10.getText());
+				opodRelationshipCB5.addItem(opodLogicalName10.getText());
+				opodRelationshipCB6.addItem(opodLogicalName10.getText());
+				opodRelationshipCB7.addItem(opodLogicalName10.getText());
+				opodRelationshipCB8.addItem(opodLogicalName10.getText());
+				opodRelationshipCB1.addItem("M5000");
+				opodRelationshipCB2.addItem("M5000");
+				opodRelationshipCB3.addItem("M5000");
+				opodRelationshipCB4.addItem("M5000");
+				opodRelationshipCB5.addItem("M5000");
+				opodRelationshipCB6.addItem("M5000");
+				opodRelationshipCB7.addItem("M5000");
+				opodRelationshipCB8.addItem("M5000");
 			}
 
 			@Override
@@ -1144,106 +1007,106 @@ public class GUI {
 			}
 		});
 
-		textArea_7.addFocusListener(new FocusListener() {
+		opodLogicalName3.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_43.removeAllItems();
-				comboBox_44.removeAllItems();
-				comboBox_45.removeAllItems();
-				comboBox_46.removeAllItems();
-				comboBox_47.removeAllItems();
-				comboBox_48.removeAllItems();
-				comboBox_49.removeAllItems();
-				comboBox_50.removeAllItems();
-				comboBox_43.addItem(textArea_1.getText());
-				comboBox_44.addItem(textArea_1.getText());
-				comboBox_45.addItem(textArea_1.getText());
-				comboBox_46.addItem(textArea_1.getText());
-				comboBox_47.addItem(textArea_1.getText());
-				comboBox_48.addItem(textArea_1.getText());
-				comboBox_49.addItem(textArea_1.getText());
-				comboBox_50.addItem(textArea_1.getText());
-				comboBox_43.addItem(textArea_3.getText());
-				comboBox_44.addItem(textArea_3.getText());
-				comboBox_45.addItem(textArea_3.getText());
-				comboBox_46.addItem(textArea_3.getText());
-				comboBox_47.addItem(textArea_3.getText());
-				comboBox_48.addItem(textArea_3.getText());
-				comboBox_49.addItem(textArea_3.getText());
-				comboBox_50.addItem(textArea_3.getText());
-				comboBox_43.addItem(textArea_5.getText());
-				comboBox_44.addItem(textArea_5.getText());
-				comboBox_45.addItem(textArea_5.getText());
-				comboBox_46.addItem(textArea_5.getText());
-				comboBox_47.addItem(textArea_5.getText());
-				comboBox_48.addItem(textArea_5.getText());
-				comboBox_49.addItem(textArea_5.getText());
-				comboBox_50.addItem(textArea_5.getText());
-				comboBox_43.addItem(textArea_7.getText());
-				comboBox_44.addItem(textArea_7.getText());
-				comboBox_45.addItem(textArea_7.getText());
-				comboBox_46.addItem(textArea_7.getText());
-				comboBox_47.addItem(textArea_7.getText());
-				comboBox_48.addItem(textArea_7.getText());
-				comboBox_49.addItem(textArea_7.getText());
-				comboBox_50.addItem(textArea_7.getText());
-				comboBox_43.addItem(textArea_9.getText());
-				comboBox_44.addItem(textArea_9.getText());
-				comboBox_45.addItem(textArea_9.getText());
-				comboBox_46.addItem(textArea_9.getText());
-				comboBox_47.addItem(textArea_9.getText());
-				comboBox_48.addItem(textArea_9.getText());
-				comboBox_49.addItem(textArea_9.getText());
-				comboBox_50.addItem(textArea_9.getText());
-				comboBox_43.addItem(textArea_11.getText());
-				comboBox_44.addItem(textArea_11.getText());
-				comboBox_45.addItem(textArea_11.getText());
-				comboBox_46.addItem(textArea_11.getText());
-				comboBox_47.addItem(textArea_11.getText());
-				comboBox_48.addItem(textArea_11.getText());
-				comboBox_49.addItem(textArea_11.getText());
-				comboBox_50.addItem(textArea_11.getText());
-				comboBox_43.addItem(textArea_13.getText());
-				comboBox_44.addItem(textArea_13.getText());
-				comboBox_45.addItem(textArea_13.getText());
-				comboBox_46.addItem(textArea_13.getText());
-				comboBox_47.addItem(textArea_13.getText());
-				comboBox_48.addItem(textArea_13.getText());
-				comboBox_49.addItem(textArea_13.getText());
-				comboBox_50.addItem(textArea_13.getText());
-				comboBox_43.addItem(textArea_15.getText());
-				comboBox_44.addItem(textArea_15.getText());
-				comboBox_45.addItem(textArea_15.getText());
-				comboBox_46.addItem(textArea_15.getText());
-				comboBox_47.addItem(textArea_15.getText());
-				comboBox_48.addItem(textArea_15.getText());
-				comboBox_49.addItem(textArea_15.getText());
-				comboBox_50.addItem(textArea_15.getText());
-				comboBox_43.addItem(textArea_17.getText());
-				comboBox_44.addItem(textArea_17.getText());
-				comboBox_45.addItem(textArea_17.getText());
-				comboBox_46.addItem(textArea_17.getText());
-				comboBox_47.addItem(textArea_17.getText());
-				comboBox_48.addItem(textArea_17.getText());
-				comboBox_49.addItem(textArea_17.getText());
-				comboBox_50.addItem(textArea_17.getText());
-				comboBox_43.addItem(textArea_19.getText());
-				comboBox_44.addItem(textArea_19.getText());
-				comboBox_45.addItem(textArea_19.getText());
-				comboBox_46.addItem(textArea_19.getText());
-				comboBox_47.addItem(textArea_19.getText());
-				comboBox_48.addItem(textArea_19.getText());
-				comboBox_49.addItem(textArea_19.getText());
-				comboBox_50.addItem(textArea_19.getText());
-				comboBox_43.addItem("M5000");
-				comboBox_44.addItem("M5000");
-				comboBox_45.addItem("M5000");
-				comboBox_46.addItem("M5000");
-				comboBox_47.addItem("M5000");
-				comboBox_48.addItem("M5000");
-				comboBox_49.addItem("M5000");
-				comboBox_50.addItem("M5000");
+				opodRelationshipCB1.removeAllItems();
+				opodRelationshipCB2.removeAllItems();
+				opodRelationshipCB3.removeAllItems();
+				opodRelationshipCB4.removeAllItems();
+				opodRelationshipCB5.removeAllItems();
+				opodRelationshipCB6.removeAllItems();
+				opodRelationshipCB7.removeAllItems();
+				opodRelationshipCB8.removeAllItems();
+				opodRelationshipCB1.addItem(opodLogicalName1.getText());
+				opodRelationshipCB2.addItem(opodLogicalName1.getText());
+				opodRelationshipCB3.addItem(opodLogicalName1.getText());
+				opodRelationshipCB4.addItem(opodLogicalName1.getText());
+				opodRelationshipCB5.addItem(opodLogicalName1.getText());
+				opodRelationshipCB6.addItem(opodLogicalName1.getText());
+				opodRelationshipCB7.addItem(opodLogicalName1.getText());
+				opodRelationshipCB8.addItem(opodLogicalName1.getText());
+				opodRelationshipCB1.addItem(opodLogicalName2.getText());
+				opodRelationshipCB2.addItem(opodLogicalName2.getText());
+				opodRelationshipCB3.addItem(opodLogicalName2.getText());
+				opodRelationshipCB4.addItem(opodLogicalName2.getText());
+				opodRelationshipCB5.addItem(opodLogicalName2.getText());
+				opodRelationshipCB6.addItem(opodLogicalName2.getText());
+				opodRelationshipCB7.addItem(opodLogicalName2.getText());
+				opodRelationshipCB8.addItem(opodLogicalName2.getText());
+				opodRelationshipCB1.addItem(opodLogicalName3.getText());
+				opodRelationshipCB2.addItem(opodLogicalName3.getText());
+				opodRelationshipCB3.addItem(opodLogicalName3.getText());
+				opodRelationshipCB4.addItem(opodLogicalName3.getText());
+				opodRelationshipCB5.addItem(opodLogicalName3.getText());
+				opodRelationshipCB6.addItem(opodLogicalName3.getText());
+				opodRelationshipCB7.addItem(opodLogicalName3.getText());
+				opodRelationshipCB8.addItem(opodLogicalName3.getText());
+				opodRelationshipCB1.addItem(opodLogicalName4.getText());
+				opodRelationshipCB2.addItem(opodLogicalName4.getText());
+				opodRelationshipCB3.addItem(opodLogicalName4.getText());
+				opodRelationshipCB4.addItem(opodLogicalName4.getText());
+				opodRelationshipCB5.addItem(opodLogicalName4.getText());
+				opodRelationshipCB6.addItem(opodLogicalName4.getText());
+				opodRelationshipCB7.addItem(opodLogicalName4.getText());
+				opodRelationshipCB8.addItem(opodLogicalName4.getText());
+				opodRelationshipCB1.addItem(opodLogicalName5.getText());
+				opodRelationshipCB2.addItem(opodLogicalName5.getText());
+				opodRelationshipCB3.addItem(opodLogicalName5.getText());
+				opodRelationshipCB4.addItem(opodLogicalName5.getText());
+				opodRelationshipCB5.addItem(opodLogicalName5.getText());
+				opodRelationshipCB6.addItem(opodLogicalName5.getText());
+				opodRelationshipCB7.addItem(opodLogicalName5.getText());
+				opodRelationshipCB8.addItem(opodLogicalName5.getText());
+				opodRelationshipCB1.addItem(opodLogicalName6.getText());
+				opodRelationshipCB2.addItem(opodLogicalName6.getText());
+				opodRelationshipCB3.addItem(opodLogicalName6.getText());
+				opodRelationshipCB4.addItem(opodLogicalName6.getText());
+				opodRelationshipCB5.addItem(opodLogicalName6.getText());
+				opodRelationshipCB6.addItem(opodLogicalName6.getText());
+				opodRelationshipCB7.addItem(opodLogicalName6.getText());
+				opodRelationshipCB8.addItem(opodLogicalName6.getText());
+				opodRelationshipCB1.addItem(opodLogicalName7.getText());
+				opodRelationshipCB2.addItem(opodLogicalName7.getText());
+				opodRelationshipCB3.addItem(opodLogicalName7.getText());
+				opodRelationshipCB4.addItem(opodLogicalName7.getText());
+				opodRelationshipCB5.addItem(opodLogicalName7.getText());
+				opodRelationshipCB6.addItem(opodLogicalName7.getText());
+				opodRelationshipCB7.addItem(opodLogicalName7.getText());
+				opodRelationshipCB8.addItem(opodLogicalName7.getText());
+				opodRelationshipCB1.addItem(opodLogicalName8.getText());
+				opodRelationshipCB2.addItem(opodLogicalName8.getText());
+				opodRelationshipCB3.addItem(opodLogicalName8.getText());
+				opodRelationshipCB4.addItem(opodLogicalName8.getText());
+				opodRelationshipCB5.addItem(opodLogicalName8.getText());
+				opodRelationshipCB6.addItem(opodLogicalName8.getText());
+				opodRelationshipCB7.addItem(opodLogicalName8.getText());
+				opodRelationshipCB8.addItem(opodLogicalName8.getText());
+				opodRelationshipCB1.addItem(opodLogicalName9.getText());
+				opodRelationshipCB2.addItem(opodLogicalName9.getText());
+				opodRelationshipCB3.addItem(opodLogicalName9.getText());
+				opodRelationshipCB4.addItem(opodLogicalName9.getText());
+				opodRelationshipCB5.addItem(opodLogicalName9.getText());
+				opodRelationshipCB6.addItem(opodLogicalName9.getText());
+				opodRelationshipCB7.addItem(opodLogicalName9.getText());
+				opodRelationshipCB8.addItem(opodLogicalName9.getText());
+				opodRelationshipCB1.addItem(opodLogicalName10.getText());
+				opodRelationshipCB2.addItem(opodLogicalName10.getText());
+				opodRelationshipCB3.addItem(opodLogicalName10.getText());
+				opodRelationshipCB4.addItem(opodLogicalName10.getText());
+				opodRelationshipCB5.addItem(opodLogicalName10.getText());
+				opodRelationshipCB6.addItem(opodLogicalName10.getText());
+				opodRelationshipCB7.addItem(opodLogicalName10.getText());
+				opodRelationshipCB8.addItem(opodLogicalName10.getText());
+				opodRelationshipCB1.addItem("M5000");
+				opodRelationshipCB2.addItem("M5000");
+				opodRelationshipCB3.addItem("M5000");
+				opodRelationshipCB4.addItem("M5000");
+				opodRelationshipCB5.addItem("M5000");
+				opodRelationshipCB6.addItem("M5000");
+				opodRelationshipCB7.addItem("M5000");
+				opodRelationshipCB8.addItem("M5000");
 			}
 
 			@Override
@@ -1253,106 +1116,106 @@ public class GUI {
 			}
 		});
 
-		textArea_9.addFocusListener(new FocusListener() {
+		opodLogicalName4.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_43.removeAllItems();
-				comboBox_44.removeAllItems();
-				comboBox_45.removeAllItems();
-				comboBox_46.removeAllItems();
-				comboBox_47.removeAllItems();
-				comboBox_48.removeAllItems();
-				comboBox_49.removeAllItems();
-				comboBox_50.removeAllItems();
-				comboBox_43.addItem(textArea_1.getText());
-				comboBox_44.addItem(textArea_1.getText());
-				comboBox_45.addItem(textArea_1.getText());
-				comboBox_46.addItem(textArea_1.getText());
-				comboBox_47.addItem(textArea_1.getText());
-				comboBox_48.addItem(textArea_1.getText());
-				comboBox_49.addItem(textArea_1.getText());
-				comboBox_50.addItem(textArea_1.getText());
-				comboBox_43.addItem(textArea_3.getText());
-				comboBox_44.addItem(textArea_3.getText());
-				comboBox_45.addItem(textArea_3.getText());
-				comboBox_46.addItem(textArea_3.getText());
-				comboBox_47.addItem(textArea_3.getText());
-				comboBox_48.addItem(textArea_3.getText());
-				comboBox_49.addItem(textArea_3.getText());
-				comboBox_50.addItem(textArea_3.getText());
-				comboBox_43.addItem(textArea_5.getText());
-				comboBox_44.addItem(textArea_5.getText());
-				comboBox_45.addItem(textArea_5.getText());
-				comboBox_46.addItem(textArea_5.getText());
-				comboBox_47.addItem(textArea_5.getText());
-				comboBox_48.addItem(textArea_5.getText());
-				comboBox_49.addItem(textArea_5.getText());
-				comboBox_50.addItem(textArea_5.getText());
-				comboBox_43.addItem(textArea_7.getText());
-				comboBox_44.addItem(textArea_7.getText());
-				comboBox_45.addItem(textArea_7.getText());
-				comboBox_46.addItem(textArea_7.getText());
-				comboBox_47.addItem(textArea_7.getText());
-				comboBox_48.addItem(textArea_7.getText());
-				comboBox_49.addItem(textArea_7.getText());
-				comboBox_50.addItem(textArea_7.getText());
-				comboBox_43.addItem(textArea_9.getText());
-				comboBox_44.addItem(textArea_9.getText());
-				comboBox_45.addItem(textArea_9.getText());
-				comboBox_46.addItem(textArea_9.getText());
-				comboBox_47.addItem(textArea_9.getText());
-				comboBox_48.addItem(textArea_9.getText());
-				comboBox_49.addItem(textArea_9.getText());
-				comboBox_50.addItem(textArea_9.getText());
-				comboBox_43.addItem(textArea_11.getText());
-				comboBox_44.addItem(textArea_11.getText());
-				comboBox_45.addItem(textArea_11.getText());
-				comboBox_46.addItem(textArea_11.getText());
-				comboBox_47.addItem(textArea_11.getText());
-				comboBox_48.addItem(textArea_11.getText());
-				comboBox_49.addItem(textArea_11.getText());
-				comboBox_50.addItem(textArea_11.getText());
-				comboBox_43.addItem(textArea_13.getText());
-				comboBox_44.addItem(textArea_13.getText());
-				comboBox_45.addItem(textArea_13.getText());
-				comboBox_46.addItem(textArea_13.getText());
-				comboBox_47.addItem(textArea_13.getText());
-				comboBox_48.addItem(textArea_13.getText());
-				comboBox_49.addItem(textArea_13.getText());
-				comboBox_50.addItem(textArea_13.getText());
-				comboBox_43.addItem(textArea_15.getText());
-				comboBox_44.addItem(textArea_15.getText());
-				comboBox_45.addItem(textArea_15.getText());
-				comboBox_46.addItem(textArea_15.getText());
-				comboBox_47.addItem(textArea_15.getText());
-				comboBox_48.addItem(textArea_15.getText());
-				comboBox_49.addItem(textArea_15.getText());
-				comboBox_50.addItem(textArea_15.getText());
-				comboBox_43.addItem(textArea_17.getText());
-				comboBox_44.addItem(textArea_17.getText());
-				comboBox_45.addItem(textArea_17.getText());
-				comboBox_46.addItem(textArea_17.getText());
-				comboBox_47.addItem(textArea_17.getText());
-				comboBox_48.addItem(textArea_17.getText());
-				comboBox_49.addItem(textArea_17.getText());
-				comboBox_50.addItem(textArea_17.getText());
-				comboBox_43.addItem(textArea_19.getText());
-				comboBox_44.addItem(textArea_19.getText());
-				comboBox_45.addItem(textArea_19.getText());
-				comboBox_46.addItem(textArea_19.getText());
-				comboBox_47.addItem(textArea_19.getText());
-				comboBox_48.addItem(textArea_19.getText());
-				comboBox_49.addItem(textArea_19.getText());
-				comboBox_50.addItem(textArea_19.getText());
-				comboBox_43.addItem("M5000");
-				comboBox_44.addItem("M5000");
-				comboBox_45.addItem("M5000");
-				comboBox_46.addItem("M5000");
-				comboBox_47.addItem("M5000");
-				comboBox_48.addItem("M5000");
-				comboBox_49.addItem("M5000");
-				comboBox_50.addItem("M5000");
+				opodRelationshipCB1.removeAllItems();
+				opodRelationshipCB2.removeAllItems();
+				opodRelationshipCB3.removeAllItems();
+				opodRelationshipCB4.removeAllItems();
+				opodRelationshipCB5.removeAllItems();
+				opodRelationshipCB6.removeAllItems();
+				opodRelationshipCB7.removeAllItems();
+				opodRelationshipCB8.removeAllItems();
+				opodRelationshipCB1.addItem(opodLogicalName1.getText());
+				opodRelationshipCB2.addItem(opodLogicalName1.getText());
+				opodRelationshipCB3.addItem(opodLogicalName1.getText());
+				opodRelationshipCB4.addItem(opodLogicalName1.getText());
+				opodRelationshipCB5.addItem(opodLogicalName1.getText());
+				opodRelationshipCB6.addItem(opodLogicalName1.getText());
+				opodRelationshipCB7.addItem(opodLogicalName1.getText());
+				opodRelationshipCB8.addItem(opodLogicalName1.getText());
+				opodRelationshipCB1.addItem(opodLogicalName2.getText());
+				opodRelationshipCB2.addItem(opodLogicalName2.getText());
+				opodRelationshipCB3.addItem(opodLogicalName2.getText());
+				opodRelationshipCB4.addItem(opodLogicalName2.getText());
+				opodRelationshipCB5.addItem(opodLogicalName2.getText());
+				opodRelationshipCB6.addItem(opodLogicalName2.getText());
+				opodRelationshipCB7.addItem(opodLogicalName2.getText());
+				opodRelationshipCB8.addItem(opodLogicalName2.getText());
+				opodRelationshipCB1.addItem(opodLogicalName3.getText());
+				opodRelationshipCB2.addItem(opodLogicalName3.getText());
+				opodRelationshipCB3.addItem(opodLogicalName3.getText());
+				opodRelationshipCB4.addItem(opodLogicalName3.getText());
+				opodRelationshipCB5.addItem(opodLogicalName3.getText());
+				opodRelationshipCB6.addItem(opodLogicalName3.getText());
+				opodRelationshipCB7.addItem(opodLogicalName3.getText());
+				opodRelationshipCB8.addItem(opodLogicalName3.getText());
+				opodRelationshipCB1.addItem(opodLogicalName4.getText());
+				opodRelationshipCB2.addItem(opodLogicalName4.getText());
+				opodRelationshipCB3.addItem(opodLogicalName4.getText());
+				opodRelationshipCB4.addItem(opodLogicalName4.getText());
+				opodRelationshipCB5.addItem(opodLogicalName4.getText());
+				opodRelationshipCB6.addItem(opodLogicalName4.getText());
+				opodRelationshipCB7.addItem(opodLogicalName4.getText());
+				opodRelationshipCB8.addItem(opodLogicalName4.getText());
+				opodRelationshipCB1.addItem(opodLogicalName5.getText());
+				opodRelationshipCB2.addItem(opodLogicalName5.getText());
+				opodRelationshipCB3.addItem(opodLogicalName5.getText());
+				opodRelationshipCB4.addItem(opodLogicalName5.getText());
+				opodRelationshipCB5.addItem(opodLogicalName5.getText());
+				opodRelationshipCB6.addItem(opodLogicalName5.getText());
+				opodRelationshipCB7.addItem(opodLogicalName5.getText());
+				opodRelationshipCB8.addItem(opodLogicalName5.getText());
+				opodRelationshipCB1.addItem(opodLogicalName6.getText());
+				opodRelationshipCB2.addItem(opodLogicalName6.getText());
+				opodRelationshipCB3.addItem(opodLogicalName6.getText());
+				opodRelationshipCB4.addItem(opodLogicalName6.getText());
+				opodRelationshipCB5.addItem(opodLogicalName6.getText());
+				opodRelationshipCB6.addItem(opodLogicalName6.getText());
+				opodRelationshipCB7.addItem(opodLogicalName6.getText());
+				opodRelationshipCB8.addItem(opodLogicalName6.getText());
+				opodRelationshipCB1.addItem(opodLogicalName7.getText());
+				opodRelationshipCB2.addItem(opodLogicalName7.getText());
+				opodRelationshipCB3.addItem(opodLogicalName7.getText());
+				opodRelationshipCB4.addItem(opodLogicalName7.getText());
+				opodRelationshipCB5.addItem(opodLogicalName7.getText());
+				opodRelationshipCB6.addItem(opodLogicalName7.getText());
+				opodRelationshipCB7.addItem(opodLogicalName7.getText());
+				opodRelationshipCB8.addItem(opodLogicalName7.getText());
+				opodRelationshipCB1.addItem(opodLogicalName8.getText());
+				opodRelationshipCB2.addItem(opodLogicalName8.getText());
+				opodRelationshipCB3.addItem(opodLogicalName8.getText());
+				opodRelationshipCB4.addItem(opodLogicalName8.getText());
+				opodRelationshipCB5.addItem(opodLogicalName8.getText());
+				opodRelationshipCB6.addItem(opodLogicalName8.getText());
+				opodRelationshipCB7.addItem(opodLogicalName8.getText());
+				opodRelationshipCB8.addItem(opodLogicalName8.getText());
+				opodRelationshipCB1.addItem(opodLogicalName9.getText());
+				opodRelationshipCB2.addItem(opodLogicalName9.getText());
+				opodRelationshipCB3.addItem(opodLogicalName9.getText());
+				opodRelationshipCB4.addItem(opodLogicalName9.getText());
+				opodRelationshipCB5.addItem(opodLogicalName9.getText());
+				opodRelationshipCB6.addItem(opodLogicalName9.getText());
+				opodRelationshipCB7.addItem(opodLogicalName9.getText());
+				opodRelationshipCB8.addItem(opodLogicalName9.getText());
+				opodRelationshipCB1.addItem(opodLogicalName10.getText());
+				opodRelationshipCB2.addItem(opodLogicalName10.getText());
+				opodRelationshipCB3.addItem(opodLogicalName10.getText());
+				opodRelationshipCB4.addItem(opodLogicalName10.getText());
+				opodRelationshipCB5.addItem(opodLogicalName10.getText());
+				opodRelationshipCB6.addItem(opodLogicalName10.getText());
+				opodRelationshipCB7.addItem(opodLogicalName10.getText());
+				opodRelationshipCB8.addItem(opodLogicalName10.getText());
+				opodRelationshipCB1.addItem("M5000");
+				opodRelationshipCB2.addItem("M5000");
+				opodRelationshipCB3.addItem("M5000");
+				opodRelationshipCB4.addItem("M5000");
+				opodRelationshipCB5.addItem("M5000");
+				opodRelationshipCB6.addItem("M5000");
+				opodRelationshipCB7.addItem("M5000");
+				opodRelationshipCB8.addItem("M5000");
 			}
 
 			@Override
@@ -1362,106 +1225,106 @@ public class GUI {
 			}
 		});
 
-		textArea_11.addFocusListener(new FocusListener() {
+		opodLogicalName5.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_43.removeAllItems();
-				comboBox_44.removeAllItems();
-				comboBox_45.removeAllItems();
-				comboBox_46.removeAllItems();
-				comboBox_47.removeAllItems();
-				comboBox_48.removeAllItems();
-				comboBox_49.removeAllItems();
-				comboBox_50.removeAllItems();
-				comboBox_43.addItem(textArea_1.getText());
-				comboBox_44.addItem(textArea_1.getText());
-				comboBox_45.addItem(textArea_1.getText());
-				comboBox_46.addItem(textArea_1.getText());
-				comboBox_47.addItem(textArea_1.getText());
-				comboBox_48.addItem(textArea_1.getText());
-				comboBox_49.addItem(textArea_1.getText());
-				comboBox_50.addItem(textArea_1.getText());
-				comboBox_43.addItem(textArea_3.getText());
-				comboBox_44.addItem(textArea_3.getText());
-				comboBox_45.addItem(textArea_3.getText());
-				comboBox_46.addItem(textArea_3.getText());
-				comboBox_47.addItem(textArea_3.getText());
-				comboBox_48.addItem(textArea_3.getText());
-				comboBox_49.addItem(textArea_3.getText());
-				comboBox_50.addItem(textArea_3.getText());
-				comboBox_43.addItem(textArea_5.getText());
-				comboBox_44.addItem(textArea_5.getText());
-				comboBox_45.addItem(textArea_5.getText());
-				comboBox_46.addItem(textArea_5.getText());
-				comboBox_47.addItem(textArea_5.getText());
-				comboBox_48.addItem(textArea_5.getText());
-				comboBox_49.addItem(textArea_5.getText());
-				comboBox_50.addItem(textArea_5.getText());
-				comboBox_43.addItem(textArea_7.getText());
-				comboBox_44.addItem(textArea_7.getText());
-				comboBox_45.addItem(textArea_7.getText());
-				comboBox_46.addItem(textArea_7.getText());
-				comboBox_47.addItem(textArea_7.getText());
-				comboBox_48.addItem(textArea_7.getText());
-				comboBox_49.addItem(textArea_7.getText());
-				comboBox_50.addItem(textArea_7.getText());
-				comboBox_43.addItem(textArea_9.getText());
-				comboBox_44.addItem(textArea_9.getText());
-				comboBox_45.addItem(textArea_9.getText());
-				comboBox_46.addItem(textArea_9.getText());
-				comboBox_47.addItem(textArea_9.getText());
-				comboBox_48.addItem(textArea_9.getText());
-				comboBox_49.addItem(textArea_9.getText());
-				comboBox_50.addItem(textArea_9.getText());
-				comboBox_43.addItem(textArea_11.getText());
-				comboBox_44.addItem(textArea_11.getText());
-				comboBox_45.addItem(textArea_11.getText());
-				comboBox_46.addItem(textArea_11.getText());
-				comboBox_47.addItem(textArea_11.getText());
-				comboBox_48.addItem(textArea_11.getText());
-				comboBox_49.addItem(textArea_11.getText());
-				comboBox_50.addItem(textArea_11.getText());
-				comboBox_43.addItem(textArea_13.getText());
-				comboBox_44.addItem(textArea_13.getText());
-				comboBox_45.addItem(textArea_13.getText());
-				comboBox_46.addItem(textArea_13.getText());
-				comboBox_47.addItem(textArea_13.getText());
-				comboBox_48.addItem(textArea_13.getText());
-				comboBox_49.addItem(textArea_13.getText());
-				comboBox_50.addItem(textArea_13.getText());
-				comboBox_43.addItem(textArea_15.getText());
-				comboBox_44.addItem(textArea_15.getText());
-				comboBox_45.addItem(textArea_15.getText());
-				comboBox_46.addItem(textArea_15.getText());
-				comboBox_47.addItem(textArea_15.getText());
-				comboBox_48.addItem(textArea_15.getText());
-				comboBox_49.addItem(textArea_15.getText());
-				comboBox_50.addItem(textArea_15.getText());
-				comboBox_43.addItem(textArea_17.getText());
-				comboBox_44.addItem(textArea_17.getText());
-				comboBox_45.addItem(textArea_17.getText());
-				comboBox_46.addItem(textArea_17.getText());
-				comboBox_47.addItem(textArea_17.getText());
-				comboBox_48.addItem(textArea_17.getText());
-				comboBox_49.addItem(textArea_17.getText());
-				comboBox_50.addItem(textArea_17.getText());
-				comboBox_43.addItem(textArea_19.getText());
-				comboBox_44.addItem(textArea_19.getText());
-				comboBox_45.addItem(textArea_19.getText());
-				comboBox_46.addItem(textArea_19.getText());
-				comboBox_47.addItem(textArea_19.getText());
-				comboBox_48.addItem(textArea_19.getText());
-				comboBox_49.addItem(textArea_19.getText());
-				comboBox_50.addItem(textArea_19.getText());
-				comboBox_43.addItem("M5000");
-				comboBox_44.addItem("M5000");
-				comboBox_45.addItem("M5000");
-				comboBox_46.addItem("M5000");
-				comboBox_47.addItem("M5000");
-				comboBox_48.addItem("M5000");
-				comboBox_49.addItem("M5000");
-				comboBox_50.addItem("M5000");
+				opodRelationshipCB1.removeAllItems();
+				opodRelationshipCB2.removeAllItems();
+				opodRelationshipCB3.removeAllItems();
+				opodRelationshipCB4.removeAllItems();
+				opodRelationshipCB5.removeAllItems();
+				opodRelationshipCB6.removeAllItems();
+				opodRelationshipCB7.removeAllItems();
+				opodRelationshipCB8.removeAllItems();
+				opodRelationshipCB1.addItem(opodLogicalName1.getText());
+				opodRelationshipCB2.addItem(opodLogicalName1.getText());
+				opodRelationshipCB3.addItem(opodLogicalName1.getText());
+				opodRelationshipCB4.addItem(opodLogicalName1.getText());
+				opodRelationshipCB5.addItem(opodLogicalName1.getText());
+				opodRelationshipCB6.addItem(opodLogicalName1.getText());
+				opodRelationshipCB7.addItem(opodLogicalName1.getText());
+				opodRelationshipCB8.addItem(opodLogicalName1.getText());
+				opodRelationshipCB1.addItem(opodLogicalName2.getText());
+				opodRelationshipCB2.addItem(opodLogicalName2.getText());
+				opodRelationshipCB3.addItem(opodLogicalName2.getText());
+				opodRelationshipCB4.addItem(opodLogicalName2.getText());
+				opodRelationshipCB5.addItem(opodLogicalName2.getText());
+				opodRelationshipCB6.addItem(opodLogicalName2.getText());
+				opodRelationshipCB7.addItem(opodLogicalName2.getText());
+				opodRelationshipCB8.addItem(opodLogicalName2.getText());
+				opodRelationshipCB1.addItem(opodLogicalName3.getText());
+				opodRelationshipCB2.addItem(opodLogicalName3.getText());
+				opodRelationshipCB3.addItem(opodLogicalName3.getText());
+				opodRelationshipCB4.addItem(opodLogicalName3.getText());
+				opodRelationshipCB5.addItem(opodLogicalName3.getText());
+				opodRelationshipCB6.addItem(opodLogicalName3.getText());
+				opodRelationshipCB7.addItem(opodLogicalName3.getText());
+				opodRelationshipCB8.addItem(opodLogicalName3.getText());
+				opodRelationshipCB1.addItem(opodLogicalName4.getText());
+				opodRelationshipCB2.addItem(opodLogicalName4.getText());
+				opodRelationshipCB3.addItem(opodLogicalName4.getText());
+				opodRelationshipCB4.addItem(opodLogicalName4.getText());
+				opodRelationshipCB5.addItem(opodLogicalName4.getText());
+				opodRelationshipCB6.addItem(opodLogicalName4.getText());
+				opodRelationshipCB7.addItem(opodLogicalName4.getText());
+				opodRelationshipCB8.addItem(opodLogicalName4.getText());
+				opodRelationshipCB1.addItem(opodLogicalName5.getText());
+				opodRelationshipCB2.addItem(opodLogicalName5.getText());
+				opodRelationshipCB3.addItem(opodLogicalName5.getText());
+				opodRelationshipCB4.addItem(opodLogicalName5.getText());
+				opodRelationshipCB5.addItem(opodLogicalName5.getText());
+				opodRelationshipCB6.addItem(opodLogicalName5.getText());
+				opodRelationshipCB7.addItem(opodLogicalName5.getText());
+				opodRelationshipCB8.addItem(opodLogicalName5.getText());
+				opodRelationshipCB1.addItem(opodLogicalName6.getText());
+				opodRelationshipCB2.addItem(opodLogicalName6.getText());
+				opodRelationshipCB3.addItem(opodLogicalName6.getText());
+				opodRelationshipCB4.addItem(opodLogicalName6.getText());
+				opodRelationshipCB5.addItem(opodLogicalName6.getText());
+				opodRelationshipCB6.addItem(opodLogicalName6.getText());
+				opodRelationshipCB7.addItem(opodLogicalName6.getText());
+				opodRelationshipCB8.addItem(opodLogicalName6.getText());
+				opodRelationshipCB1.addItem(opodLogicalName7.getText());
+				opodRelationshipCB2.addItem(opodLogicalName7.getText());
+				opodRelationshipCB3.addItem(opodLogicalName7.getText());
+				opodRelationshipCB4.addItem(opodLogicalName7.getText());
+				opodRelationshipCB5.addItem(opodLogicalName7.getText());
+				opodRelationshipCB6.addItem(opodLogicalName7.getText());
+				opodRelationshipCB7.addItem(opodLogicalName7.getText());
+				opodRelationshipCB8.addItem(opodLogicalName7.getText());
+				opodRelationshipCB1.addItem(opodLogicalName8.getText());
+				opodRelationshipCB2.addItem(opodLogicalName8.getText());
+				opodRelationshipCB3.addItem(opodLogicalName8.getText());
+				opodRelationshipCB4.addItem(opodLogicalName8.getText());
+				opodRelationshipCB5.addItem(opodLogicalName8.getText());
+				opodRelationshipCB6.addItem(opodLogicalName8.getText());
+				opodRelationshipCB7.addItem(opodLogicalName8.getText());
+				opodRelationshipCB8.addItem(opodLogicalName8.getText());
+				opodRelationshipCB1.addItem(opodLogicalName9.getText());
+				opodRelationshipCB2.addItem(opodLogicalName9.getText());
+				opodRelationshipCB3.addItem(opodLogicalName9.getText());
+				opodRelationshipCB4.addItem(opodLogicalName9.getText());
+				opodRelationshipCB5.addItem(opodLogicalName9.getText());
+				opodRelationshipCB6.addItem(opodLogicalName9.getText());
+				opodRelationshipCB7.addItem(opodLogicalName9.getText());
+				opodRelationshipCB8.addItem(opodLogicalName9.getText());
+				opodRelationshipCB1.addItem(opodLogicalName10.getText());
+				opodRelationshipCB2.addItem(opodLogicalName10.getText());
+				opodRelationshipCB3.addItem(opodLogicalName10.getText());
+				opodRelationshipCB4.addItem(opodLogicalName10.getText());
+				opodRelationshipCB5.addItem(opodLogicalName10.getText());
+				opodRelationshipCB6.addItem(opodLogicalName10.getText());
+				opodRelationshipCB7.addItem(opodLogicalName10.getText());
+				opodRelationshipCB8.addItem(opodLogicalName10.getText());
+				opodRelationshipCB1.addItem("M5000");
+				opodRelationshipCB2.addItem("M5000");
+				opodRelationshipCB3.addItem("M5000");
+				opodRelationshipCB4.addItem("M5000");
+				opodRelationshipCB5.addItem("M5000");
+				opodRelationshipCB6.addItem("M5000");
+				opodRelationshipCB7.addItem("M5000");
+				opodRelationshipCB8.addItem("M5000");
 			}
 
 			@Override
@@ -1470,108 +1333,107 @@ public class GUI {
 				
 			}
 		});
-		
 
-		textArea_13.addFocusListener(new FocusListener() {
+		opodLogicalName6.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_43.removeAllItems();
-				comboBox_44.removeAllItems();
-				comboBox_45.removeAllItems();
-				comboBox_46.removeAllItems();
-				comboBox_47.removeAllItems();
-				comboBox_48.removeAllItems();
-				comboBox_49.removeAllItems();
-				comboBox_50.removeAllItems();
-				comboBox_43.addItem(textArea_1.getText());
-				comboBox_44.addItem(textArea_1.getText());
-				comboBox_45.addItem(textArea_1.getText());
-				comboBox_46.addItem(textArea_1.getText());
-				comboBox_47.addItem(textArea_1.getText());
-				comboBox_48.addItem(textArea_1.getText());
-				comboBox_49.addItem(textArea_1.getText());
-				comboBox_50.addItem(textArea_1.getText());
-				comboBox_43.addItem(textArea_3.getText());
-				comboBox_44.addItem(textArea_3.getText());
-				comboBox_45.addItem(textArea_3.getText());
-				comboBox_46.addItem(textArea_3.getText());
-				comboBox_47.addItem(textArea_3.getText());
-				comboBox_48.addItem(textArea_3.getText());
-				comboBox_49.addItem(textArea_3.getText());
-				comboBox_50.addItem(textArea_3.getText());
-				comboBox_43.addItem(textArea_5.getText());
-				comboBox_44.addItem(textArea_5.getText());
-				comboBox_45.addItem(textArea_5.getText());
-				comboBox_46.addItem(textArea_5.getText());
-				comboBox_47.addItem(textArea_5.getText());
-				comboBox_48.addItem(textArea_5.getText());
-				comboBox_49.addItem(textArea_5.getText());
-				comboBox_50.addItem(textArea_5.getText());
-				comboBox_43.addItem(textArea_7.getText());
-				comboBox_44.addItem(textArea_7.getText());
-				comboBox_45.addItem(textArea_7.getText());
-				comboBox_46.addItem(textArea_7.getText());
-				comboBox_47.addItem(textArea_7.getText());
-				comboBox_48.addItem(textArea_7.getText());
-				comboBox_49.addItem(textArea_7.getText());
-				comboBox_50.addItem(textArea_7.getText());
-				comboBox_43.addItem(textArea_9.getText());
-				comboBox_44.addItem(textArea_9.getText());
-				comboBox_45.addItem(textArea_9.getText());
-				comboBox_46.addItem(textArea_9.getText());
-				comboBox_47.addItem(textArea_9.getText());
-				comboBox_48.addItem(textArea_9.getText());
-				comboBox_49.addItem(textArea_9.getText());
-				comboBox_50.addItem(textArea_9.getText());
-				comboBox_43.addItem(textArea_11.getText());
-				comboBox_44.addItem(textArea_11.getText());
-				comboBox_45.addItem(textArea_11.getText());
-				comboBox_46.addItem(textArea_11.getText());
-				comboBox_47.addItem(textArea_11.getText());
-				comboBox_48.addItem(textArea_11.getText());
-				comboBox_49.addItem(textArea_11.getText());
-				comboBox_50.addItem(textArea_11.getText());
-				comboBox_43.addItem(textArea_13.getText());
-				comboBox_44.addItem(textArea_13.getText());
-				comboBox_45.addItem(textArea_13.getText());
-				comboBox_46.addItem(textArea_13.getText());
-				comboBox_47.addItem(textArea_13.getText());
-				comboBox_48.addItem(textArea_13.getText());
-				comboBox_49.addItem(textArea_13.getText());
-				comboBox_50.addItem(textArea_13.getText());
-				comboBox_43.addItem(textArea_15.getText());
-				comboBox_44.addItem(textArea_15.getText());
-				comboBox_45.addItem(textArea_15.getText());
-				comboBox_46.addItem(textArea_15.getText());
-				comboBox_47.addItem(textArea_15.getText());
-				comboBox_48.addItem(textArea_15.getText());
-				comboBox_49.addItem(textArea_15.getText());
-				comboBox_50.addItem(textArea_15.getText());
-				comboBox_43.addItem(textArea_17.getText());
-				comboBox_44.addItem(textArea_17.getText());
-				comboBox_45.addItem(textArea_17.getText());
-				comboBox_46.addItem(textArea_17.getText());
-				comboBox_47.addItem(textArea_17.getText());
-				comboBox_48.addItem(textArea_17.getText());
-				comboBox_49.addItem(textArea_17.getText());
-				comboBox_50.addItem(textArea_17.getText());
-				comboBox_43.addItem(textArea_19.getText());
-				comboBox_44.addItem(textArea_19.getText());
-				comboBox_45.addItem(textArea_19.getText());
-				comboBox_46.addItem(textArea_19.getText());
-				comboBox_47.addItem(textArea_19.getText());
-				comboBox_48.addItem(textArea_19.getText());
-				comboBox_49.addItem(textArea_19.getText());
-				comboBox_50.addItem(textArea_19.getText());
-				comboBox_43.addItem("M5000");
-				comboBox_44.addItem("M5000");
-				comboBox_45.addItem("M5000");
-				comboBox_46.addItem("M5000");
-				comboBox_47.addItem("M5000");
-				comboBox_48.addItem("M5000");
-				comboBox_49.addItem("M5000");
-				comboBox_50.addItem("M5000");
+				opodRelationshipCB1.removeAllItems();
+				opodRelationshipCB2.removeAllItems();
+				opodRelationshipCB3.removeAllItems();
+				opodRelationshipCB4.removeAllItems();
+				opodRelationshipCB5.removeAllItems();
+				opodRelationshipCB6.removeAllItems();
+				opodRelationshipCB7.removeAllItems();
+				opodRelationshipCB8.removeAllItems();
+				opodRelationshipCB1.addItem(opodLogicalName1.getText());
+				opodRelationshipCB2.addItem(opodLogicalName1.getText());
+				opodRelationshipCB3.addItem(opodLogicalName1.getText());
+				opodRelationshipCB4.addItem(opodLogicalName1.getText());
+				opodRelationshipCB5.addItem(opodLogicalName1.getText());
+				opodRelationshipCB6.addItem(opodLogicalName1.getText());
+				opodRelationshipCB7.addItem(opodLogicalName1.getText());
+				opodRelationshipCB8.addItem(opodLogicalName1.getText());
+				opodRelationshipCB1.addItem(opodLogicalName2.getText());
+				opodRelationshipCB2.addItem(opodLogicalName2.getText());
+				opodRelationshipCB3.addItem(opodLogicalName2.getText());
+				opodRelationshipCB4.addItem(opodLogicalName2.getText());
+				opodRelationshipCB5.addItem(opodLogicalName2.getText());
+				opodRelationshipCB6.addItem(opodLogicalName2.getText());
+				opodRelationshipCB7.addItem(opodLogicalName2.getText());
+				opodRelationshipCB8.addItem(opodLogicalName2.getText());
+				opodRelationshipCB1.addItem(opodLogicalName3.getText());
+				opodRelationshipCB2.addItem(opodLogicalName3.getText());
+				opodRelationshipCB3.addItem(opodLogicalName3.getText());
+				opodRelationshipCB4.addItem(opodLogicalName3.getText());
+				opodRelationshipCB5.addItem(opodLogicalName3.getText());
+				opodRelationshipCB6.addItem(opodLogicalName3.getText());
+				opodRelationshipCB7.addItem(opodLogicalName3.getText());
+				opodRelationshipCB8.addItem(opodLogicalName3.getText());
+				opodRelationshipCB1.addItem(opodLogicalName4.getText());
+				opodRelationshipCB2.addItem(opodLogicalName4.getText());
+				opodRelationshipCB3.addItem(opodLogicalName4.getText());
+				opodRelationshipCB4.addItem(opodLogicalName4.getText());
+				opodRelationshipCB5.addItem(opodLogicalName4.getText());
+				opodRelationshipCB6.addItem(opodLogicalName4.getText());
+				opodRelationshipCB7.addItem(opodLogicalName4.getText());
+				opodRelationshipCB8.addItem(opodLogicalName4.getText());
+				opodRelationshipCB1.addItem(opodLogicalName5.getText());
+				opodRelationshipCB2.addItem(opodLogicalName5.getText());
+				opodRelationshipCB3.addItem(opodLogicalName5.getText());
+				opodRelationshipCB4.addItem(opodLogicalName5.getText());
+				opodRelationshipCB5.addItem(opodLogicalName5.getText());
+				opodRelationshipCB6.addItem(opodLogicalName5.getText());
+				opodRelationshipCB7.addItem(opodLogicalName5.getText());
+				opodRelationshipCB8.addItem(opodLogicalName5.getText());
+				opodRelationshipCB1.addItem(opodLogicalName6.getText());
+				opodRelationshipCB2.addItem(opodLogicalName6.getText());
+				opodRelationshipCB3.addItem(opodLogicalName6.getText());
+				opodRelationshipCB4.addItem(opodLogicalName6.getText());
+				opodRelationshipCB5.addItem(opodLogicalName6.getText());
+				opodRelationshipCB6.addItem(opodLogicalName6.getText());
+				opodRelationshipCB7.addItem(opodLogicalName6.getText());
+				opodRelationshipCB8.addItem(opodLogicalName6.getText());
+				opodRelationshipCB1.addItem(opodLogicalName7.getText());
+				opodRelationshipCB2.addItem(opodLogicalName7.getText());
+				opodRelationshipCB3.addItem(opodLogicalName7.getText());
+				opodRelationshipCB4.addItem(opodLogicalName7.getText());
+				opodRelationshipCB5.addItem(opodLogicalName7.getText());
+				opodRelationshipCB6.addItem(opodLogicalName7.getText());
+				opodRelationshipCB7.addItem(opodLogicalName7.getText());
+				opodRelationshipCB8.addItem(opodLogicalName7.getText());
+				opodRelationshipCB1.addItem(opodLogicalName8.getText());
+				opodRelationshipCB2.addItem(opodLogicalName8.getText());
+				opodRelationshipCB3.addItem(opodLogicalName8.getText());
+				opodRelationshipCB4.addItem(opodLogicalName8.getText());
+				opodRelationshipCB5.addItem(opodLogicalName8.getText());
+				opodRelationshipCB6.addItem(opodLogicalName8.getText());
+				opodRelationshipCB7.addItem(opodLogicalName8.getText());
+				opodRelationshipCB8.addItem(opodLogicalName8.getText());
+				opodRelationshipCB1.addItem(opodLogicalName9.getText());
+				opodRelationshipCB2.addItem(opodLogicalName9.getText());
+				opodRelationshipCB3.addItem(opodLogicalName9.getText());
+				opodRelationshipCB4.addItem(opodLogicalName9.getText());
+				opodRelationshipCB5.addItem(opodLogicalName9.getText());
+				opodRelationshipCB6.addItem(opodLogicalName9.getText());
+				opodRelationshipCB7.addItem(opodLogicalName9.getText());
+				opodRelationshipCB8.addItem(opodLogicalName9.getText());
+				opodRelationshipCB1.addItem(opodLogicalName10.getText());
+				opodRelationshipCB2.addItem(opodLogicalName10.getText());
+				opodRelationshipCB3.addItem(opodLogicalName10.getText());
+				opodRelationshipCB4.addItem(opodLogicalName10.getText());
+				opodRelationshipCB5.addItem(opodLogicalName10.getText());
+				opodRelationshipCB6.addItem(opodLogicalName10.getText());
+				opodRelationshipCB7.addItem(opodLogicalName10.getText());
+				opodRelationshipCB8.addItem(opodLogicalName10.getText());
+				opodRelationshipCB1.addItem("M5000");
+				opodRelationshipCB2.addItem("M5000");
+				opodRelationshipCB3.addItem("M5000");
+				opodRelationshipCB4.addItem("M5000");
+				opodRelationshipCB5.addItem("M5000");
+				opodRelationshipCB6.addItem("M5000");
+				opodRelationshipCB7.addItem("M5000");
+				opodRelationshipCB8.addItem("M5000");
 			}
 
 			@Override
@@ -1582,106 +1444,106 @@ public class GUI {
 		});
 		
 
-		textArea_15.addFocusListener(new FocusListener() {
+		opodLogicalName7.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_43.removeAllItems();
-				comboBox_44.removeAllItems();
-				comboBox_45.removeAllItems();
-				comboBox_46.removeAllItems();
-				comboBox_47.removeAllItems();
-				comboBox_48.removeAllItems();
-				comboBox_49.removeAllItems();
-				comboBox_50.removeAllItems();
-				comboBox_43.addItem(textArea_1.getText());
-				comboBox_44.addItem(textArea_1.getText());
-				comboBox_45.addItem(textArea_1.getText());
-				comboBox_46.addItem(textArea_1.getText());
-				comboBox_47.addItem(textArea_1.getText());
-				comboBox_48.addItem(textArea_1.getText());
-				comboBox_49.addItem(textArea_1.getText());
-				comboBox_50.addItem(textArea_1.getText());
-				comboBox_43.addItem(textArea_3.getText());
-				comboBox_44.addItem(textArea_3.getText());
-				comboBox_45.addItem(textArea_3.getText());
-				comboBox_46.addItem(textArea_3.getText());
-				comboBox_47.addItem(textArea_3.getText());
-				comboBox_48.addItem(textArea_3.getText());
-				comboBox_49.addItem(textArea_3.getText());
-				comboBox_50.addItem(textArea_3.getText());
-				comboBox_43.addItem(textArea_5.getText());
-				comboBox_44.addItem(textArea_5.getText());
-				comboBox_45.addItem(textArea_5.getText());
-				comboBox_46.addItem(textArea_5.getText());
-				comboBox_47.addItem(textArea_5.getText());
-				comboBox_48.addItem(textArea_5.getText());
-				comboBox_49.addItem(textArea_5.getText());
-				comboBox_50.addItem(textArea_5.getText());
-				comboBox_43.addItem(textArea_7.getText());
-				comboBox_44.addItem(textArea_7.getText());
-				comboBox_45.addItem(textArea_7.getText());
-				comboBox_46.addItem(textArea_7.getText());
-				comboBox_47.addItem(textArea_7.getText());
-				comboBox_48.addItem(textArea_7.getText());
-				comboBox_49.addItem(textArea_7.getText());
-				comboBox_50.addItem(textArea_7.getText());
-				comboBox_43.addItem(textArea_9.getText());
-				comboBox_44.addItem(textArea_9.getText());
-				comboBox_45.addItem(textArea_9.getText());
-				comboBox_46.addItem(textArea_9.getText());
-				comboBox_47.addItem(textArea_9.getText());
-				comboBox_48.addItem(textArea_9.getText());
-				comboBox_49.addItem(textArea_9.getText());
-				comboBox_50.addItem(textArea_9.getText());
-				comboBox_43.addItem(textArea_11.getText());
-				comboBox_44.addItem(textArea_11.getText());
-				comboBox_45.addItem(textArea_11.getText());
-				comboBox_46.addItem(textArea_11.getText());
-				comboBox_47.addItem(textArea_11.getText());
-				comboBox_48.addItem(textArea_11.getText());
-				comboBox_49.addItem(textArea_11.getText());
-				comboBox_50.addItem(textArea_11.getText());
-				comboBox_43.addItem(textArea_13.getText());
-				comboBox_44.addItem(textArea_13.getText());
-				comboBox_45.addItem(textArea_13.getText());
-				comboBox_46.addItem(textArea_13.getText());
-				comboBox_47.addItem(textArea_13.getText());
-				comboBox_48.addItem(textArea_13.getText());
-				comboBox_49.addItem(textArea_13.getText());
-				comboBox_50.addItem(textArea_13.getText());
-				comboBox_43.addItem(textArea_15.getText());
-				comboBox_44.addItem(textArea_15.getText());
-				comboBox_45.addItem(textArea_15.getText());
-				comboBox_46.addItem(textArea_15.getText());
-				comboBox_47.addItem(textArea_15.getText());
-				comboBox_48.addItem(textArea_15.getText());
-				comboBox_49.addItem(textArea_15.getText());
-				comboBox_50.addItem(textArea_15.getText());
-				comboBox_43.addItem(textArea_17.getText());
-				comboBox_44.addItem(textArea_17.getText());
-				comboBox_45.addItem(textArea_17.getText());
-				comboBox_46.addItem(textArea_17.getText());
-				comboBox_47.addItem(textArea_17.getText());
-				comboBox_48.addItem(textArea_17.getText());
-				comboBox_49.addItem(textArea_17.getText());
-				comboBox_50.addItem(textArea_17.getText());
-				comboBox_43.addItem(textArea_19.getText());
-				comboBox_44.addItem(textArea_19.getText());
-				comboBox_45.addItem(textArea_19.getText());
-				comboBox_46.addItem(textArea_19.getText());
-				comboBox_47.addItem(textArea_19.getText());
-				comboBox_48.addItem(textArea_19.getText());
-				comboBox_49.addItem(textArea_19.getText());
-				comboBox_50.addItem(textArea_19.getText());
-				comboBox_43.addItem("M5000");
-				comboBox_44.addItem("M5000");
-				comboBox_45.addItem("M5000");
-				comboBox_46.addItem("M5000");
-				comboBox_47.addItem("M5000");
-				comboBox_48.addItem("M5000");
-				comboBox_49.addItem("M5000");
-				comboBox_50.addItem("M5000");
+				opodRelationshipCB1.removeAllItems();
+				opodRelationshipCB2.removeAllItems();
+				opodRelationshipCB3.removeAllItems();
+				opodRelationshipCB4.removeAllItems();
+				opodRelationshipCB5.removeAllItems();
+				opodRelationshipCB6.removeAllItems();
+				opodRelationshipCB7.removeAllItems();
+				opodRelationshipCB8.removeAllItems();
+				opodRelationshipCB1.addItem(opodLogicalName1.getText());
+				opodRelationshipCB2.addItem(opodLogicalName1.getText());
+				opodRelationshipCB3.addItem(opodLogicalName1.getText());
+				opodRelationshipCB4.addItem(opodLogicalName1.getText());
+				opodRelationshipCB5.addItem(opodLogicalName1.getText());
+				opodRelationshipCB6.addItem(opodLogicalName1.getText());
+				opodRelationshipCB7.addItem(opodLogicalName1.getText());
+				opodRelationshipCB8.addItem(opodLogicalName1.getText());
+				opodRelationshipCB1.addItem(opodLogicalName2.getText());
+				opodRelationshipCB2.addItem(opodLogicalName2.getText());
+				opodRelationshipCB3.addItem(opodLogicalName2.getText());
+				opodRelationshipCB4.addItem(opodLogicalName2.getText());
+				opodRelationshipCB5.addItem(opodLogicalName2.getText());
+				opodRelationshipCB6.addItem(opodLogicalName2.getText());
+				opodRelationshipCB7.addItem(opodLogicalName2.getText());
+				opodRelationshipCB8.addItem(opodLogicalName2.getText());
+				opodRelationshipCB1.addItem(opodLogicalName3.getText());
+				opodRelationshipCB2.addItem(opodLogicalName3.getText());
+				opodRelationshipCB3.addItem(opodLogicalName3.getText());
+				opodRelationshipCB4.addItem(opodLogicalName3.getText());
+				opodRelationshipCB5.addItem(opodLogicalName3.getText());
+				opodRelationshipCB6.addItem(opodLogicalName3.getText());
+				opodRelationshipCB7.addItem(opodLogicalName3.getText());
+				opodRelationshipCB8.addItem(opodLogicalName3.getText());
+				opodRelationshipCB1.addItem(opodLogicalName4.getText());
+				opodRelationshipCB2.addItem(opodLogicalName4.getText());
+				opodRelationshipCB3.addItem(opodLogicalName4.getText());
+				opodRelationshipCB4.addItem(opodLogicalName4.getText());
+				opodRelationshipCB5.addItem(opodLogicalName4.getText());
+				opodRelationshipCB6.addItem(opodLogicalName4.getText());
+				opodRelationshipCB7.addItem(opodLogicalName4.getText());
+				opodRelationshipCB8.addItem(opodLogicalName4.getText());
+				opodRelationshipCB1.addItem(opodLogicalName5.getText());
+				opodRelationshipCB2.addItem(opodLogicalName5.getText());
+				opodRelationshipCB3.addItem(opodLogicalName5.getText());
+				opodRelationshipCB4.addItem(opodLogicalName5.getText());
+				opodRelationshipCB5.addItem(opodLogicalName5.getText());
+				opodRelationshipCB6.addItem(opodLogicalName5.getText());
+				opodRelationshipCB7.addItem(opodLogicalName5.getText());
+				opodRelationshipCB8.addItem(opodLogicalName5.getText());
+				opodRelationshipCB1.addItem(opodLogicalName6.getText());
+				opodRelationshipCB2.addItem(opodLogicalName6.getText());
+				opodRelationshipCB3.addItem(opodLogicalName6.getText());
+				opodRelationshipCB4.addItem(opodLogicalName6.getText());
+				opodRelationshipCB5.addItem(opodLogicalName6.getText());
+				opodRelationshipCB6.addItem(opodLogicalName6.getText());
+				opodRelationshipCB7.addItem(opodLogicalName6.getText());
+				opodRelationshipCB8.addItem(opodLogicalName6.getText());
+				opodRelationshipCB1.addItem(opodLogicalName7.getText());
+				opodRelationshipCB2.addItem(opodLogicalName7.getText());
+				opodRelationshipCB3.addItem(opodLogicalName7.getText());
+				opodRelationshipCB4.addItem(opodLogicalName7.getText());
+				opodRelationshipCB5.addItem(opodLogicalName7.getText());
+				opodRelationshipCB6.addItem(opodLogicalName7.getText());
+				opodRelationshipCB7.addItem(opodLogicalName7.getText());
+				opodRelationshipCB8.addItem(opodLogicalName7.getText());
+				opodRelationshipCB1.addItem(opodLogicalName8.getText());
+				opodRelationshipCB2.addItem(opodLogicalName8.getText());
+				opodRelationshipCB3.addItem(opodLogicalName8.getText());
+				opodRelationshipCB4.addItem(opodLogicalName8.getText());
+				opodRelationshipCB5.addItem(opodLogicalName8.getText());
+				opodRelationshipCB6.addItem(opodLogicalName8.getText());
+				opodRelationshipCB7.addItem(opodLogicalName8.getText());
+				opodRelationshipCB8.addItem(opodLogicalName8.getText());
+				opodRelationshipCB1.addItem(opodLogicalName9.getText());
+				opodRelationshipCB2.addItem(opodLogicalName9.getText());
+				opodRelationshipCB3.addItem(opodLogicalName9.getText());
+				opodRelationshipCB4.addItem(opodLogicalName9.getText());
+				opodRelationshipCB5.addItem(opodLogicalName9.getText());
+				opodRelationshipCB6.addItem(opodLogicalName9.getText());
+				opodRelationshipCB7.addItem(opodLogicalName9.getText());
+				opodRelationshipCB8.addItem(opodLogicalName9.getText());
+				opodRelationshipCB1.addItem(opodLogicalName10.getText());
+				opodRelationshipCB2.addItem(opodLogicalName10.getText());
+				opodRelationshipCB3.addItem(opodLogicalName10.getText());
+				opodRelationshipCB4.addItem(opodLogicalName10.getText());
+				opodRelationshipCB5.addItem(opodLogicalName10.getText());
+				opodRelationshipCB6.addItem(opodLogicalName10.getText());
+				opodRelationshipCB7.addItem(opodLogicalName10.getText());
+				opodRelationshipCB8.addItem(opodLogicalName10.getText());
+				opodRelationshipCB1.addItem("M5000");
+				opodRelationshipCB2.addItem("M5000");
+				opodRelationshipCB3.addItem("M5000");
+				opodRelationshipCB4.addItem("M5000");
+				opodRelationshipCB5.addItem("M5000");
+				opodRelationshipCB6.addItem("M5000");
+				opodRelationshipCB7.addItem("M5000");
+				opodRelationshipCB8.addItem("M5000");
 			}
 
 			@Override
@@ -1692,106 +1554,106 @@ public class GUI {
 		});
 		
 
-		textArea_17.addFocusListener(new FocusListener() {
+		opodLogicalName8.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_43.removeAllItems();
-				comboBox_44.removeAllItems();
-				comboBox_45.removeAllItems();
-				comboBox_46.removeAllItems();
-				comboBox_47.removeAllItems();
-				comboBox_48.removeAllItems();
-				comboBox_49.removeAllItems();
-				comboBox_50.removeAllItems();
-				comboBox_43.addItem(textArea_1.getText());
-				comboBox_44.addItem(textArea_1.getText());
-				comboBox_45.addItem(textArea_1.getText());
-				comboBox_46.addItem(textArea_1.getText());
-				comboBox_47.addItem(textArea_1.getText());
-				comboBox_48.addItem(textArea_1.getText());
-				comboBox_49.addItem(textArea_1.getText());
-				comboBox_50.addItem(textArea_1.getText());
-				comboBox_43.addItem(textArea_3.getText());
-				comboBox_44.addItem(textArea_3.getText());
-				comboBox_45.addItem(textArea_3.getText());
-				comboBox_46.addItem(textArea_3.getText());
-				comboBox_47.addItem(textArea_3.getText());
-				comboBox_48.addItem(textArea_3.getText());
-				comboBox_49.addItem(textArea_3.getText());
-				comboBox_50.addItem(textArea_3.getText());
-				comboBox_43.addItem(textArea_5.getText());
-				comboBox_44.addItem(textArea_5.getText());
-				comboBox_45.addItem(textArea_5.getText());
-				comboBox_46.addItem(textArea_5.getText());
-				comboBox_47.addItem(textArea_5.getText());
-				comboBox_48.addItem(textArea_5.getText());
-				comboBox_49.addItem(textArea_5.getText());
-				comboBox_50.addItem(textArea_5.getText());
-				comboBox_43.addItem(textArea_7.getText());
-				comboBox_44.addItem(textArea_7.getText());
-				comboBox_45.addItem(textArea_7.getText());
-				comboBox_46.addItem(textArea_7.getText());
-				comboBox_47.addItem(textArea_7.getText());
-				comboBox_48.addItem(textArea_7.getText());
-				comboBox_49.addItem(textArea_7.getText());
-				comboBox_50.addItem(textArea_7.getText());
-				comboBox_43.addItem(textArea_9.getText());
-				comboBox_44.addItem(textArea_9.getText());
-				comboBox_45.addItem(textArea_9.getText());
-				comboBox_46.addItem(textArea_9.getText());
-				comboBox_47.addItem(textArea_9.getText());
-				comboBox_48.addItem(textArea_9.getText());
-				comboBox_49.addItem(textArea_9.getText());
-				comboBox_50.addItem(textArea_9.getText());
-				comboBox_43.addItem(textArea_11.getText());
-				comboBox_44.addItem(textArea_11.getText());
-				comboBox_45.addItem(textArea_11.getText());
-				comboBox_46.addItem(textArea_11.getText());
-				comboBox_47.addItem(textArea_11.getText());
-				comboBox_48.addItem(textArea_11.getText());
-				comboBox_49.addItem(textArea_11.getText());
-				comboBox_50.addItem(textArea_11.getText());
-				comboBox_43.addItem(textArea_13.getText());
-				comboBox_44.addItem(textArea_13.getText());
-				comboBox_45.addItem(textArea_13.getText());
-				comboBox_46.addItem(textArea_13.getText());
-				comboBox_47.addItem(textArea_13.getText());
-				comboBox_48.addItem(textArea_13.getText());
-				comboBox_49.addItem(textArea_13.getText());
-				comboBox_50.addItem(textArea_13.getText());
-				comboBox_43.addItem(textArea_15.getText());
-				comboBox_44.addItem(textArea_15.getText());
-				comboBox_45.addItem(textArea_15.getText());
-				comboBox_46.addItem(textArea_15.getText());
-				comboBox_47.addItem(textArea_15.getText());
-				comboBox_48.addItem(textArea_15.getText());
-				comboBox_49.addItem(textArea_15.getText());
-				comboBox_50.addItem(textArea_15.getText());
-				comboBox_43.addItem(textArea_17.getText());
-				comboBox_44.addItem(textArea_17.getText());
-				comboBox_45.addItem(textArea_17.getText());
-				comboBox_46.addItem(textArea_17.getText());
-				comboBox_47.addItem(textArea_17.getText());
-				comboBox_48.addItem(textArea_17.getText());
-				comboBox_49.addItem(textArea_17.getText());
-				comboBox_50.addItem(textArea_17.getText());
-				comboBox_43.addItem(textArea_19.getText());
-				comboBox_44.addItem(textArea_19.getText());
-				comboBox_45.addItem(textArea_19.getText());
-				comboBox_46.addItem(textArea_19.getText());
-				comboBox_47.addItem(textArea_19.getText());
-				comboBox_48.addItem(textArea_19.getText());
-				comboBox_49.addItem(textArea_19.getText());
-				comboBox_50.addItem(textArea_19.getText());
-				comboBox_43.addItem("M5000");
-				comboBox_44.addItem("M5000");
-				comboBox_45.addItem("M5000");
-				comboBox_46.addItem("M5000");
-				comboBox_47.addItem("M5000");
-				comboBox_48.addItem("M5000");
-				comboBox_49.addItem("M5000");
-				comboBox_50.addItem("M5000");
+				opodRelationshipCB1.removeAllItems();
+				opodRelationshipCB2.removeAllItems();
+				opodRelationshipCB3.removeAllItems();
+				opodRelationshipCB4.removeAllItems();
+				opodRelationshipCB5.removeAllItems();
+				opodRelationshipCB6.removeAllItems();
+				opodRelationshipCB7.removeAllItems();
+				opodRelationshipCB8.removeAllItems();
+				opodRelationshipCB1.addItem(opodLogicalName1.getText());
+				opodRelationshipCB2.addItem(opodLogicalName1.getText());
+				opodRelationshipCB3.addItem(opodLogicalName1.getText());
+				opodRelationshipCB4.addItem(opodLogicalName1.getText());
+				opodRelationshipCB5.addItem(opodLogicalName1.getText());
+				opodRelationshipCB6.addItem(opodLogicalName1.getText());
+				opodRelationshipCB7.addItem(opodLogicalName1.getText());
+				opodRelationshipCB8.addItem(opodLogicalName1.getText());
+				opodRelationshipCB1.addItem(opodLogicalName2.getText());
+				opodRelationshipCB2.addItem(opodLogicalName2.getText());
+				opodRelationshipCB3.addItem(opodLogicalName2.getText());
+				opodRelationshipCB4.addItem(opodLogicalName2.getText());
+				opodRelationshipCB5.addItem(opodLogicalName2.getText());
+				opodRelationshipCB6.addItem(opodLogicalName2.getText());
+				opodRelationshipCB7.addItem(opodLogicalName2.getText());
+				opodRelationshipCB8.addItem(opodLogicalName2.getText());
+				opodRelationshipCB1.addItem(opodLogicalName3.getText());
+				opodRelationshipCB2.addItem(opodLogicalName3.getText());
+				opodRelationshipCB3.addItem(opodLogicalName3.getText());
+				opodRelationshipCB4.addItem(opodLogicalName3.getText());
+				opodRelationshipCB5.addItem(opodLogicalName3.getText());
+				opodRelationshipCB6.addItem(opodLogicalName3.getText());
+				opodRelationshipCB7.addItem(opodLogicalName3.getText());
+				opodRelationshipCB8.addItem(opodLogicalName3.getText());
+				opodRelationshipCB1.addItem(opodLogicalName4.getText());
+				opodRelationshipCB2.addItem(opodLogicalName4.getText());
+				opodRelationshipCB3.addItem(opodLogicalName4.getText());
+				opodRelationshipCB4.addItem(opodLogicalName4.getText());
+				opodRelationshipCB5.addItem(opodLogicalName4.getText());
+				opodRelationshipCB6.addItem(opodLogicalName4.getText());
+				opodRelationshipCB7.addItem(opodLogicalName4.getText());
+				opodRelationshipCB8.addItem(opodLogicalName4.getText());
+				opodRelationshipCB1.addItem(opodLogicalName5.getText());
+				opodRelationshipCB2.addItem(opodLogicalName5.getText());
+				opodRelationshipCB3.addItem(opodLogicalName5.getText());
+				opodRelationshipCB4.addItem(opodLogicalName5.getText());
+				opodRelationshipCB5.addItem(opodLogicalName5.getText());
+				opodRelationshipCB6.addItem(opodLogicalName5.getText());
+				opodRelationshipCB7.addItem(opodLogicalName5.getText());
+				opodRelationshipCB8.addItem(opodLogicalName5.getText());
+				opodRelationshipCB1.addItem(opodLogicalName6.getText());
+				opodRelationshipCB2.addItem(opodLogicalName6.getText());
+				opodRelationshipCB3.addItem(opodLogicalName6.getText());
+				opodRelationshipCB4.addItem(opodLogicalName6.getText());
+				opodRelationshipCB5.addItem(opodLogicalName6.getText());
+				opodRelationshipCB6.addItem(opodLogicalName6.getText());
+				opodRelationshipCB7.addItem(opodLogicalName6.getText());
+				opodRelationshipCB8.addItem(opodLogicalName6.getText());
+				opodRelationshipCB1.addItem(opodLogicalName7.getText());
+				opodRelationshipCB2.addItem(opodLogicalName7.getText());
+				opodRelationshipCB3.addItem(opodLogicalName7.getText());
+				opodRelationshipCB4.addItem(opodLogicalName7.getText());
+				opodRelationshipCB5.addItem(opodLogicalName7.getText());
+				opodRelationshipCB6.addItem(opodLogicalName7.getText());
+				opodRelationshipCB7.addItem(opodLogicalName7.getText());
+				opodRelationshipCB8.addItem(opodLogicalName7.getText());
+				opodRelationshipCB1.addItem(opodLogicalName8.getText());
+				opodRelationshipCB2.addItem(opodLogicalName8.getText());
+				opodRelationshipCB3.addItem(opodLogicalName8.getText());
+				opodRelationshipCB4.addItem(opodLogicalName8.getText());
+				opodRelationshipCB5.addItem(opodLogicalName8.getText());
+				opodRelationshipCB6.addItem(opodLogicalName8.getText());
+				opodRelationshipCB7.addItem(opodLogicalName8.getText());
+				opodRelationshipCB8.addItem(opodLogicalName8.getText());
+				opodRelationshipCB1.addItem(opodLogicalName9.getText());
+				opodRelationshipCB2.addItem(opodLogicalName9.getText());
+				opodRelationshipCB3.addItem(opodLogicalName9.getText());
+				opodRelationshipCB4.addItem(opodLogicalName9.getText());
+				opodRelationshipCB5.addItem(opodLogicalName9.getText());
+				opodRelationshipCB6.addItem(opodLogicalName9.getText());
+				opodRelationshipCB7.addItem(opodLogicalName9.getText());
+				opodRelationshipCB8.addItem(opodLogicalName9.getText());
+				opodRelationshipCB1.addItem(opodLogicalName10.getText());
+				opodRelationshipCB2.addItem(opodLogicalName10.getText());
+				opodRelationshipCB3.addItem(opodLogicalName10.getText());
+				opodRelationshipCB4.addItem(opodLogicalName10.getText());
+				opodRelationshipCB5.addItem(opodLogicalName10.getText());
+				opodRelationshipCB6.addItem(opodLogicalName10.getText());
+				opodRelationshipCB7.addItem(opodLogicalName10.getText());
+				opodRelationshipCB8.addItem(opodLogicalName10.getText());
+				opodRelationshipCB1.addItem("M5000");
+				opodRelationshipCB2.addItem("M5000");
+				opodRelationshipCB3.addItem("M5000");
+				opodRelationshipCB4.addItem("M5000");
+				opodRelationshipCB5.addItem("M5000");
+				opodRelationshipCB6.addItem("M5000");
+				opodRelationshipCB7.addItem("M5000");
+				opodRelationshipCB8.addItem("M5000");
 			}
 
 			@Override
@@ -1802,207 +1664,106 @@ public class GUI {
 		});
 		
 
-		textArea_19.addFocusListener(new FocusListener() {
+		opodLogicalName9.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_43.removeAllItems();
-				comboBox_44.removeAllItems();
-				comboBox_45.removeAllItems();
-				comboBox_46.removeAllItems();
-				comboBox_47.removeAllItems();
-				comboBox_48.removeAllItems();
-				comboBox_49.removeAllItems();
-				comboBox_50.removeAllItems();
-				comboBox_43.addItem(textArea_1.getText());
-				comboBox_44.addItem(textArea_1.getText());
-				comboBox_45.addItem(textArea_1.getText());
-				comboBox_46.addItem(textArea_1.getText());
-				comboBox_47.addItem(textArea_1.getText());
-				comboBox_48.addItem(textArea_1.getText());
-				comboBox_49.addItem(textArea_1.getText());
-				comboBox_50.addItem(textArea_1.getText());
-				comboBox_43.addItem(textArea_3.getText());
-				comboBox_44.addItem(textArea_3.getText());
-				comboBox_45.addItem(textArea_3.getText());
-				comboBox_46.addItem(textArea_3.getText());
-				comboBox_47.addItem(textArea_3.getText());
-				comboBox_48.addItem(textArea_3.getText());
-				comboBox_49.addItem(textArea_3.getText());
-				comboBox_50.addItem(textArea_3.getText());
-				comboBox_43.addItem(textArea_5.getText());
-				comboBox_44.addItem(textArea_5.getText());
-				comboBox_45.addItem(textArea_5.getText());
-				comboBox_46.addItem(textArea_5.getText());
-				comboBox_47.addItem(textArea_5.getText());
-				comboBox_48.addItem(textArea_5.getText());
-				comboBox_49.addItem(textArea_5.getText());
-				comboBox_50.addItem(textArea_5.getText());
-				comboBox_43.addItem(textArea_7.getText());
-				comboBox_44.addItem(textArea_7.getText());
-				comboBox_45.addItem(textArea_7.getText());
-				comboBox_46.addItem(textArea_7.getText());
-				comboBox_47.addItem(textArea_7.getText());
-				comboBox_48.addItem(textArea_7.getText());
-				comboBox_49.addItem(textArea_7.getText());
-				comboBox_50.addItem(textArea_7.getText());
-				comboBox_43.addItem(textArea_9.getText());
-				comboBox_44.addItem(textArea_9.getText());
-				comboBox_45.addItem(textArea_9.getText());
-				comboBox_46.addItem(textArea_9.getText());
-				comboBox_47.addItem(textArea_9.getText());
-				comboBox_48.addItem(textArea_9.getText());
-				comboBox_49.addItem(textArea_9.getText());
-				comboBox_50.addItem(textArea_9.getText());
-				comboBox_43.addItem(textArea_11.getText());
-				comboBox_44.addItem(textArea_11.getText());
-				comboBox_45.addItem(textArea_11.getText());
-				comboBox_46.addItem(textArea_11.getText());
-				comboBox_47.addItem(textArea_11.getText());
-				comboBox_48.addItem(textArea_11.getText());
-				comboBox_49.addItem(textArea_11.getText());
-				comboBox_50.addItem(textArea_11.getText());
-				comboBox_43.addItem(textArea_13.getText());
-				comboBox_44.addItem(textArea_13.getText());
-				comboBox_45.addItem(textArea_13.getText());
-				comboBox_46.addItem(textArea_13.getText());
-				comboBox_47.addItem(textArea_13.getText());
-				comboBox_48.addItem(textArea_13.getText());
-				comboBox_49.addItem(textArea_13.getText());
-				comboBox_50.addItem(textArea_13.getText());
-				comboBox_43.addItem(textArea_15.getText());
-				comboBox_44.addItem(textArea_15.getText());
-				comboBox_45.addItem(textArea_15.getText());
-				comboBox_46.addItem(textArea_15.getText());
-				comboBox_47.addItem(textArea_15.getText());
-				comboBox_48.addItem(textArea_15.getText());
-				comboBox_49.addItem(textArea_15.getText());
-				comboBox_50.addItem(textArea_15.getText());
-				comboBox_43.addItem(textArea_17.getText());
-				comboBox_44.addItem(textArea_17.getText());
-				comboBox_45.addItem(textArea_17.getText());
-				comboBox_46.addItem(textArea_17.getText());
-				comboBox_47.addItem(textArea_17.getText());
-				comboBox_48.addItem(textArea_17.getText());
-				comboBox_49.addItem(textArea_17.getText());
-				comboBox_50.addItem(textArea_17.getText());
-				comboBox_43.addItem(textArea_19.getText());
-				comboBox_44.addItem(textArea_19.getText());
-				comboBox_45.addItem(textArea_19.getText());
-				comboBox_46.addItem(textArea_19.getText());
-				comboBox_47.addItem(textArea_19.getText());
-				comboBox_48.addItem(textArea_19.getText());
-				comboBox_49.addItem(textArea_19.getText());
-				comboBox_50.addItem(textArea_19.getText());
-				comboBox_43.addItem("M5000");
-				comboBox_44.addItem("M5000");
-				comboBox_45.addItem("M5000");
-				comboBox_46.addItem("M5000");
-				comboBox_47.addItem("M5000");
-				comboBox_48.addItem("M5000");
-				comboBox_49.addItem("M5000");
-				comboBox_50.addItem("M5000");
-			}
-
-			@Override
-			public void focusGained(FocusEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-
-		textArea_4.addFocusListener(new FocusListener() {
-			
-			@Override
-			public void focusLost(FocusEvent arg0) {
-				comboBox_51.removeAllItems();
-				comboBox_52.removeAllItems();
-				comboBox_53.removeAllItems();
-				comboBox_54.removeAllItems();
-				comboBox_55.removeAllItems();
-				comboBox_56.removeAllItems();
-				comboBox_57.removeAllItems();
-				comboBox_58.removeAllItems();
-				comboBox_51.addItem(textArea_2.getText());
-				comboBox_52.addItem(textArea_2.getText());
-				comboBox_53.addItem(textArea_2.getText());
-				comboBox_54.addItem(textArea_2.getText());
-				comboBox_55.addItem(textArea_2.getText());
-				comboBox_56.addItem(textArea_2.getText());
-				comboBox_57.addItem(textArea_2.getText());
-				comboBox_58.addItem(textArea_2.getText());
-				comboBox_51.addItem(textArea_4.getText());
-				comboBox_52.addItem(textArea_4.getText());
-				comboBox_53.addItem(textArea_4.getText());
-				comboBox_54.addItem(textArea_4.getText());
-				comboBox_55.addItem(textArea_4.getText());
-				comboBox_56.addItem(textArea_4.getText());
-				comboBox_57.addItem(textArea_4.getText());
-				comboBox_58.addItem(textArea_4.getText());
-				comboBox_51.addItem(textArea_6.getText());
-				comboBox_52.addItem(textArea_6.getText());
-				comboBox_53.addItem(textArea_6.getText());
-				comboBox_54.addItem(textArea_6.getText());
-				comboBox_55.addItem(textArea_6.getText());
-				comboBox_56.addItem(textArea_6.getText());
-				comboBox_57.addItem(textArea_6.getText());
-				comboBox_58.addItem(textArea_6.getText());
-				comboBox_51.addItem(textArea_8.getText());
-				comboBox_52.addItem(textArea_8.getText());
-				comboBox_53.addItem(textArea_8.getText());
-				comboBox_54.addItem(textArea_8.getText());
-				comboBox_55.addItem(textArea_8.getText());
-				comboBox_56.addItem(textArea_8.getText());
-				comboBox_57.addItem(textArea_8.getText());
-				comboBox_58.addItem(textArea_8.getText());
-				comboBox_51.addItem(textArea_10.getText());
-				comboBox_52.addItem(textArea_10.getText());
-				comboBox_53.addItem(textArea_10.getText());
-				comboBox_54.addItem(textArea_10.getText());
-				comboBox_55.addItem(textArea_10.getText());
-				comboBox_56.addItem(textArea_10.getText());
-				comboBox_57.addItem(textArea_10.getText());
-				comboBox_58.addItem(textArea_10.getText());
-				comboBox_51.addItem(textArea_12.getText());
-				comboBox_52.addItem(textArea_12.getText());
-				comboBox_53.addItem(textArea_12.getText());
-				comboBox_54.addItem(textArea_12.getText());
-				comboBox_55.addItem(textArea_12.getText());
-				comboBox_56.addItem(textArea_12.getText());
-				comboBox_57.addItem(textArea_12.getText());
-				comboBox_58.addItem(textArea_12.getText());
-				comboBox_51.addItem(textArea_14.getText());
-				comboBox_52.addItem(textArea_14.getText());
-				comboBox_53.addItem(textArea_14.getText());
-				comboBox_54.addItem(textArea_14.getText());
-				comboBox_55.addItem(textArea_14.getText());
-				comboBox_56.addItem(textArea_14.getText());
-				comboBox_57.addItem(textArea_14.getText());
-				comboBox_58.addItem(textArea_14.getText());
-				comboBox_51.addItem(textArea_16.getText());
-				comboBox_52.addItem(textArea_16.getText());
-				comboBox_53.addItem(textArea_16.getText());
-				comboBox_54.addItem(textArea_16.getText());
-				comboBox_55.addItem(textArea_16.getText());
-				comboBox_56.addItem(textArea_16.getText());
-				comboBox_57.addItem(textArea_16.getText());
-				comboBox_58.addItem(textArea_16.getText());
-				comboBox_51.addItem(textArea_18.getText());
-				comboBox_52.addItem(textArea_18.getText());
-				comboBox_53.addItem(textArea_18.getText());
-				comboBox_54.addItem(textArea_18.getText());
-				comboBox_55.addItem(textArea_18.getText());
-				comboBox_56.addItem(textArea_18.getText());
-				comboBox_57.addItem(textArea_18.getText());
-				comboBox_58.addItem(textArea_18.getText());
-				comboBox_51.addItem(textArea_20.getText());
-				comboBox_52.addItem(textArea_20.getText());
-				comboBox_53.addItem(textArea_20.getText());
-				comboBox_54.addItem(textArea_20.getText());
-				comboBox_55.addItem(textArea_20.getText());
-				comboBox_56.addItem(textArea_20.getText());
-				comboBox_57.addItem(textArea_20.getText());
-				comboBox_58.addItem(textArea_20.getText());
+				opodRelationshipCB1.removeAllItems();
+				opodRelationshipCB2.removeAllItems();
+				opodRelationshipCB3.removeAllItems();
+				opodRelationshipCB4.removeAllItems();
+				opodRelationshipCB5.removeAllItems();
+				opodRelationshipCB6.removeAllItems();
+				opodRelationshipCB7.removeAllItems();
+				opodRelationshipCB8.removeAllItems();
+				opodRelationshipCB1.addItem(opodLogicalName1.getText());
+				opodRelationshipCB2.addItem(opodLogicalName1.getText());
+				opodRelationshipCB3.addItem(opodLogicalName1.getText());
+				opodRelationshipCB4.addItem(opodLogicalName1.getText());
+				opodRelationshipCB5.addItem(opodLogicalName1.getText());
+				opodRelationshipCB6.addItem(opodLogicalName1.getText());
+				opodRelationshipCB7.addItem(opodLogicalName1.getText());
+				opodRelationshipCB8.addItem(opodLogicalName1.getText());
+				opodRelationshipCB1.addItem(opodLogicalName2.getText());
+				opodRelationshipCB2.addItem(opodLogicalName2.getText());
+				opodRelationshipCB3.addItem(opodLogicalName2.getText());
+				opodRelationshipCB4.addItem(opodLogicalName2.getText());
+				opodRelationshipCB5.addItem(opodLogicalName2.getText());
+				opodRelationshipCB6.addItem(opodLogicalName2.getText());
+				opodRelationshipCB7.addItem(opodLogicalName2.getText());
+				opodRelationshipCB8.addItem(opodLogicalName2.getText());
+				opodRelationshipCB1.addItem(opodLogicalName3.getText());
+				opodRelationshipCB2.addItem(opodLogicalName3.getText());
+				opodRelationshipCB3.addItem(opodLogicalName3.getText());
+				opodRelationshipCB4.addItem(opodLogicalName3.getText());
+				opodRelationshipCB5.addItem(opodLogicalName3.getText());
+				opodRelationshipCB6.addItem(opodLogicalName3.getText());
+				opodRelationshipCB7.addItem(opodLogicalName3.getText());
+				opodRelationshipCB8.addItem(opodLogicalName3.getText());
+				opodRelationshipCB1.addItem(opodLogicalName4.getText());
+				opodRelationshipCB2.addItem(opodLogicalName4.getText());
+				opodRelationshipCB3.addItem(opodLogicalName4.getText());
+				opodRelationshipCB4.addItem(opodLogicalName4.getText());
+				opodRelationshipCB5.addItem(opodLogicalName4.getText());
+				opodRelationshipCB6.addItem(opodLogicalName4.getText());
+				opodRelationshipCB7.addItem(opodLogicalName4.getText());
+				opodRelationshipCB8.addItem(opodLogicalName4.getText());
+				opodRelationshipCB1.addItem(opodLogicalName5.getText());
+				opodRelationshipCB2.addItem(opodLogicalName5.getText());
+				opodRelationshipCB3.addItem(opodLogicalName5.getText());
+				opodRelationshipCB4.addItem(opodLogicalName5.getText());
+				opodRelationshipCB5.addItem(opodLogicalName5.getText());
+				opodRelationshipCB6.addItem(opodLogicalName5.getText());
+				opodRelationshipCB7.addItem(opodLogicalName5.getText());
+				opodRelationshipCB8.addItem(opodLogicalName5.getText());
+				opodRelationshipCB1.addItem(opodLogicalName6.getText());
+				opodRelationshipCB2.addItem(opodLogicalName6.getText());
+				opodRelationshipCB3.addItem(opodLogicalName6.getText());
+				opodRelationshipCB4.addItem(opodLogicalName6.getText());
+				opodRelationshipCB5.addItem(opodLogicalName6.getText());
+				opodRelationshipCB6.addItem(opodLogicalName6.getText());
+				opodRelationshipCB7.addItem(opodLogicalName6.getText());
+				opodRelationshipCB8.addItem(opodLogicalName6.getText());
+				opodRelationshipCB1.addItem(opodLogicalName7.getText());
+				opodRelationshipCB2.addItem(opodLogicalName7.getText());
+				opodRelationshipCB3.addItem(opodLogicalName7.getText());
+				opodRelationshipCB4.addItem(opodLogicalName7.getText());
+				opodRelationshipCB5.addItem(opodLogicalName7.getText());
+				opodRelationshipCB6.addItem(opodLogicalName7.getText());
+				opodRelationshipCB7.addItem(opodLogicalName7.getText());
+				opodRelationshipCB8.addItem(opodLogicalName7.getText());
+				opodRelationshipCB1.addItem(opodLogicalName8.getText());
+				opodRelationshipCB2.addItem(opodLogicalName8.getText());
+				opodRelationshipCB3.addItem(opodLogicalName8.getText());
+				opodRelationshipCB4.addItem(opodLogicalName8.getText());
+				opodRelationshipCB5.addItem(opodLogicalName8.getText());
+				opodRelationshipCB6.addItem(opodLogicalName8.getText());
+				opodRelationshipCB7.addItem(opodLogicalName8.getText());
+				opodRelationshipCB8.addItem(opodLogicalName8.getText());
+				opodRelationshipCB1.addItem(opodLogicalName9.getText());
+				opodRelationshipCB2.addItem(opodLogicalName9.getText());
+				opodRelationshipCB3.addItem(opodLogicalName9.getText());
+				opodRelationshipCB4.addItem(opodLogicalName9.getText());
+				opodRelationshipCB5.addItem(opodLogicalName9.getText());
+				opodRelationshipCB6.addItem(opodLogicalName9.getText());
+				opodRelationshipCB7.addItem(opodLogicalName9.getText());
+				opodRelationshipCB8.addItem(opodLogicalName9.getText());
+				opodRelationshipCB1.addItem(opodLogicalName10.getText());
+				opodRelationshipCB2.addItem(opodLogicalName10.getText());
+				opodRelationshipCB3.addItem(opodLogicalName10.getText());
+				opodRelationshipCB4.addItem(opodLogicalName10.getText());
+				opodRelationshipCB5.addItem(opodLogicalName10.getText());
+				opodRelationshipCB6.addItem(opodLogicalName10.getText());
+				opodRelationshipCB7.addItem(opodLogicalName10.getText());
+				opodRelationshipCB8.addItem(opodLogicalName10.getText());
+				opodRelationshipCB1.addItem("M5000");
+				opodRelationshipCB2.addItem("M5000");
+				opodRelationshipCB3.addItem("M5000");
+				opodRelationshipCB4.addItem("M5000");
+				opodRelationshipCB5.addItem("M5000");
+				opodRelationshipCB6.addItem("M5000");
+				opodRelationshipCB7.addItem("M5000");
+				opodRelationshipCB8.addItem("M5000");
 			}
 
 			@Override
@@ -2012,98 +1773,208 @@ public class GUI {
 			}
 		});
 		
-		textArea_6.addFocusListener(new FocusListener() {
+
+		opodLogicalName10.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_51.removeAllItems();
-				comboBox_52.removeAllItems();
-				comboBox_53.removeAllItems();
-				comboBox_54.removeAllItems();
-				comboBox_55.removeAllItems();
-				comboBox_56.removeAllItems();
-				comboBox_57.removeAllItems();
-				comboBox_58.removeAllItems();
-				comboBox_51.addItem(textArea_2.getText());
-				comboBox_52.addItem(textArea_2.getText());
-				comboBox_53.addItem(textArea_2.getText());
-				comboBox_54.addItem(textArea_2.getText());
-				comboBox_55.addItem(textArea_2.getText());
-				comboBox_56.addItem(textArea_2.getText());
-				comboBox_57.addItem(textArea_2.getText());
-				comboBox_58.addItem(textArea_2.getText());
-				comboBox_51.addItem(textArea_4.getText());
-				comboBox_52.addItem(textArea_4.getText());
-				comboBox_53.addItem(textArea_4.getText());
-				comboBox_54.addItem(textArea_4.getText());
-				comboBox_55.addItem(textArea_4.getText());
-				comboBox_56.addItem(textArea_4.getText());
-				comboBox_57.addItem(textArea_4.getText());
-				comboBox_58.addItem(textArea_4.getText());
-				comboBox_51.addItem(textArea_6.getText());
-				comboBox_52.addItem(textArea_6.getText());
-				comboBox_53.addItem(textArea_6.getText());
-				comboBox_54.addItem(textArea_6.getText());
-				comboBox_55.addItem(textArea_6.getText());
-				comboBox_56.addItem(textArea_6.getText());
-				comboBox_57.addItem(textArea_6.getText());
-				comboBox_58.addItem(textArea_6.getText());
-				comboBox_51.addItem(textArea_8.getText());
-				comboBox_52.addItem(textArea_8.getText());
-				comboBox_53.addItem(textArea_8.getText());
-				comboBox_54.addItem(textArea_8.getText());
-				comboBox_55.addItem(textArea_8.getText());
-				comboBox_56.addItem(textArea_8.getText());
-				comboBox_57.addItem(textArea_8.getText());
-				comboBox_58.addItem(textArea_8.getText());
-				comboBox_51.addItem(textArea_10.getText());
-				comboBox_52.addItem(textArea_10.getText());
-				comboBox_53.addItem(textArea_10.getText());
-				comboBox_54.addItem(textArea_10.getText());
-				comboBox_55.addItem(textArea_10.getText());
-				comboBox_56.addItem(textArea_10.getText());
-				comboBox_57.addItem(textArea_10.getText());
-				comboBox_58.addItem(textArea_10.getText());
-				comboBox_51.addItem(textArea_12.getText());
-				comboBox_52.addItem(textArea_12.getText());
-				comboBox_53.addItem(textArea_12.getText());
-				comboBox_54.addItem(textArea_12.getText());
-				comboBox_55.addItem(textArea_12.getText());
-				comboBox_56.addItem(textArea_12.getText());
-				comboBox_57.addItem(textArea_12.getText());
-				comboBox_58.addItem(textArea_12.getText());
-				comboBox_51.addItem(textArea_14.getText());
-				comboBox_52.addItem(textArea_14.getText());
-				comboBox_53.addItem(textArea_14.getText());
-				comboBox_54.addItem(textArea_14.getText());
-				comboBox_55.addItem(textArea_14.getText());
-				comboBox_56.addItem(textArea_14.getText());
-				comboBox_57.addItem(textArea_14.getText());
-				comboBox_58.addItem(textArea_14.getText());
-				comboBox_51.addItem(textArea_16.getText());
-				comboBox_52.addItem(textArea_16.getText());
-				comboBox_53.addItem(textArea_16.getText());
-				comboBox_54.addItem(textArea_16.getText());
-				comboBox_55.addItem(textArea_16.getText());
-				comboBox_56.addItem(textArea_16.getText());
-				comboBox_57.addItem(textArea_16.getText());
-				comboBox_58.addItem(textArea_16.getText());
-				comboBox_51.addItem(textArea_18.getText());
-				comboBox_52.addItem(textArea_18.getText());
-				comboBox_53.addItem(textArea_18.getText());
-				comboBox_54.addItem(textArea_18.getText());
-				comboBox_55.addItem(textArea_18.getText());
-				comboBox_56.addItem(textArea_18.getText());
-				comboBox_57.addItem(textArea_18.getText());
-				comboBox_58.addItem(textArea_18.getText());
-				comboBox_51.addItem(textArea_20.getText());
-				comboBox_52.addItem(textArea_20.getText());
-				comboBox_53.addItem(textArea_20.getText());
-				comboBox_54.addItem(textArea_20.getText());
-				comboBox_55.addItem(textArea_20.getText());
-				comboBox_56.addItem(textArea_20.getText());
-				comboBox_57.addItem(textArea_20.getText());
-				comboBox_58.addItem(textArea_20.getText());
+				opodRelationshipCB1.removeAllItems();
+				opodRelationshipCB2.removeAllItems();
+				opodRelationshipCB3.removeAllItems();
+				opodRelationshipCB4.removeAllItems();
+				opodRelationshipCB5.removeAllItems();
+				opodRelationshipCB6.removeAllItems();
+				opodRelationshipCB7.removeAllItems();
+				opodRelationshipCB8.removeAllItems();
+				opodRelationshipCB1.addItem(opodLogicalName1.getText());
+				opodRelationshipCB2.addItem(opodLogicalName1.getText());
+				opodRelationshipCB3.addItem(opodLogicalName1.getText());
+				opodRelationshipCB4.addItem(opodLogicalName1.getText());
+				opodRelationshipCB5.addItem(opodLogicalName1.getText());
+				opodRelationshipCB6.addItem(opodLogicalName1.getText());
+				opodRelationshipCB7.addItem(opodLogicalName1.getText());
+				opodRelationshipCB8.addItem(opodLogicalName1.getText());
+				opodRelationshipCB1.addItem(opodLogicalName2.getText());
+				opodRelationshipCB2.addItem(opodLogicalName2.getText());
+				opodRelationshipCB3.addItem(opodLogicalName2.getText());
+				opodRelationshipCB4.addItem(opodLogicalName2.getText());
+				opodRelationshipCB5.addItem(opodLogicalName2.getText());
+				opodRelationshipCB6.addItem(opodLogicalName2.getText());
+				opodRelationshipCB7.addItem(opodLogicalName2.getText());
+				opodRelationshipCB8.addItem(opodLogicalName2.getText());
+				opodRelationshipCB1.addItem(opodLogicalName3.getText());
+				opodRelationshipCB2.addItem(opodLogicalName3.getText());
+				opodRelationshipCB3.addItem(opodLogicalName3.getText());
+				opodRelationshipCB4.addItem(opodLogicalName3.getText());
+				opodRelationshipCB5.addItem(opodLogicalName3.getText());
+				opodRelationshipCB6.addItem(opodLogicalName3.getText());
+				opodRelationshipCB7.addItem(opodLogicalName3.getText());
+				opodRelationshipCB8.addItem(opodLogicalName3.getText());
+				opodRelationshipCB1.addItem(opodLogicalName4.getText());
+				opodRelationshipCB2.addItem(opodLogicalName4.getText());
+				opodRelationshipCB3.addItem(opodLogicalName4.getText());
+				opodRelationshipCB4.addItem(opodLogicalName4.getText());
+				opodRelationshipCB5.addItem(opodLogicalName4.getText());
+				opodRelationshipCB6.addItem(opodLogicalName4.getText());
+				opodRelationshipCB7.addItem(opodLogicalName4.getText());
+				opodRelationshipCB8.addItem(opodLogicalName4.getText());
+				opodRelationshipCB1.addItem(opodLogicalName5.getText());
+				opodRelationshipCB2.addItem(opodLogicalName5.getText());
+				opodRelationshipCB3.addItem(opodLogicalName5.getText());
+				opodRelationshipCB4.addItem(opodLogicalName5.getText());
+				opodRelationshipCB5.addItem(opodLogicalName5.getText());
+				opodRelationshipCB6.addItem(opodLogicalName5.getText());
+				opodRelationshipCB7.addItem(opodLogicalName5.getText());
+				opodRelationshipCB8.addItem(opodLogicalName5.getText());
+				opodRelationshipCB1.addItem(opodLogicalName6.getText());
+				opodRelationshipCB2.addItem(opodLogicalName6.getText());
+				opodRelationshipCB3.addItem(opodLogicalName6.getText());
+				opodRelationshipCB4.addItem(opodLogicalName6.getText());
+				opodRelationshipCB5.addItem(opodLogicalName6.getText());
+				opodRelationshipCB6.addItem(opodLogicalName6.getText());
+				opodRelationshipCB7.addItem(opodLogicalName6.getText());
+				opodRelationshipCB8.addItem(opodLogicalName6.getText());
+				opodRelationshipCB1.addItem(opodLogicalName7.getText());
+				opodRelationshipCB2.addItem(opodLogicalName7.getText());
+				opodRelationshipCB3.addItem(opodLogicalName7.getText());
+				opodRelationshipCB4.addItem(opodLogicalName7.getText());
+				opodRelationshipCB5.addItem(opodLogicalName7.getText());
+				opodRelationshipCB6.addItem(opodLogicalName7.getText());
+				opodRelationshipCB7.addItem(opodLogicalName7.getText());
+				opodRelationshipCB8.addItem(opodLogicalName7.getText());
+				opodRelationshipCB1.addItem(opodLogicalName8.getText());
+				opodRelationshipCB2.addItem(opodLogicalName8.getText());
+				opodRelationshipCB3.addItem(opodLogicalName8.getText());
+				opodRelationshipCB4.addItem(opodLogicalName8.getText());
+				opodRelationshipCB5.addItem(opodLogicalName8.getText());
+				opodRelationshipCB6.addItem(opodLogicalName8.getText());
+				opodRelationshipCB7.addItem(opodLogicalName8.getText());
+				opodRelationshipCB8.addItem(opodLogicalName8.getText());
+				opodRelationshipCB1.addItem(opodLogicalName9.getText());
+				opodRelationshipCB2.addItem(opodLogicalName9.getText());
+				opodRelationshipCB3.addItem(opodLogicalName9.getText());
+				opodRelationshipCB4.addItem(opodLogicalName9.getText());
+				opodRelationshipCB5.addItem(opodLogicalName9.getText());
+				opodRelationshipCB6.addItem(opodLogicalName9.getText());
+				opodRelationshipCB7.addItem(opodLogicalName9.getText());
+				opodRelationshipCB8.addItem(opodLogicalName9.getText());
+				opodRelationshipCB1.addItem(opodLogicalName10.getText());
+				opodRelationshipCB2.addItem(opodLogicalName10.getText());
+				opodRelationshipCB3.addItem(opodLogicalName10.getText());
+				opodRelationshipCB4.addItem(opodLogicalName10.getText());
+				opodRelationshipCB5.addItem(opodLogicalName10.getText());
+				opodRelationshipCB6.addItem(opodLogicalName10.getText());
+				opodRelationshipCB7.addItem(opodLogicalName10.getText());
+				opodRelationshipCB8.addItem(opodLogicalName10.getText());
+				opodRelationshipCB1.addItem("M5000");
+				opodRelationshipCB2.addItem("M5000");
+				opodRelationshipCB3.addItem("M5000");
+				opodRelationshipCB4.addItem("M5000");
+				opodRelationshipCB5.addItem("M5000");
+				opodRelationshipCB6.addItem("M5000");
+				opodRelationshipCB7.addItem("M5000");
+				opodRelationshipCB8.addItem("M5000");
+			}
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+
+		opodServerRelationship2.addFocusListener(new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent arg0) {
+				opodPrimaryCB1.removeAllItems();
+				opodPrimaryCB2.removeAllItems();
+				opodPrimaryCB3.removeAllItems();
+				opodPrimaryCB4.removeAllItems();
+				opodPrimaryCB5.removeAllItems();
+				opodPrimaryCB6.removeAllItems();
+				opodPrimaryCB7.removeAllItems();
+				opodPrimaryCB8.removeAllItems();
+				opodPrimaryCB1.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship10.getText());
 			}
 
 			@Override
@@ -2113,98 +1984,98 @@ public class GUI {
 			}
 		});
 		
-		textArea_8.addFocusListener(new FocusListener() {
+		opodServerRelationship3.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_51.removeAllItems();
-				comboBox_52.removeAllItems();
-				comboBox_53.removeAllItems();
-				comboBox_54.removeAllItems();
-				comboBox_55.removeAllItems();
-				comboBox_56.removeAllItems();
-				comboBox_57.removeAllItems();
-				comboBox_58.removeAllItems();
-				comboBox_51.addItem(textArea_2.getText());
-				comboBox_52.addItem(textArea_2.getText());
-				comboBox_53.addItem(textArea_2.getText());
-				comboBox_54.addItem(textArea_2.getText());
-				comboBox_55.addItem(textArea_2.getText());
-				comboBox_56.addItem(textArea_2.getText());
-				comboBox_57.addItem(textArea_2.getText());
-				comboBox_58.addItem(textArea_2.getText());
-				comboBox_51.addItem(textArea_4.getText());
-				comboBox_52.addItem(textArea_4.getText());
-				comboBox_53.addItem(textArea_4.getText());
-				comboBox_54.addItem(textArea_4.getText());
-				comboBox_55.addItem(textArea_4.getText());
-				comboBox_56.addItem(textArea_4.getText());
-				comboBox_57.addItem(textArea_4.getText());
-				comboBox_58.addItem(textArea_4.getText());
-				comboBox_51.addItem(textArea_6.getText());
-				comboBox_52.addItem(textArea_6.getText());
-				comboBox_53.addItem(textArea_6.getText());
-				comboBox_54.addItem(textArea_6.getText());
-				comboBox_55.addItem(textArea_6.getText());
-				comboBox_56.addItem(textArea_6.getText());
-				comboBox_57.addItem(textArea_6.getText());
-				comboBox_58.addItem(textArea_6.getText());
-				comboBox_51.addItem(textArea_8.getText());
-				comboBox_52.addItem(textArea_8.getText());
-				comboBox_53.addItem(textArea_8.getText());
-				comboBox_54.addItem(textArea_8.getText());
-				comboBox_55.addItem(textArea_8.getText());
-				comboBox_56.addItem(textArea_8.getText());
-				comboBox_57.addItem(textArea_8.getText());
-				comboBox_58.addItem(textArea_8.getText());
-				comboBox_51.addItem(textArea_10.getText());
-				comboBox_52.addItem(textArea_10.getText());
-				comboBox_53.addItem(textArea_10.getText());
-				comboBox_54.addItem(textArea_10.getText());
-				comboBox_55.addItem(textArea_10.getText());
-				comboBox_56.addItem(textArea_10.getText());
-				comboBox_57.addItem(textArea_10.getText());
-				comboBox_58.addItem(textArea_10.getText());
-				comboBox_51.addItem(textArea_12.getText());
-				comboBox_52.addItem(textArea_12.getText());
-				comboBox_53.addItem(textArea_12.getText());
-				comboBox_54.addItem(textArea_12.getText());
-				comboBox_55.addItem(textArea_12.getText());
-				comboBox_56.addItem(textArea_12.getText());
-				comboBox_57.addItem(textArea_12.getText());
-				comboBox_58.addItem(textArea_12.getText());
-				comboBox_51.addItem(textArea_14.getText());
-				comboBox_52.addItem(textArea_14.getText());
-				comboBox_53.addItem(textArea_14.getText());
-				comboBox_54.addItem(textArea_14.getText());
-				comboBox_55.addItem(textArea_14.getText());
-				comboBox_56.addItem(textArea_14.getText());
-				comboBox_57.addItem(textArea_14.getText());
-				comboBox_58.addItem(textArea_14.getText());
-				comboBox_51.addItem(textArea_16.getText());
-				comboBox_52.addItem(textArea_16.getText());
-				comboBox_53.addItem(textArea_16.getText());
-				comboBox_54.addItem(textArea_16.getText());
-				comboBox_55.addItem(textArea_16.getText());
-				comboBox_56.addItem(textArea_16.getText());
-				comboBox_57.addItem(textArea_16.getText());
-				comboBox_58.addItem(textArea_16.getText());
-				comboBox_51.addItem(textArea_18.getText());
-				comboBox_52.addItem(textArea_18.getText());
-				comboBox_53.addItem(textArea_18.getText());
-				comboBox_54.addItem(textArea_18.getText());
-				comboBox_55.addItem(textArea_18.getText());
-				comboBox_56.addItem(textArea_18.getText());
-				comboBox_57.addItem(textArea_18.getText());
-				comboBox_58.addItem(textArea_18.getText());
-				comboBox_51.addItem(textArea_20.getText());
-				comboBox_52.addItem(textArea_20.getText());
-				comboBox_53.addItem(textArea_20.getText());
-				comboBox_54.addItem(textArea_20.getText());
-				comboBox_55.addItem(textArea_20.getText());
-				comboBox_56.addItem(textArea_20.getText());
-				comboBox_57.addItem(textArea_20.getText());
-				comboBox_58.addItem(textArea_20.getText());
+				opodPrimaryCB1.removeAllItems();
+				opodPrimaryCB2.removeAllItems();
+				opodPrimaryCB3.removeAllItems();
+				opodPrimaryCB4.removeAllItems();
+				opodPrimaryCB5.removeAllItems();
+				opodPrimaryCB6.removeAllItems();
+				opodPrimaryCB7.removeAllItems();
+				opodPrimaryCB8.removeAllItems();
+				opodPrimaryCB1.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship10.getText());
 			}
 
 			@Override
@@ -2214,98 +2085,98 @@ public class GUI {
 			}
 		});
 		
-		textArea_10.addFocusListener(new FocusListener() {
+		opodServerRelationship4.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_51.removeAllItems();
-				comboBox_52.removeAllItems();
-				comboBox_53.removeAllItems();
-				comboBox_54.removeAllItems();
-				comboBox_55.removeAllItems();
-				comboBox_56.removeAllItems();
-				comboBox_57.removeAllItems();
-				comboBox_58.removeAllItems();
-				comboBox_51.addItem(textArea_2.getText());
-				comboBox_52.addItem(textArea_2.getText());
-				comboBox_53.addItem(textArea_2.getText());
-				comboBox_54.addItem(textArea_2.getText());
-				comboBox_55.addItem(textArea_2.getText());
-				comboBox_56.addItem(textArea_2.getText());
-				comboBox_57.addItem(textArea_2.getText());
-				comboBox_58.addItem(textArea_2.getText());
-				comboBox_51.addItem(textArea_4.getText());
-				comboBox_52.addItem(textArea_4.getText());
-				comboBox_53.addItem(textArea_4.getText());
-				comboBox_54.addItem(textArea_4.getText());
-				comboBox_55.addItem(textArea_4.getText());
-				comboBox_56.addItem(textArea_4.getText());
-				comboBox_57.addItem(textArea_4.getText());
-				comboBox_58.addItem(textArea_4.getText());
-				comboBox_51.addItem(textArea_6.getText());
-				comboBox_52.addItem(textArea_6.getText());
-				comboBox_53.addItem(textArea_6.getText());
-				comboBox_54.addItem(textArea_6.getText());
-				comboBox_55.addItem(textArea_6.getText());
-				comboBox_56.addItem(textArea_6.getText());
-				comboBox_57.addItem(textArea_6.getText());
-				comboBox_58.addItem(textArea_6.getText());
-				comboBox_51.addItem(textArea_8.getText());
-				comboBox_52.addItem(textArea_8.getText());
-				comboBox_53.addItem(textArea_8.getText());
-				comboBox_54.addItem(textArea_8.getText());
-				comboBox_55.addItem(textArea_8.getText());
-				comboBox_56.addItem(textArea_8.getText());
-				comboBox_57.addItem(textArea_8.getText());
-				comboBox_58.addItem(textArea_8.getText());
-				comboBox_51.addItem(textArea_10.getText());
-				comboBox_52.addItem(textArea_10.getText());
-				comboBox_53.addItem(textArea_10.getText());
-				comboBox_54.addItem(textArea_10.getText());
-				comboBox_55.addItem(textArea_10.getText());
-				comboBox_56.addItem(textArea_10.getText());
-				comboBox_57.addItem(textArea_10.getText());
-				comboBox_58.addItem(textArea_10.getText());
-				comboBox_51.addItem(textArea_12.getText());
-				comboBox_52.addItem(textArea_12.getText());
-				comboBox_53.addItem(textArea_12.getText());
-				comboBox_54.addItem(textArea_12.getText());
-				comboBox_55.addItem(textArea_12.getText());
-				comboBox_56.addItem(textArea_12.getText());
-				comboBox_57.addItem(textArea_12.getText());
-				comboBox_58.addItem(textArea_12.getText());
-				comboBox_51.addItem(textArea_14.getText());
-				comboBox_52.addItem(textArea_14.getText());
-				comboBox_53.addItem(textArea_14.getText());
-				comboBox_54.addItem(textArea_14.getText());
-				comboBox_55.addItem(textArea_14.getText());
-				comboBox_56.addItem(textArea_14.getText());
-				comboBox_57.addItem(textArea_14.getText());
-				comboBox_58.addItem(textArea_14.getText());
-				comboBox_51.addItem(textArea_16.getText());
-				comboBox_52.addItem(textArea_16.getText());
-				comboBox_53.addItem(textArea_16.getText());
-				comboBox_54.addItem(textArea_16.getText());
-				comboBox_55.addItem(textArea_16.getText());
-				comboBox_56.addItem(textArea_16.getText());
-				comboBox_57.addItem(textArea_16.getText());
-				comboBox_58.addItem(textArea_16.getText());
-				comboBox_51.addItem(textArea_18.getText());
-				comboBox_52.addItem(textArea_18.getText());
-				comboBox_53.addItem(textArea_18.getText());
-				comboBox_54.addItem(textArea_18.getText());
-				comboBox_55.addItem(textArea_18.getText());
-				comboBox_56.addItem(textArea_18.getText());
-				comboBox_57.addItem(textArea_18.getText());
-				comboBox_58.addItem(textArea_18.getText());
-				comboBox_51.addItem(textArea_20.getText());
-				comboBox_52.addItem(textArea_20.getText());
-				comboBox_53.addItem(textArea_20.getText());
-				comboBox_54.addItem(textArea_20.getText());
-				comboBox_55.addItem(textArea_20.getText());
-				comboBox_56.addItem(textArea_20.getText());
-				comboBox_57.addItem(textArea_20.getText());
-				comboBox_58.addItem(textArea_20.getText());
+				opodPrimaryCB1.removeAllItems();
+				opodPrimaryCB2.removeAllItems();
+				opodPrimaryCB3.removeAllItems();
+				opodPrimaryCB4.removeAllItems();
+				opodPrimaryCB5.removeAllItems();
+				opodPrimaryCB6.removeAllItems();
+				opodPrimaryCB7.removeAllItems();
+				opodPrimaryCB8.removeAllItems();
+				opodPrimaryCB1.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship10.getText());
 			}
 
 			@Override
@@ -2315,98 +2186,98 @@ public class GUI {
 			}
 		});
 		
-		textArea_12.addFocusListener(new FocusListener() {
+		opodServerRelationship5.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_51.removeAllItems();
-				comboBox_52.removeAllItems();
-				comboBox_53.removeAllItems();
-				comboBox_54.removeAllItems();
-				comboBox_55.removeAllItems();
-				comboBox_56.removeAllItems();
-				comboBox_57.removeAllItems();
-				comboBox_58.removeAllItems();
-				comboBox_51.addItem(textArea_2.getText());
-				comboBox_52.addItem(textArea_2.getText());
-				comboBox_53.addItem(textArea_2.getText());
-				comboBox_54.addItem(textArea_2.getText());
-				comboBox_55.addItem(textArea_2.getText());
-				comboBox_56.addItem(textArea_2.getText());
-				comboBox_57.addItem(textArea_2.getText());
-				comboBox_58.addItem(textArea_2.getText());
-				comboBox_51.addItem(textArea_4.getText());
-				comboBox_52.addItem(textArea_4.getText());
-				comboBox_53.addItem(textArea_4.getText());
-				comboBox_54.addItem(textArea_4.getText());
-				comboBox_55.addItem(textArea_4.getText());
-				comboBox_56.addItem(textArea_4.getText());
-				comboBox_57.addItem(textArea_4.getText());
-				comboBox_58.addItem(textArea_4.getText());
-				comboBox_51.addItem(textArea_6.getText());
-				comboBox_52.addItem(textArea_6.getText());
-				comboBox_53.addItem(textArea_6.getText());
-				comboBox_54.addItem(textArea_6.getText());
-				comboBox_55.addItem(textArea_6.getText());
-				comboBox_56.addItem(textArea_6.getText());
-				comboBox_57.addItem(textArea_6.getText());
-				comboBox_58.addItem(textArea_6.getText());
-				comboBox_51.addItem(textArea_8.getText());
-				comboBox_52.addItem(textArea_8.getText());
-				comboBox_53.addItem(textArea_8.getText());
-				comboBox_54.addItem(textArea_8.getText());
-				comboBox_55.addItem(textArea_8.getText());
-				comboBox_56.addItem(textArea_8.getText());
-				comboBox_57.addItem(textArea_8.getText());
-				comboBox_58.addItem(textArea_8.getText());
-				comboBox_51.addItem(textArea_10.getText());
-				comboBox_52.addItem(textArea_10.getText());
-				comboBox_53.addItem(textArea_10.getText());
-				comboBox_54.addItem(textArea_10.getText());
-				comboBox_55.addItem(textArea_10.getText());
-				comboBox_56.addItem(textArea_10.getText());
-				comboBox_57.addItem(textArea_10.getText());
-				comboBox_58.addItem(textArea_10.getText());
-				comboBox_51.addItem(textArea_12.getText());
-				comboBox_52.addItem(textArea_12.getText());
-				comboBox_53.addItem(textArea_12.getText());
-				comboBox_54.addItem(textArea_12.getText());
-				comboBox_55.addItem(textArea_12.getText());
-				comboBox_56.addItem(textArea_12.getText());
-				comboBox_57.addItem(textArea_12.getText());
-				comboBox_58.addItem(textArea_12.getText());
-				comboBox_51.addItem(textArea_14.getText());
-				comboBox_52.addItem(textArea_14.getText());
-				comboBox_53.addItem(textArea_14.getText());
-				comboBox_54.addItem(textArea_14.getText());
-				comboBox_55.addItem(textArea_14.getText());
-				comboBox_56.addItem(textArea_14.getText());
-				comboBox_57.addItem(textArea_14.getText());
-				comboBox_58.addItem(textArea_14.getText());
-				comboBox_51.addItem(textArea_16.getText());
-				comboBox_52.addItem(textArea_16.getText());
-				comboBox_53.addItem(textArea_16.getText());
-				comboBox_54.addItem(textArea_16.getText());
-				comboBox_55.addItem(textArea_16.getText());
-				comboBox_56.addItem(textArea_16.getText());
-				comboBox_57.addItem(textArea_16.getText());
-				comboBox_58.addItem(textArea_16.getText());
-				comboBox_51.addItem(textArea_18.getText());
-				comboBox_52.addItem(textArea_18.getText());
-				comboBox_53.addItem(textArea_18.getText());
-				comboBox_54.addItem(textArea_18.getText());
-				comboBox_55.addItem(textArea_18.getText());
-				comboBox_56.addItem(textArea_18.getText());
-				comboBox_57.addItem(textArea_18.getText());
-				comboBox_58.addItem(textArea_18.getText());
-				comboBox_51.addItem(textArea_20.getText());
-				comboBox_52.addItem(textArea_20.getText());
-				comboBox_53.addItem(textArea_20.getText());
-				comboBox_54.addItem(textArea_20.getText());
-				comboBox_55.addItem(textArea_20.getText());
-				comboBox_56.addItem(textArea_20.getText());
-				comboBox_57.addItem(textArea_20.getText());
-				comboBox_58.addItem(textArea_20.getText());
+				opodPrimaryCB1.removeAllItems();
+				opodPrimaryCB2.removeAllItems();
+				opodPrimaryCB3.removeAllItems();
+				opodPrimaryCB4.removeAllItems();
+				opodPrimaryCB5.removeAllItems();
+				opodPrimaryCB6.removeAllItems();
+				opodPrimaryCB7.removeAllItems();
+				opodPrimaryCB8.removeAllItems();
+				opodPrimaryCB1.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship10.getText());
 			}
 
 			@Override
@@ -2416,98 +2287,98 @@ public class GUI {
 			}
 		});
 		
-		textArea_14.addFocusListener(new FocusListener() {
+		opodServerRelationship6.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_51.removeAllItems();
-				comboBox_52.removeAllItems();
-				comboBox_53.removeAllItems();
-				comboBox_54.removeAllItems();
-				comboBox_55.removeAllItems();
-				comboBox_56.removeAllItems();
-				comboBox_57.removeAllItems();
-				comboBox_58.removeAllItems();
-				comboBox_51.addItem(textArea_2.getText());
-				comboBox_52.addItem(textArea_2.getText());
-				comboBox_53.addItem(textArea_2.getText());
-				comboBox_54.addItem(textArea_2.getText());
-				comboBox_55.addItem(textArea_2.getText());
-				comboBox_56.addItem(textArea_2.getText());
-				comboBox_57.addItem(textArea_2.getText());
-				comboBox_58.addItem(textArea_2.getText());
-				comboBox_51.addItem(textArea_4.getText());
-				comboBox_52.addItem(textArea_4.getText());
-				comboBox_53.addItem(textArea_4.getText());
-				comboBox_54.addItem(textArea_4.getText());
-				comboBox_55.addItem(textArea_4.getText());
-				comboBox_56.addItem(textArea_4.getText());
-				comboBox_57.addItem(textArea_4.getText());
-				comboBox_58.addItem(textArea_4.getText());
-				comboBox_51.addItem(textArea_6.getText());
-				comboBox_52.addItem(textArea_6.getText());
-				comboBox_53.addItem(textArea_6.getText());
-				comboBox_54.addItem(textArea_6.getText());
-				comboBox_55.addItem(textArea_6.getText());
-				comboBox_56.addItem(textArea_6.getText());
-				comboBox_57.addItem(textArea_6.getText());
-				comboBox_58.addItem(textArea_6.getText());
-				comboBox_51.addItem(textArea_8.getText());
-				comboBox_52.addItem(textArea_8.getText());
-				comboBox_53.addItem(textArea_8.getText());
-				comboBox_54.addItem(textArea_8.getText());
-				comboBox_55.addItem(textArea_8.getText());
-				comboBox_56.addItem(textArea_8.getText());
-				comboBox_57.addItem(textArea_8.getText());
-				comboBox_58.addItem(textArea_8.getText());
-				comboBox_51.addItem(textArea_10.getText());
-				comboBox_52.addItem(textArea_10.getText());
-				comboBox_53.addItem(textArea_10.getText());
-				comboBox_54.addItem(textArea_10.getText());
-				comboBox_55.addItem(textArea_10.getText());
-				comboBox_56.addItem(textArea_10.getText());
-				comboBox_57.addItem(textArea_10.getText());
-				comboBox_58.addItem(textArea_10.getText());
-				comboBox_51.addItem(textArea_12.getText());
-				comboBox_52.addItem(textArea_12.getText());
-				comboBox_53.addItem(textArea_12.getText());
-				comboBox_54.addItem(textArea_12.getText());
-				comboBox_55.addItem(textArea_12.getText());
-				comboBox_56.addItem(textArea_12.getText());
-				comboBox_57.addItem(textArea_12.getText());
-				comboBox_58.addItem(textArea_12.getText());
-				comboBox_51.addItem(textArea_14.getText());
-				comboBox_52.addItem(textArea_14.getText());
-				comboBox_53.addItem(textArea_14.getText());
-				comboBox_54.addItem(textArea_14.getText());
-				comboBox_55.addItem(textArea_14.getText());
-				comboBox_56.addItem(textArea_14.getText());
-				comboBox_57.addItem(textArea_14.getText());
-				comboBox_58.addItem(textArea_14.getText());
-				comboBox_51.addItem(textArea_16.getText());
-				comboBox_52.addItem(textArea_16.getText());
-				comboBox_53.addItem(textArea_16.getText());
-				comboBox_54.addItem(textArea_16.getText());
-				comboBox_55.addItem(textArea_16.getText());
-				comboBox_56.addItem(textArea_16.getText());
-				comboBox_57.addItem(textArea_16.getText());
-				comboBox_58.addItem(textArea_16.getText());
-				comboBox_51.addItem(textArea_18.getText());
-				comboBox_52.addItem(textArea_18.getText());
-				comboBox_53.addItem(textArea_18.getText());
-				comboBox_54.addItem(textArea_18.getText());
-				comboBox_55.addItem(textArea_18.getText());
-				comboBox_56.addItem(textArea_18.getText());
-				comboBox_57.addItem(textArea_18.getText());
-				comboBox_58.addItem(textArea_18.getText());
-				comboBox_51.addItem(textArea_20.getText());
-				comboBox_52.addItem(textArea_20.getText());
-				comboBox_53.addItem(textArea_20.getText());
-				comboBox_54.addItem(textArea_20.getText());
-				comboBox_55.addItem(textArea_20.getText());
-				comboBox_56.addItem(textArea_20.getText());
-				comboBox_57.addItem(textArea_20.getText());
-				comboBox_58.addItem(textArea_20.getText());
+				opodPrimaryCB1.removeAllItems();
+				opodPrimaryCB2.removeAllItems();
+				opodPrimaryCB3.removeAllItems();
+				opodPrimaryCB4.removeAllItems();
+				opodPrimaryCB5.removeAllItems();
+				opodPrimaryCB6.removeAllItems();
+				opodPrimaryCB7.removeAllItems();
+				opodPrimaryCB8.removeAllItems();
+				opodPrimaryCB1.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship10.getText());
 			}
 
 			@Override
@@ -2517,98 +2388,98 @@ public class GUI {
 			}
 		});
 		
-		textArea_16.addFocusListener(new FocusListener() {
+		opodServerRelationship7.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_51.removeAllItems();
-				comboBox_52.removeAllItems();
-				comboBox_53.removeAllItems();
-				comboBox_54.removeAllItems();
-				comboBox_55.removeAllItems();
-				comboBox_56.removeAllItems();
-				comboBox_57.removeAllItems();
-				comboBox_58.removeAllItems();
-				comboBox_51.addItem(textArea_2.getText());
-				comboBox_52.addItem(textArea_2.getText());
-				comboBox_53.addItem(textArea_2.getText());
-				comboBox_54.addItem(textArea_2.getText());
-				comboBox_55.addItem(textArea_2.getText());
-				comboBox_56.addItem(textArea_2.getText());
-				comboBox_57.addItem(textArea_2.getText());
-				comboBox_58.addItem(textArea_2.getText());
-				comboBox_51.addItem(textArea_4.getText());
-				comboBox_52.addItem(textArea_4.getText());
-				comboBox_53.addItem(textArea_4.getText());
-				comboBox_54.addItem(textArea_4.getText());
-				comboBox_55.addItem(textArea_4.getText());
-				comboBox_56.addItem(textArea_4.getText());
-				comboBox_57.addItem(textArea_4.getText());
-				comboBox_58.addItem(textArea_4.getText());
-				comboBox_51.addItem(textArea_6.getText());
-				comboBox_52.addItem(textArea_6.getText());
-				comboBox_53.addItem(textArea_6.getText());
-				comboBox_54.addItem(textArea_6.getText());
-				comboBox_55.addItem(textArea_6.getText());
-				comboBox_56.addItem(textArea_6.getText());
-				comboBox_57.addItem(textArea_6.getText());
-				comboBox_58.addItem(textArea_6.getText());
-				comboBox_51.addItem(textArea_8.getText());
-				comboBox_52.addItem(textArea_8.getText());
-				comboBox_53.addItem(textArea_8.getText());
-				comboBox_54.addItem(textArea_8.getText());
-				comboBox_55.addItem(textArea_8.getText());
-				comboBox_56.addItem(textArea_8.getText());
-				comboBox_57.addItem(textArea_8.getText());
-				comboBox_58.addItem(textArea_8.getText());
-				comboBox_51.addItem(textArea_10.getText());
-				comboBox_52.addItem(textArea_10.getText());
-				comboBox_53.addItem(textArea_10.getText());
-				comboBox_54.addItem(textArea_10.getText());
-				comboBox_55.addItem(textArea_10.getText());
-				comboBox_56.addItem(textArea_10.getText());
-				comboBox_57.addItem(textArea_10.getText());
-				comboBox_58.addItem(textArea_10.getText());
-				comboBox_51.addItem(textArea_12.getText());
-				comboBox_52.addItem(textArea_12.getText());
-				comboBox_53.addItem(textArea_12.getText());
-				comboBox_54.addItem(textArea_12.getText());
-				comboBox_55.addItem(textArea_12.getText());
-				comboBox_56.addItem(textArea_12.getText());
-				comboBox_57.addItem(textArea_12.getText());
-				comboBox_58.addItem(textArea_12.getText());
-				comboBox_51.addItem(textArea_14.getText());
-				comboBox_52.addItem(textArea_14.getText());
-				comboBox_53.addItem(textArea_14.getText());
-				comboBox_54.addItem(textArea_14.getText());
-				comboBox_55.addItem(textArea_14.getText());
-				comboBox_56.addItem(textArea_14.getText());
-				comboBox_57.addItem(textArea_14.getText());
-				comboBox_58.addItem(textArea_14.getText());
-				comboBox_51.addItem(textArea_16.getText());
-				comboBox_52.addItem(textArea_16.getText());
-				comboBox_53.addItem(textArea_16.getText());
-				comboBox_54.addItem(textArea_16.getText());
-				comboBox_55.addItem(textArea_16.getText());
-				comboBox_56.addItem(textArea_16.getText());
-				comboBox_57.addItem(textArea_16.getText());
-				comboBox_58.addItem(textArea_16.getText());
-				comboBox_51.addItem(textArea_18.getText());
-				comboBox_52.addItem(textArea_18.getText());
-				comboBox_53.addItem(textArea_18.getText());
-				comboBox_54.addItem(textArea_18.getText());
-				comboBox_55.addItem(textArea_18.getText());
-				comboBox_56.addItem(textArea_18.getText());
-				comboBox_57.addItem(textArea_18.getText());
-				comboBox_58.addItem(textArea_18.getText());
-				comboBox_51.addItem(textArea_20.getText());
-				comboBox_52.addItem(textArea_20.getText());
-				comboBox_53.addItem(textArea_20.getText());
-				comboBox_54.addItem(textArea_20.getText());
-				comboBox_55.addItem(textArea_20.getText());
-				comboBox_56.addItem(textArea_20.getText());
-				comboBox_57.addItem(textArea_20.getText());
-				comboBox_58.addItem(textArea_20.getText());
+				opodPrimaryCB1.removeAllItems();
+				opodPrimaryCB2.removeAllItems();
+				opodPrimaryCB3.removeAllItems();
+				opodPrimaryCB4.removeAllItems();
+				opodPrimaryCB5.removeAllItems();
+				opodPrimaryCB6.removeAllItems();
+				opodPrimaryCB7.removeAllItems();
+				opodPrimaryCB8.removeAllItems();
+				opodPrimaryCB1.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship10.getText());
 			}
 
 			@Override
@@ -2618,98 +2489,98 @@ public class GUI {
 			}
 		});
 		
-		textArea_18.addFocusListener(new FocusListener() {
+		opodServerRelationship8.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_51.removeAllItems();
-				comboBox_52.removeAllItems();
-				comboBox_53.removeAllItems();
-				comboBox_54.removeAllItems();
-				comboBox_55.removeAllItems();
-				comboBox_56.removeAllItems();
-				comboBox_57.removeAllItems();
-				comboBox_58.removeAllItems();
-				comboBox_51.addItem(textArea_2.getText());
-				comboBox_52.addItem(textArea_2.getText());
-				comboBox_53.addItem(textArea_2.getText());
-				comboBox_54.addItem(textArea_2.getText());
-				comboBox_55.addItem(textArea_2.getText());
-				comboBox_56.addItem(textArea_2.getText());
-				comboBox_57.addItem(textArea_2.getText());
-				comboBox_58.addItem(textArea_2.getText());
-				comboBox_51.addItem(textArea_4.getText());
-				comboBox_52.addItem(textArea_4.getText());
-				comboBox_53.addItem(textArea_4.getText());
-				comboBox_54.addItem(textArea_4.getText());
-				comboBox_55.addItem(textArea_4.getText());
-				comboBox_56.addItem(textArea_4.getText());
-				comboBox_57.addItem(textArea_4.getText());
-				comboBox_58.addItem(textArea_4.getText());
-				comboBox_51.addItem(textArea_6.getText());
-				comboBox_52.addItem(textArea_6.getText());
-				comboBox_53.addItem(textArea_6.getText());
-				comboBox_54.addItem(textArea_6.getText());
-				comboBox_55.addItem(textArea_6.getText());
-				comboBox_56.addItem(textArea_6.getText());
-				comboBox_57.addItem(textArea_6.getText());
-				comboBox_58.addItem(textArea_6.getText());
-				comboBox_51.addItem(textArea_8.getText());
-				comboBox_52.addItem(textArea_8.getText());
-				comboBox_53.addItem(textArea_8.getText());
-				comboBox_54.addItem(textArea_8.getText());
-				comboBox_55.addItem(textArea_8.getText());
-				comboBox_56.addItem(textArea_8.getText());
-				comboBox_57.addItem(textArea_8.getText());
-				comboBox_58.addItem(textArea_8.getText());
-				comboBox_51.addItem(textArea_10.getText());
-				comboBox_52.addItem(textArea_10.getText());
-				comboBox_53.addItem(textArea_10.getText());
-				comboBox_54.addItem(textArea_10.getText());
-				comboBox_55.addItem(textArea_10.getText());
-				comboBox_56.addItem(textArea_10.getText());
-				comboBox_57.addItem(textArea_10.getText());
-				comboBox_58.addItem(textArea_10.getText());
-				comboBox_51.addItem(textArea_12.getText());
-				comboBox_52.addItem(textArea_12.getText());
-				comboBox_53.addItem(textArea_12.getText());
-				comboBox_54.addItem(textArea_12.getText());
-				comboBox_55.addItem(textArea_12.getText());
-				comboBox_56.addItem(textArea_12.getText());
-				comboBox_57.addItem(textArea_12.getText());
-				comboBox_58.addItem(textArea_12.getText());
-				comboBox_51.addItem(textArea_14.getText());
-				comboBox_52.addItem(textArea_14.getText());
-				comboBox_53.addItem(textArea_14.getText());
-				comboBox_54.addItem(textArea_14.getText());
-				comboBox_55.addItem(textArea_14.getText());
-				comboBox_56.addItem(textArea_14.getText());
-				comboBox_57.addItem(textArea_14.getText());
-				comboBox_58.addItem(textArea_14.getText());
-				comboBox_51.addItem(textArea_16.getText());
-				comboBox_52.addItem(textArea_16.getText());
-				comboBox_53.addItem(textArea_16.getText());
-				comboBox_54.addItem(textArea_16.getText());
-				comboBox_55.addItem(textArea_16.getText());
-				comboBox_56.addItem(textArea_16.getText());
-				comboBox_57.addItem(textArea_16.getText());
-				comboBox_58.addItem(textArea_16.getText());
-				comboBox_51.addItem(textArea_18.getText());
-				comboBox_52.addItem(textArea_18.getText());
-				comboBox_53.addItem(textArea_18.getText());
-				comboBox_54.addItem(textArea_18.getText());
-				comboBox_55.addItem(textArea_18.getText());
-				comboBox_56.addItem(textArea_18.getText());
-				comboBox_57.addItem(textArea_18.getText());
-				comboBox_58.addItem(textArea_18.getText());
-				comboBox_51.addItem(textArea_20.getText());
-				comboBox_52.addItem(textArea_20.getText());
-				comboBox_53.addItem(textArea_20.getText());
-				comboBox_54.addItem(textArea_20.getText());
-				comboBox_55.addItem(textArea_20.getText());
-				comboBox_56.addItem(textArea_20.getText());
-				comboBox_57.addItem(textArea_20.getText());
-				comboBox_58.addItem(textArea_20.getText());
+				opodPrimaryCB1.removeAllItems();
+				opodPrimaryCB2.removeAllItems();
+				opodPrimaryCB3.removeAllItems();
+				opodPrimaryCB4.removeAllItems();
+				opodPrimaryCB5.removeAllItems();
+				opodPrimaryCB6.removeAllItems();
+				opodPrimaryCB7.removeAllItems();
+				opodPrimaryCB8.removeAllItems();
+				opodPrimaryCB1.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship10.getText());
 			}
 
 			@Override
@@ -2719,98 +2590,199 @@ public class GUI {
 			}
 		});
 		
-		textArea_20.addFocusListener(new FocusListener() {
+		opodServerRelationship9.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				comboBox_51.removeAllItems();
-				comboBox_52.removeAllItems();
-				comboBox_53.removeAllItems();
-				comboBox_54.removeAllItems();
-				comboBox_55.removeAllItems();
-				comboBox_56.removeAllItems();
-				comboBox_57.removeAllItems();
-				comboBox_58.removeAllItems();
-				comboBox_51.addItem(textArea_2.getText());
-				comboBox_52.addItem(textArea_2.getText());
-				comboBox_53.addItem(textArea_2.getText());
-				comboBox_54.addItem(textArea_2.getText());
-				comboBox_55.addItem(textArea_2.getText());
-				comboBox_56.addItem(textArea_2.getText());
-				comboBox_57.addItem(textArea_2.getText());
-				comboBox_58.addItem(textArea_2.getText());
-				comboBox_51.addItem(textArea_4.getText());
-				comboBox_52.addItem(textArea_4.getText());
-				comboBox_53.addItem(textArea_4.getText());
-				comboBox_54.addItem(textArea_4.getText());
-				comboBox_55.addItem(textArea_4.getText());
-				comboBox_56.addItem(textArea_4.getText());
-				comboBox_57.addItem(textArea_4.getText());
-				comboBox_58.addItem(textArea_4.getText());
-				comboBox_51.addItem(textArea_6.getText());
-				comboBox_52.addItem(textArea_6.getText());
-				comboBox_53.addItem(textArea_6.getText());
-				comboBox_54.addItem(textArea_6.getText());
-				comboBox_55.addItem(textArea_6.getText());
-				comboBox_56.addItem(textArea_6.getText());
-				comboBox_57.addItem(textArea_6.getText());
-				comboBox_58.addItem(textArea_6.getText());
-				comboBox_51.addItem(textArea_8.getText());
-				comboBox_52.addItem(textArea_8.getText());
-				comboBox_53.addItem(textArea_8.getText());
-				comboBox_54.addItem(textArea_8.getText());
-				comboBox_55.addItem(textArea_8.getText());
-				comboBox_56.addItem(textArea_8.getText());
-				comboBox_57.addItem(textArea_8.getText());
-				comboBox_58.addItem(textArea_8.getText());
-				comboBox_51.addItem(textArea_10.getText());
-				comboBox_52.addItem(textArea_10.getText());
-				comboBox_53.addItem(textArea_10.getText());
-				comboBox_54.addItem(textArea_10.getText());
-				comboBox_55.addItem(textArea_10.getText());
-				comboBox_56.addItem(textArea_10.getText());
-				comboBox_57.addItem(textArea_10.getText());
-				comboBox_58.addItem(textArea_10.getText());
-				comboBox_51.addItem(textArea_12.getText());
-				comboBox_52.addItem(textArea_12.getText());
-				comboBox_53.addItem(textArea_12.getText());
-				comboBox_54.addItem(textArea_12.getText());
-				comboBox_55.addItem(textArea_12.getText());
-				comboBox_56.addItem(textArea_12.getText());
-				comboBox_57.addItem(textArea_12.getText());
-				comboBox_58.addItem(textArea_12.getText());
-				comboBox_51.addItem(textArea_14.getText());
-				comboBox_52.addItem(textArea_14.getText());
-				comboBox_53.addItem(textArea_14.getText());
-				comboBox_54.addItem(textArea_14.getText());
-				comboBox_55.addItem(textArea_14.getText());
-				comboBox_56.addItem(textArea_14.getText());
-				comboBox_57.addItem(textArea_14.getText());
-				comboBox_58.addItem(textArea_14.getText());
-				comboBox_51.addItem(textArea_16.getText());
-				comboBox_52.addItem(textArea_16.getText());
-				comboBox_53.addItem(textArea_16.getText());
-				comboBox_54.addItem(textArea_16.getText());
-				comboBox_55.addItem(textArea_16.getText());
-				comboBox_56.addItem(textArea_16.getText());
-				comboBox_57.addItem(textArea_16.getText());
-				comboBox_58.addItem(textArea_16.getText());
-				comboBox_51.addItem(textArea_18.getText());
-				comboBox_52.addItem(textArea_18.getText());
-				comboBox_53.addItem(textArea_18.getText());
-				comboBox_54.addItem(textArea_18.getText());
-				comboBox_55.addItem(textArea_18.getText());
-				comboBox_56.addItem(textArea_18.getText());
-				comboBox_57.addItem(textArea_18.getText());
-				comboBox_58.addItem(textArea_18.getText());
-				comboBox_51.addItem(textArea_20.getText());
-				comboBox_52.addItem(textArea_20.getText());
-				comboBox_53.addItem(textArea_20.getText());
-				comboBox_54.addItem(textArea_20.getText());
-				comboBox_55.addItem(textArea_20.getText());
-				comboBox_56.addItem(textArea_20.getText());
-				comboBox_57.addItem(textArea_20.getText());
-				comboBox_58.addItem(textArea_20.getText());
+				opodPrimaryCB1.removeAllItems();
+				opodPrimaryCB2.removeAllItems();
+				opodPrimaryCB3.removeAllItems();
+				opodPrimaryCB4.removeAllItems();
+				opodPrimaryCB5.removeAllItems();
+				opodPrimaryCB6.removeAllItems();
+				opodPrimaryCB7.removeAllItems();
+				opodPrimaryCB8.removeAllItems();
+				opodPrimaryCB1.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship10.getText());
+			}
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		opodServerRelationship10.addFocusListener(new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent arg0) {
+				opodPrimaryCB1.removeAllItems();
+				opodPrimaryCB2.removeAllItems();
+				opodPrimaryCB3.removeAllItems();
+				opodPrimaryCB4.removeAllItems();
+				opodPrimaryCB5.removeAllItems();
+				opodPrimaryCB6.removeAllItems();
+				opodPrimaryCB7.removeAllItems();
+				opodPrimaryCB8.removeAllItems();
+				opodPrimaryCB1.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship1.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship2.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship3.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship4.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship5.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship6.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship7.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship8.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship9.getText());
+				opodPrimaryCB1.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB2.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB3.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB4.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB5.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB6.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB7.addItem(opodServerRelationship10.getText());
+				opodPrimaryCB8.addItem(opodServerRelationship10.getText());
 			}
 
 			@Override
@@ -2820,801 +2792,788 @@ public class GUI {
 			}
 		});
 			
-		JComboBox opNumbers = new JComboBox(opod.getNumServers());
-		opNumbers.setBounds(372, 111, 241, 20);
-		OPOD.add(opNumbers);
-		opNumbers.addActionListener(new ActionListener() {
+		JComboBox opodNumServersCB = new JComboBox(opod.getNumServers());
+		opodNumServersCB.setBounds(372, 111, 241, 20);
+		OPOD.add(opodNumServersCB);
+		opodNumServersCB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(opNumbers.getSelectedItem().toString().equals("1")) {
-					textArea_1.setVisible(true);
-					textArea_2.setVisible(true);
-					textArea_3.setVisible(false);
-					textArea_4.setVisible(false);
-					textArea_5.setVisible(false);
-					textArea_6.setVisible(false);
-					textArea_7.setVisible(false);
-					textArea_8.setVisible(false);
-					textArea_9.setVisible(false);
-					textArea_10.setVisible(false);
-					textArea_11.setVisible(false);
-					textArea_12.setVisible(false);
-					textArea_13.setVisible(false);
-					textArea_14.setVisible(false);
-					textArea_15.setVisible(false);
-					textArea_16.setVisible(false);
-					textArea_17.setVisible(false);
-					textArea_18.setVisible(false);
-					textArea_19.setVisible(false);
-					textArea_20.setVisible(false);
+				/*if(opodNumServersCB.getSelectedItem().toString().equals("1")) {
+					opodLogicalName1.setVisible(true);
+					opodServerRelationship1.setVisible(true);
+					opodLogicalName2.setVisible(false);
+					opodServerRelationship2.setVisible(false);
+					opodLogicalName3.setVisible(false);
+					opodServerRelationship3.setVisible(false);
+					opodLogicalName4.setVisible(false);
+					opodServerRelationship4.setVisible(false);
+					opodLogicalName5.setVisible(false);
+					opodServerRelationship5.setVisible(false);
+					opodLogicalName6.setVisible(false);
+					opodServerRelationship6.setVisible(false);
+					opodLogicalName7.setVisible(false);
+					opodServerRelationship7.setVisible(false);
+					opodLogicalName8.setVisible(false);
+					opodServerRelationship8.setVisible(false);
+					opodLogicalName9.setVisible(false);
+					opodServerRelationship9.setVisible(false);
+					opodLogicalName10.setVisible(false);
+					opodServerRelationship10.setVisible(false);
 				}
-				if(opNumbers.getSelectedItem().toString().equals("2")) {
-					textArea_1.setVisible(true);
-					textArea_2.setVisible(true);
-					textArea_3.setVisible(true);
-					textArea_4.setVisible(true);
-					textArea_5.setVisible(false);
-					textArea_6.setVisible(false);
-					textArea_7.setVisible(false);
-					textArea_8.setVisible(false);
-					textArea_9.setVisible(false);
-					textArea_10.setVisible(false);
-					textArea_11.setVisible(false);
-					textArea_12.setVisible(false);
-					textArea_13.setVisible(false);
-					textArea_14.setVisible(false);
-					textArea_15.setVisible(false);
-					textArea_16.setVisible(false);
-					textArea_17.setVisible(false);
-					textArea_18.setVisible(false);
-					textArea_19.setVisible(false);
-					textArea_20.setVisible(false);
+				if(opodNumServersCB.getSelectedItem().toString().equals("2")) {
+					opodLogicalName1.setVisible(true);
+					opodServerRelationship1.setVisible(true);
+					opodLogicalName2.setVisible(true);
+					opodServerRelationship2.setVisible(true);
+					opodLogicalName3.setVisible(false);
+					opodServerRelationship3.setVisible(false);
+					opodLogicalName4.setVisible(false);
+					opodServerRelationship4.setVisible(false);
+					opodLogicalName5.setVisible(false);
+					opodServerRelationship5.setVisible(false);
+					opodLogicalName6.setVisible(false);
+					opodServerRelationship6.setVisible(false);
+					opodLogicalName7.setVisible(false);
+					opodServerRelationship7.setVisible(false);
+					opodLogicalName8.setVisible(false);
+					opodServerRelationship8.setVisible(false);
+					opodLogicalName9.setVisible(false);
+					opodServerRelationship9.setVisible(false);
+					opodLogicalName10.setVisible(false);
+					opodServerRelationship10.setVisible(false);
 				}
-				if(opNumbers.getSelectedItem().toString().equals("3")) {
-					textArea_1.setVisible(true);
-					textArea_2.setVisible(true);
-					textArea_3.setVisible(true);
-					textArea_4.setVisible(true);
-					textArea_5.setVisible(true);
-					textArea_6.setVisible(true);
-					textArea_7.setVisible(false);
-					textArea_8.setVisible(false);
-					textArea_9.setVisible(false);
-					textArea_10.setVisible(false);
-					textArea_11.setVisible(false);
-					textArea_12.setVisible(false);
-					textArea_13.setVisible(false);
-					textArea_14.setVisible(false);
-					textArea_15.setVisible(false);
-					textArea_16.setVisible(false);
-					textArea_17.setVisible(false);
-					textArea_18.setVisible(false);
-					textArea_19.setVisible(false);
-					textArea_20.setVisible(false);
+				if(opodNumServersCB.getSelectedItem().toString().equals("3")) {
+					opodLogicalName1.setVisible(true);
+					opodServerRelationship1.setVisible(true);
+					opodLogicalName2.setVisible(true);
+					opodServerRelationship2.setVisible(true);
+					opodLogicalName3.setVisible(true);
+					opodServerRelationship3.setVisible(true);
+					opodLogicalName4.setVisible(false);
+					opodServerRelationship4.setVisible(false);
+					opodLogicalName5.setVisible(false);
+					opodServerRelationship5.setVisible(false);
+					opodLogicalName6.setVisible(false);
+					opodServerRelationship6.setVisible(false);
+					opodLogicalName7.setVisible(false);
+					opodServerRelationship7.setVisible(false);
+					opodLogicalName8.setVisible(false);
+					opodServerRelationship8.setVisible(false);
+					opodLogicalName9.setVisible(false);
+					opodServerRelationship9.setVisible(false);
+					opodLogicalName10.setVisible(false);
+					opodServerRelationship10.setVisible(false);
 				}
-				if(opNumbers.getSelectedItem().toString().equals("4")) {
-					textArea_1.setVisible(true);
-					textArea_2.setVisible(true);
-					textArea_3.setVisible(true);
-					textArea_4.setVisible(true);
-					textArea_5.setVisible(true);
-					textArea_6.setVisible(true);
-					textArea_7.setVisible(true);
-					textArea_8.setVisible(true);
-					textArea_9.setVisible(false);
-					textArea_10.setVisible(false);
-					textArea_11.setVisible(false);
-					textArea_12.setVisible(false);
-					textArea_13.setVisible(false);
-					textArea_14.setVisible(false);
-					textArea_15.setVisible(false);
-					textArea_16.setVisible(false);
-					textArea_17.setVisible(false);
-					textArea_18.setVisible(false);
-					textArea_19.setVisible(false);
-					textArea_20.setVisible(false);
+				if(opodNumServersCB.getSelectedItem().toString().equals("4")) {
+					opodLogicalName1.setVisible(true);
+					opodServerRelationship1.setVisible(true);
+					opodLogicalName2.setVisible(true);
+					opodServerRelationship2.setVisible(true);
+					opodLogicalName3.setVisible(true);
+					opodServerRelationship3.setVisible(true);
+					opodLogicalName4.setVisible(true);
+					opodServerRelationship4.setVisible(true);
+					opodLogicalName5.setVisible(false);
+					opodServerRelationship5.setVisible(false);
+					opodLogicalName6.setVisible(false);
+					opodServerRelationship6.setVisible(false);
+					opodLogicalName7.setVisible(false);
+					opodServerRelationship7.setVisible(false);
+					opodLogicalName8.setVisible(false);
+					opodServerRelationship8.setVisible(false);
+					opodLogicalName9.setVisible(false);
+					opodServerRelationship9.setVisible(false);
+					opodLogicalName10.setVisible(false);
+					opodServerRelationship10.setVisible(false);
 				}
-				if(opNumbers.getSelectedItem().toString().equals("5")) {
-					textArea_1.setVisible(true);
-					textArea_2.setVisible(true);
-					textArea_3.setVisible(true);
-					textArea_4.setVisible(true);
-					textArea_5.setVisible(true);
-					textArea_6.setVisible(true);
-					textArea_7.setVisible(true);
-					textArea_8.setVisible(true);
-					textArea_9.setVisible(true);
-					textArea_10.setVisible(true);
-					textArea_11.setVisible(false);
-					textArea_12.setVisible(false);
-					textArea_13.setVisible(false);
-					textArea_14.setVisible(false);
-					textArea_15.setVisible(false);
-					textArea_16.setVisible(false);
-					textArea_17.setVisible(false);
-					textArea_18.setVisible(false);
-					textArea_19.setVisible(false);
-					textArea_20.setVisible(false);
+				if(opodNumServersCB.getSelectedItem().toString().equals("5")) {
+					opodLogicalName1.setVisible(true);
+					opodServerRelationship1.setVisible(true);
+					opodLogicalName2.setVisible(true);
+					opodServerRelationship2.setVisible(true);
+					opodLogicalName3.setVisible(true);
+					opodServerRelationship3.setVisible(true);
+					opodLogicalName4.setVisible(true);
+					opodServerRelationship4.setVisible(true);
+					opodLogicalName5.setVisible(true);
+					opodServerRelationship5.setVisible(true);
+					opodLogicalName6.setVisible(false);
+					opodServerRelationship6.setVisible(false);
+					opodLogicalName7.setVisible(false);
+					opodServerRelationship7.setVisible(false);
+					opodLogicalName8.setVisible(false);
+					opodServerRelationship8.setVisible(false);
+					opodLogicalName9.setVisible(false);
+					opodServerRelationship9.setVisible(false);
+					opodLogicalName10.setVisible(false);
+					opodServerRelationship10.setVisible(false);
 				}
-				if(opNumbers.getSelectedItem().toString().equals("6")) {
-					textArea_1.setVisible(true);
-					textArea_2.setVisible(true);
-					textArea_3.setVisible(true);
-					textArea_4.setVisible(true);
-					textArea_5.setVisible(true);
-					textArea_6.setVisible(true);
-					textArea_7.setVisible(true);
-					textArea_8.setVisible(true);
-					textArea_9.setVisible(true);
-					textArea_10.setVisible(true);
-					textArea_11.setVisible(true);
-					textArea_12.setVisible(true);
-					textArea_13.setVisible(false);
-					textArea_14.setVisible(false);
-					textArea_15.setVisible(false);
-					textArea_16.setVisible(false);
-					textArea_17.setVisible(false);
-					textArea_18.setVisible(false);
-					textArea_19.setVisible(false);
-					textArea_20.setVisible(false);
+				if(opodNumServersCB.getSelectedItem().toString().equals("6")) {
+					opodLogicalName1.setVisible(true);
+					opodServerRelationship1.setVisible(true);
+					opodLogicalName2.setVisible(true);
+					opodServerRelationship2.setVisible(true);
+					opodLogicalName3.setVisible(true);
+					opodServerRelationship3.setVisible(true);
+					opodLogicalName4.setVisible(true);
+					opodServerRelationship4.setVisible(true);
+					opodLogicalName5.setVisible(true);
+					opodServerRelationship5.setVisible(true);
+					opodLogicalName6.setVisible(true);
+					opodServerRelationship6.setVisible(true);
+					opodLogicalName7.setVisible(false);
+					opodServerRelationship7.setVisible(false);
+					opodLogicalName8.setVisible(false);
+					opodServerRelationship8.setVisible(false);
+					opodLogicalName9.setVisible(false);
+					opodServerRelationship9.setVisible(false);
+					opodLogicalName10.setVisible(false);
+					opodServerRelationship10.setVisible(false);
 				}
-				if(opNumbers.getSelectedItem().toString().equals("7")) {
-					textArea_1.setVisible(true);
-					textArea_2.setVisible(true);
-					textArea_3.setVisible(true);
-					textArea_4.setVisible(true);
-					textArea_5.setVisible(true);
-					textArea_6.setVisible(true);
-					textArea_7.setVisible(true);
-					textArea_8.setVisible(true);
-					textArea_9.setVisible(true);
-					textArea_10.setVisible(true);
-					textArea_11.setVisible(true);
-					textArea_12.setVisible(true);
-					textArea_13.setVisible(true);
-					textArea_14.setVisible(true);
-					textArea_15.setVisible(false);
-					textArea_16.setVisible(false);
-					textArea_17.setVisible(false);
-					textArea_18.setVisible(false);
-					textArea_19.setVisible(false);
-					textArea_20.setVisible(false);
+				if(opodNumServersCB.getSelectedItem().toString().equals("7")) {
+					opodLogicalName1.setVisible(true);
+					opodServerRelationship1.setVisible(true);
+					opodLogicalName2.setVisible(true);
+					opodServerRelationship2.setVisible(true);
+					opodLogicalName3.setVisible(true);
+					opodServerRelationship3.setVisible(true);
+					opodLogicalName4.setVisible(true);
+					opodServerRelationship4.setVisible(true);
+					opodLogicalName5.setVisible(true);
+					opodServerRelationship5.setVisible(true);
+					opodLogicalName6.setVisible(true);
+					opodServerRelationship6.setVisible(true);
+					opodLogicalName7.setVisible(true);
+					opodServerRelationship7.setVisible(true);
+					opodLogicalName8.setVisible(false);
+					opodServerRelationship8.setVisible(false);
+					opodLogicalName9.setVisible(false);
+					opodServerRelationship9.setVisible(false);
+					opodLogicalName10.setVisible(false);
+					opodServerRelationship10.setVisible(false);
 				}
-				if(opNumbers.getSelectedItem().toString().equals("8")) {
-					textArea_1.setVisible(true);
-					textArea_2.setVisible(true);
-					textArea_3.setVisible(true);
-					textArea_4.setVisible(true);
-					textArea_5.setVisible(true);
-					textArea_6.setVisible(true);
-					textArea_7.setVisible(true);
-					textArea_8.setVisible(true);
-					textArea_9.setVisible(true);
-					textArea_10.setVisible(true);
-					textArea_11.setVisible(true);
-					textArea_12.setVisible(true);
-					textArea_13.setVisible(true);
-					textArea_14.setVisible(true);
-					textArea_15.setVisible(true);
-					textArea_16.setVisible(true);
-					textArea_17.setVisible(false);
-					textArea_18.setVisible(false);
-					textArea_19.setVisible(false);
-					textArea_20.setVisible(false);
+				if(opodNumServersCB.getSelectedItem().toString().equals("8")) {
+					opodLogicalName1.setVisible(true);
+					opodServerRelationship1.setVisible(true);
+					opodLogicalName2.setVisible(true);
+					opodServerRelationship2.setVisible(true);
+					opodLogicalName3.setVisible(true);
+					opodServerRelationship3.setVisible(true);
+					opodLogicalName4.setVisible(true);
+					opodServerRelationship4.setVisible(true);
+					opodLogicalName5.setVisible(true);
+					opodServerRelationship5.setVisible(true);
+					opodLogicalName6.setVisible(true);
+					opodServerRelationship6.setVisible(true);
+					opodLogicalName7.setVisible(true);
+					opodServerRelationship7.setVisible(true);
+					opodLogicalName8.setVisible(true);
+					opodServerRelationship8.setVisible(true);
+					opodLogicalName9.setVisible(false);
+					opodServerRelationship9.setVisible(false);
+					opodLogicalName10.setVisible(false);
+					opodServerRelationship10.setVisible(false);
 				}
-				if(opNumbers.getSelectedItem().toString().equals("9")) {
-					textArea_1.setVisible(true);
-					textArea_2.setVisible(true);
-					textArea_3.setVisible(true);
-					textArea_4.setVisible(true);
-					textArea_5.setVisible(true);
-					textArea_6.setVisible(true);
-					textArea_7.setVisible(true);
-					textArea_8.setVisible(true);
-					textArea_9.setVisible(true);
-					textArea_10.setVisible(true);
-					textArea_11.setVisible(true);
-					textArea_12.setVisible(true);
-					textArea_13.setVisible(true);
-					textArea_14.setVisible(true);
-					textArea_15.setVisible(true);
-					textArea_16.setVisible(true);
-					textArea_17.setVisible(true);
-					textArea_18.setVisible(true);
-					textArea_19.setVisible(false);
-					textArea_20.setVisible(false);
+				if(opodNumServersCB.getSelectedItem().toString().equals("9")) {
+					opodLogicalName1.setVisible(true);
+					opodServerRelationship1.setVisible(true);
+					opodLogicalName2.setVisible(true);
+					opodServerRelationship2.setVisible(true);
+					opodLogicalName3.setVisible(true);
+					opodServerRelationship3.setVisible(true);
+					opodLogicalName4.setVisible(true);
+					opodServerRelationship4.setVisible(true);
+					opodLogicalName5.setVisible(true);
+					opodServerRelationship5.setVisible(true);
+					opodLogicalName6.setVisible(true);
+					opodServerRelationship6.setVisible(true);
+					opodLogicalName7.setVisible(true);
+					opodServerRelationship7.setVisible(true);
+					opodLogicalName8.setVisible(true);
+					opodServerRelationship8.setVisible(true);
+					opodLogicalName9.setVisible(true);
+					opodServerRelationship9.setVisible(true);
+					opodLogicalName10.setVisible(false);
+					opodServerRelationship10.setVisible(false);
 				}
-				if(opNumbers.getSelectedItem().toString().equals("10")) {
-					textArea_1.setVisible(true);
-					textArea_2.setVisible(true);
-					textArea_3.setVisible(true);
-					textArea_4.setVisible(true);
-					textArea_5.setVisible(true);
-					textArea_6.setVisible(true);
-					textArea_7.setVisible(true);
-					textArea_8.setVisible(true);
-					textArea_9.setVisible(true);
-					textArea_10.setVisible(true);
-					textArea_11.setVisible(true);
-					textArea_12.setVisible(true);
-					textArea_13.setVisible(true);
-					textArea_14.setVisible(true);
-					textArea_15.setVisible(true);
-					textArea_16.setVisible(true);
-					textArea_17.setVisible(true);
-					textArea_18.setVisible(true);
-					textArea_19.setVisible(true);
-					textArea_20.setVisible(true);
-				}
+				if(opodNumServersCB.getSelectedItem().toString().equals("10")) {
+					opodLogicalName1.setVisible(true);
+					opodServerRelationship1.setVisible(true);
+					opodLogicalName2.setVisible(true);
+					opodServerRelationship2.setVisible(true);
+					opodLogicalName3.setVisible(true);
+					opodServerRelationship3.setVisible(true);
+					opodLogicalName4.setVisible(true);
+					opodServerRelationship4.setVisible(true);
+					opodLogicalName5.setVisible(true);
+					opodServerRelationship5.setVisible(true);
+					opodLogicalName6.setVisible(true);
+					opodServerRelationship6.setVisible(true);
+					opodLogicalName7.setVisible(true);
+					opodServerRelationship7.setVisible(true);
+					opodLogicalName8.setVisible(true);
+					opodServerRelationship8.setVisible(true);
+					opodLogicalName9.setVisible(true);
+					opodServerRelationship9.setVisible(true);
+					opodLogicalName10.setVisible(true);
+					opodServerRelationship10.setVisible(true);
+				}*/
 			}
 		});
 		
-		JLabel label_10 = new JLabel("Environment Selection:");
-		label_10.setBounds(10, 163, 161, 14);
-		OPOD.add(label_10);
+		JLabel lblOpodEnironmnet = new JLabel("Environment Selection:");
+		lblOpodEnironmnet.setBounds(10, 163, 161, 14);
+		OPOD.add(lblOpodEnironmnet);
 		
-		JComboBox comboBox_26 = new JComboBox(opod.getEnvironmentOpts());
-		comboBox_26.setBounds(256, 160, 241, 20);
-		OPOD.add(comboBox_26);
+		JComboBox opodEnvironmentSelectionCB = new JComboBox(opod.getEnvironmentOpts());
+		opodEnvironmentSelectionCB.setBounds(256, 160, 241, 20);
+		OPOD.add(opodEnvironmentSelectionCB);
 		
-		JComboBox comboBox_27 = new JComboBox(opod.getBusinessUnitsOpts());
-		comboBox_27.setBounds(256, 208, 241, 20);
-		OPOD.add(comboBox_27);
+		JComboBox opodBusinessUnitCB = new JComboBox(opod.getBusinessUnitsOpts());
+		opodBusinessUnitCB.setBounds(256, 208, 241, 20);
+		OPOD.add(opodBusinessUnitCB);
 		
-		JLabel label_11 = new JLabel("Business Unit:");
-		label_11.setBounds(10, 211, 112, 14);
-		OPOD.add(label_11);
+		JLabel lblOpodBusinessUnit = new JLabel("Business Unit:");
+		lblOpodBusinessUnit.setBounds(10, 211, 112, 14);
+		OPOD.add(lblOpodBusinessUnit);
 		
-		JComboBox comboBox_25 = new JComboBox(opod.getSecurityZoneRochelleOpts());
-		comboBox_25.setVisible(false);
-		comboBox_25.setBounds(256, 339, 241, 20);
-		OPOD.add(comboBox_25);
+		JComboBox opodSecurityZoneCB = new JComboBox(opod.getSecurityZoneZeroOpts());
+		opodSecurityZoneCB.setBounds(256, 339, 241, 20);
+		OPOD.add(opodSecurityZoneCB);
 		
-		JComboBox comboBox_34 = new JComboBox(opod.getSecurityZoneHudsonOpts());
-		comboBox_34.setVisible(false);
-		comboBox_34.setBounds(256, 339, 241, 20);
-		OPOD.add(comboBox_34);
+		JComboBox opodDataCenterCB = new JComboBox(opod.getDataCenterOpts());
+		opodDataCenterCB.setBounds(256, 254, 241, 20);
+		OPOD.add(opodDataCenterCB);
 		
-		JComboBox comboBox_28 = new JComboBox(opod.getDataCenterOpts());
-		comboBox_28.setBounds(256, 254, 241, 20);
-		OPOD.add(comboBox_28);
+		JLabel lblOpodWingLocation = new JLabel("Wing Location in the DC:");
+		lblOpodWingLocation.setBounds(10, 386, 148, 14);
+		lblOpodWingLocation.setVisible(false);
+		OPOD.add(lblOpodWingLocation);
 		
-		JComboBox comboBox_30 = new JComboBox(opod.getSecurityZoneZeroOpts());
-		comboBox_30.setBounds(256, 339, 241, 20);
-		OPOD.add(comboBox_30);
+		JComboBox opodWingLocationCB = new JComboBox(opod.getWingLocationOpts());
+		opodWingLocationCB.setBounds(256, 383, 241, 20);
+		opodWingLocationCB.setVisible(false);
+		OPOD.add(opodWingLocationCB);
 		
-		JComboBox comboBox_31 = new JComboBox(opod.getWingLocationOpts());
-		comboBox_31.setBounds(256, 383, 241, 20);
-		comboBox_31.setVisible(false);
-		OPOD.add(comboBox_31);
-		
-		comboBox_28.addActionListener(new ActionListener() {
+		opodDataCenterCB.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				if(comboBox_28.getSelectedItem().equals("Hudson")) {
-					comboBox_34.setVisible(true);
-					comboBox_25.setVisible(false);
-					comboBox_30.setVisible(false);
-					comboBox_31.setVisible(true);
+				dataCenterRtn retVals = opod.dataCenterUpdate(opodDataCenterCB.getSelectedItem().toString());
 
-				}
-				else if(comboBox_28.getSelectedItem().equals("Rochelle")) {
-					comboBox_34.setVisible(false);
-					comboBox_25.setVisible(true);
-					comboBox_30.setVisible(false);
-					comboBox_31.setVisible(false);
+				if(retVals.addWingLocation == true) {
+					lblOpodWingLocation.setVisible(true);
+					opodWingLocationCB.setVisible(true);
 				}
 				else {
-					comboBox_34.setVisible(false);
-					comboBox_25.setVisible(false);
-					comboBox_30.setVisible(true);
-					comboBox_31.setVisible(false);
+					lblOpodWingLocation.setVisible(false);
+					opodWingLocationCB.setVisible(false);
+				}
+				
+				// Update security zone options
+				opodSecurityZoneCB.removeAllItems();
+				for(int i =0; i < retVals.securityZoneOptions.length; i++) {
+					opodSecurityZoneCB.addItem(retVals.securityZoneOptions[i]);
 				}
 			}
 			
 		});	
 		
-		JLabel label_12 = new JLabel("Data Center:");
-		label_12.setBounds(10, 257, 76, 14);
-		OPOD.add(label_12);
+		JLabel lblOpodDataCenter = new JLabel("Data Center:");
+		lblOpodDataCenter.setBounds(10, 257, 76, 14);
+		OPOD.add(lblOpodDataCenter);
 		
-		JComboBox comboBox_29 = new JComboBox(opod.getEnterpriseControllerOpts());
-		comboBox_29.setBounds(256, 296, 241, 20);
-		OPOD.add(comboBox_29);
+		JComboBox opodEnterpriseControllerCB = new JComboBox(opod.getEnterpriseControllerOpts());
+		opodEnterpriseControllerCB.setBounds(256, 296, 241, 20);
+		OPOD.add(opodEnterpriseControllerCB);
 		
-		JLabel label_13 = new JLabel("Enterprise Controller:");
-		label_13.setBounds(10, 299, 192, 14);
-		OPOD.add(label_13);
-		
-		
-		JLabel label_14 = new JLabel("Security Zone:");
-		label_14.setBounds(10, 342, 112, 14);
-		OPOD.add(label_14);
-		
-		JLabel lblWingLocationIn = new JLabel("Wing Location in the DC:");
-		lblWingLocationIn.setBounds(10, 386, 148, 14);
-		OPOD.add(lblWingLocationIn);
+		JLabel lblOpodEnterpriseController = new JLabel("Enterprise Controller:");
+		lblOpodEnterpriseController.setBounds(10, 299, 192, 14);
+		OPOD.add(lblOpodEnterpriseController);
 		
 		
-		JLabel lblVpoolStorageArray = new JLabel("vpool Storage Array:");
-		lblVpoolStorageArray.setBounds(10, 430, 148, 14);
-		OPOD.add(lblVpoolStorageArray);
+		JLabel lblOpodSecurityZone = new JLabel("Security Zone:");
+		lblOpodSecurityZone.setBounds(10, 342, 112, 14);
+		OPOD.add(lblOpodSecurityZone);
 		
-		JComboBox comboBox_32 = new JComboBox(opod.getVpoolStorageOpts());
-		comboBox_32.setBounds(256, 430, 241, 20);
-		OPOD.add(comboBox_32);
+		JLabel lblOpodVpoolStorageArray = new JLabel("vpool Storage Array:");
+		lblOpodVpoolStorageArray.setBounds(10, 430, 148, 14);
+		OPOD.add(lblOpodVpoolStorageArray);
 		
-		JLabel lblClusterName = new JLabel("Cluster Name:");
-		lblClusterName.setBounds(10, 476, 112, 14);
-		OPOD.add(lblClusterName);
+		JComboBox opodVpoolStorageArrayCB = new JComboBox(opod.getVpoolStorageOpts());
+		opodVpoolStorageArrayCB.setBounds(256, 430, 241, 20);
+		OPOD.add(opodVpoolStorageArrayCB);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(256, 471, 241, 22);
-		OPOD.add(textArea);
+		JLabel lblOpodClusterName = new JLabel("Cluster Name:");
+		lblOpodClusterName.setBounds(10, 476, 112, 14);
+		OPOD.add(lblOpodClusterName);
 		
-		JLabel lblHowManyDatabases = new JLabel("How many Databases (Max. 8)?");
-		lblHowManyDatabases.setBounds(10, 521, 214, 14);
-		OPOD.add(lblHowManyDatabases);
+		JTextArea opodClusterNameTA = new JTextArea();
+		opodClusterNameTA.setBounds(256, 471, 241, 22);
+		OPOD.add(opodClusterNameTA);
 		
-		JTextArea textArea_21 = new JTextArea();
-		textArea_21.setBounds(10, 585, 148, 22);
-		OPOD.add(textArea_21);
+		JLabel lblOpodNumDatabases = new JLabel("How many Databases (Max. 8)?");
+		lblOpodNumDatabases.setBounds(10, 521, 214, 14);
+		OPOD.add(lblOpodNumDatabases);
 		
-		JTextArea textArea_22 = new JTextArea();
-		textArea_22.setVisible(false);
-		textArea_22.setBounds(10, 620, 148, 22);
-		OPOD.add(textArea_22);
+		JTextArea opodDatabaseNameTA1 = new JTextArea();
+		opodDatabaseNameTA1.setBounds(10, 585, 148, 22);
+		OPOD.add(opodDatabaseNameTA1);
 		
-		JTextArea textArea_23 = new JTextArea();
-		textArea_23.setVisible(false);
-		textArea_23.setBounds(10, 653, 148, 22);
-		OPOD.add(textArea_23);
+		JTextArea opodDatabaseNameTA2 = new JTextArea();
+		opodDatabaseNameTA2.setVisible(false);
+		opodDatabaseNameTA2.setBounds(10, 620, 148, 22);
+		OPOD.add(opodDatabaseNameTA2);
 		
-		JTextArea textArea_24 = new JTextArea();
-		textArea_24.setVisible(false);
-		textArea_24.setBounds(10, 686, 148, 22);
-		OPOD.add(textArea_24);
+		JTextArea opodDatabaseNameTA3 = new JTextArea();
+		opodDatabaseNameTA3.setVisible(false);
+		opodDatabaseNameTA3.setBounds(10, 653, 148, 22);
+		OPOD.add(opodDatabaseNameTA3);
 		
-		JTextArea textArea_25 = new JTextArea();
-		textArea_25.setVisible(false);
-		textArea_25.setBounds(10, 719, 148, 22);
-		OPOD.add(textArea_25);
+		JTextArea opodDatabaseNameTA4 = new JTextArea();
+		opodDatabaseNameTA4.setVisible(false);
+		opodDatabaseNameTA4.setBounds(10, 686, 148, 22);
+		OPOD.add(opodDatabaseNameTA4);
 		
-		JTextArea textArea_26 = new JTextArea();
-		textArea_26.setVisible(false);
-		textArea_26.setBounds(10, 752, 148, 22);
-		OPOD.add(textArea_26);
+		JTextArea opodDatabaseNameTA5 = new JTextArea();
+		opodDatabaseNameTA5.setVisible(false);
+		opodDatabaseNameTA5.setBounds(10, 719, 148, 22);
+		OPOD.add(opodDatabaseNameTA5);
 		
-		JTextArea textArea_27 = new JTextArea();
-		textArea_27.setVisible(false);
-		textArea_27.setBounds(10, 785, 148, 22);
-		OPOD.add(textArea_27);
+		JTextArea opodDatabaseNameTA6 = new JTextArea();
+		opodDatabaseNameTA6.setVisible(false);
+		opodDatabaseNameTA6.setBounds(10, 752, 148, 22);
+		OPOD.add(opodDatabaseNameTA6);
 		
-		JTextArea textArea_28 = new JTextArea();
-		textArea_28.setVisible(false);
-		textArea_28.setBounds(10, 818, 148, 22);
-		OPOD.add(textArea_28);
+		JTextArea opodDatabaseNameTA7 = new JTextArea();
+		opodDatabaseNameTA7.setVisible(false);
+		opodDatabaseNameTA7.setBounds(10, 785, 148, 22);
+		OPOD.add(opodDatabaseNameTA7);
 		
-		JComboBox comboBox_35 = new JComboBox(opod.getVersionOpts());
-		comboBox_35.setBounds(168, 587, 161, 20);
-		OPOD.add(comboBox_35);
+		JTextArea opodDatabaseNameTA8 = new JTextArea();
+		opodDatabaseNameTA8.setVisible(false);
+		opodDatabaseNameTA8.setBounds(10, 818, 148, 22);
+		OPOD.add(opodDatabaseNameTA8);
 		
-		JComboBox comboBox_36 = new JComboBox(opod.getVersionOpts());
-		comboBox_36.setVisible(false);
-		comboBox_36.setBounds(168, 622, 161, 20);
-		OPOD.add(comboBox_36);
+		JComboBox opodVersionCB1 = new JComboBox(opod.getVersionOpts());
+		opodVersionCB1.setBounds(168, 587, 161, 20);
+		OPOD.add(opodVersionCB1);
 		
-		JComboBox comboBox_37 = new JComboBox(opod.getVersionOpts());
-		comboBox_37.setVisible(false);
-		comboBox_37.setBounds(168, 655, 161, 20);
-		OPOD.add(comboBox_37);
+		JComboBox opodVersionCB2 = new JComboBox(opod.getVersionOpts());
+		opodVersionCB2.setVisible(false);
+		opodVersionCB2.setBounds(168, 622, 161, 20);
+		OPOD.add(opodVersionCB2);
 		
-		JComboBox comboBox_38 = new JComboBox(opod.getVersionOpts());
-		comboBox_38.setVisible(false);
-		comboBox_38.setBounds(168, 688, 161, 20);
-		OPOD.add(comboBox_38);
+		JComboBox opodVersionCB3 = new JComboBox(opod.getVersionOpts());
+		opodVersionCB3.setVisible(false);
+		opodVersionCB3.setBounds(168, 655, 161, 20);
+		OPOD.add(opodVersionCB3);
 		
-		JComboBox comboBox_39 = new JComboBox(opod.getVersionOpts());
-		comboBox_39.setVisible(false);
-		comboBox_39.setBounds(168, 721, 161, 20);
-		OPOD.add(comboBox_39);
+		JComboBox opodVersionCB4 = new JComboBox(opod.getVersionOpts());
+		opodVersionCB4.setVisible(false);
+		opodVersionCB4.setBounds(168, 688, 161, 20);
+		OPOD.add(opodVersionCB4);
 		
-		JComboBox comboBox_40 = new JComboBox(opod.getVersionOpts());
-		comboBox_40.setVisible(false);
-		comboBox_40.setBounds(168, 754, 161, 20);
-		OPOD.add(comboBox_40);
+		JComboBox opodVersionCB5 = new JComboBox(opod.getVersionOpts());
+		opodVersionCB5.setVisible(false);
+		opodVersionCB5.setBounds(168, 721, 161, 20);
+		OPOD.add(opodVersionCB5);
 		
-		JComboBox comboBox_41 = new JComboBox(opod.getVersionOpts());
-		comboBox_41.setVisible(false);
-		comboBox_41.setBounds(168, 787, 161, 20);
-		OPOD.add(comboBox_41);
+		JComboBox opodVersionCB6 = new JComboBox(opod.getVersionOpts());
+		opodVersionCB6.setVisible(false);
+		opodVersionCB6.setBounds(168, 754, 161, 20);
+		OPOD.add(opodVersionCB6);
 		
-		JComboBox comboBox_42 = new JComboBox(opod.getVersionOpts());
-		comboBox_42.setVisible(false);
-		comboBox_42.setBounds(168, 820, 161, 20);
-		OPOD.add(comboBox_42);
+		JComboBox opodVersionCB7 = new JComboBox(opod.getVersionOpts());
+		opodVersionCB7.setVisible(false);
+		opodVersionCB7.setBounds(168, 787, 161, 20);
+		OPOD.add(opodVersionCB7);
+		
+		JComboBox opodVersionCB8 = new JComboBox(opod.getVersionOpts());
+		opodVersionCB8.setVisible(false);
+		opodVersionCB8.setBounds(168, 820, 161, 20);
+		OPOD.add(opodVersionCB8);
 		
 		
 
 		
-		JComboBox comboBox_59 = new JComboBox(opod.getBackupTypeOpts());
-		comboBox_59.setBounds(681, 587, 161, 20);
-		OPOD.add(comboBox_59);
+		JComboBox opodBackupTypeCB1 = new JComboBox(opod.getBackupTypeOpts());
+		opodBackupTypeCB1.setBounds(681, 587, 161, 20);
+		OPOD.add(opodBackupTypeCB1);
 		
-		JComboBox comboBox_60 = new JComboBox(opod.getBackupTypeOpts());
-		comboBox_60.setVisible(false);
-		comboBox_60.setBounds(681, 622, 161, 20);
-		OPOD.add(comboBox_60);
+		JComboBox opodBackupTypeCB2 = new JComboBox(opod.getBackupTypeOpts());
+		opodBackupTypeCB2.setVisible(false);
+		opodBackupTypeCB2.setBounds(681, 622, 161, 20);
+		OPOD.add(opodBackupTypeCB2);
 		
-		JComboBox comboBox_61 = new JComboBox(opod.getBackupTypeOpts());
-		comboBox_61.setVisible(false);
-		comboBox_61.setBounds(681, 655, 161, 20);
-		OPOD.add(comboBox_61);
+		JComboBox opodBackupTypeCB3 = new JComboBox(opod.getBackupTypeOpts());
+		opodBackupTypeCB3.setVisible(false);
+		opodBackupTypeCB3.setBounds(681, 655, 161, 20);
+		OPOD.add(opodBackupTypeCB3);
 		
-		JComboBox comboBox_62 = new JComboBox(opod.getBackupTypeOpts());
-		comboBox_62.setVisible(false);
-		comboBox_62.setBounds(681, 688, 161, 20);
-		OPOD.add(comboBox_62);
+		JComboBox opodBackupTypeCB4 = new JComboBox(opod.getBackupTypeOpts());
+		opodBackupTypeCB4.setVisible(false);
+		opodBackupTypeCB4.setBounds(681, 688, 161, 20);
+		OPOD.add(opodBackupTypeCB4);
 		
-		JComboBox comboBox_63 = new JComboBox(opod.getBackupTypeOpts());
-		comboBox_63.setVisible(false);
-		comboBox_63.setBounds(681, 721, 161, 20);
-		OPOD.add(comboBox_63);
+		JComboBox opodBackupTypeCB5 = new JComboBox(opod.getBackupTypeOpts());
+		opodBackupTypeCB5.setVisible(false);
+		opodBackupTypeCB5.setBounds(681, 721, 161, 20);
+		OPOD.add(opodBackupTypeCB5);
 		
-		JComboBox comboBox_64 = new JComboBox(opod.getBackupTypeOpts());
-		comboBox_64.setVisible(false);
-		comboBox_64.setBounds(681, 754, 161, 20);
-		OPOD.add(comboBox_64);
+		JComboBox opodBackupTypeCB6 = new JComboBox(opod.getBackupTypeOpts());
+		opodBackupTypeCB6.setVisible(false);
+		opodBackupTypeCB6.setBounds(681, 754, 161, 20);
+		OPOD.add(opodBackupTypeCB6);
 		
-		JComboBox comboBox_65 = new JComboBox(opod.getBackupTypeOpts());
-		comboBox_65.setVisible(false);
-		comboBox_65.setBounds(681, 787, 161, 20);
-		OPOD.add(comboBox_65);
+		JComboBox opodBackupTypeCB7 = new JComboBox(opod.getBackupTypeOpts());
+		opodBackupTypeCB7.setVisible(false);
+		opodBackupTypeCB7.setBounds(681, 787, 161, 20);
+		OPOD.add(opodBackupTypeCB7);
 		
-		JComboBox comboBox_66 = new JComboBox(opod.getBackupTypeOpts());
-		comboBox_66.setVisible(false);
-		comboBox_66.setBounds(681, 820, 161, 20);
-		OPOD.add(comboBox_66);
+		JComboBox opodBackupTypeCB8 = new JComboBox(opod.getBackupTypeOpts());
+		opodBackupTypeCB8.setVisible(false);
+		opodBackupTypeCB8.setBounds(681, 820, 161, 20);
+		OPOD.add(opodBackupTypeCB8);
 		
-		JComboBox comboBox_33 = new JComboBox(opod.getNumDatabasesOpts());
-		comboBox_33.setBounds(256, 518, 241, 20);
-		OPOD.add(comboBox_33);
-		comboBox_33.addActionListener(new ActionListener() {
+		JComboBox opodNumDatabasesCB = new JComboBox(opod.getNumDatabasesOpts());
+		opodNumDatabasesCB.setBounds(256, 518, 241, 20);
+		OPOD.add(opodNumDatabasesCB);
+		opodNumDatabasesCB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(comboBox_33.getSelectedItem().toString().equals("1")) {
-					textArea_21.setVisible(true);
-					textArea_22.setVisible(false);
-					textArea_23.setVisible(false);
-					textArea_24.setVisible(false);
-					textArea_25.setVisible(false);
-					textArea_26.setVisible(false);
-					textArea_27.setVisible(false);
-					textArea_28.setVisible(false);
-					comboBox_35.setVisible(true);
-					comboBox_36.setVisible(false);
-					comboBox_37.setVisible(false);
-					comboBox_38.setVisible(false);
-					comboBox_39.setVisible(false);
-					comboBox_40.setVisible(false);
-					comboBox_41.setVisible(false);
-					comboBox_42.setVisible(false);
-					comboBox_43.setVisible(true);
-					comboBox_44.setVisible(false);
-					comboBox_45.setVisible(false);
-					comboBox_46.setVisible(false);
-					comboBox_47.setVisible(false);
-					comboBox_48.setVisible(false);
-					comboBox_49.setVisible(false);
-					comboBox_50.setVisible(false);
-					comboBox_51.setVisible(true);
-					comboBox_52.setVisible(false);
-					comboBox_53.setVisible(false);
-					comboBox_54.setVisible(false);
-					comboBox_55.setVisible(false);
-					comboBox_56.setVisible(false);
-					comboBox_57.setVisible(false);
-					comboBox_58.setVisible(false);
-					comboBox_59.setVisible(true);
-					comboBox_60.setVisible(false);
-					comboBox_61.setVisible(false);
-					comboBox_62.setVisible(false);
-					comboBox_63.setVisible(false);
-					comboBox_64.setVisible(false);
-					comboBox_65.setVisible(false);
-					comboBox_66.setVisible(false);
+				if(opodNumDatabasesCB.getSelectedItem().toString().equals("1")) {
+					opodDatabaseNameTA1.setVisible(true);
+					opodDatabaseNameTA2.setVisible(false);
+					opodDatabaseNameTA3.setVisible(false);
+					opodDatabaseNameTA4.setVisible(false);
+					opodDatabaseNameTA5.setVisible(false);
+					opodDatabaseNameTA6.setVisible(false);
+					opodDatabaseNameTA7.setVisible(false);
+					opodDatabaseNameTA8.setVisible(false);
+					opodVersionCB1.setVisible(true);
+					opodVersionCB2.setVisible(false);
+					opodVersionCB3.setVisible(false);
+					opodVersionCB4.setVisible(false);
+					opodVersionCB5.setVisible(false);
+					opodVersionCB6.setVisible(false);
+					opodVersionCB7.setVisible(false);
+					opodVersionCB8.setVisible(false);
+					opodRelationshipCB1.setVisible(true);
+					opodRelationshipCB2.setVisible(false);
+					opodRelationshipCB3.setVisible(false);
+					opodRelationshipCB4.setVisible(false);
+					opodRelationshipCB5.setVisible(false);
+					opodRelationshipCB6.setVisible(false);
+					opodRelationshipCB7.setVisible(false);
+					opodRelationshipCB8.setVisible(false);
+					opodPrimaryCB1.setVisible(true);
+					opodPrimaryCB2.setVisible(false);
+					opodPrimaryCB3.setVisible(false);
+					opodPrimaryCB4.setVisible(false);
+					opodPrimaryCB5.setVisible(false);
+					opodPrimaryCB6.setVisible(false);
+					opodPrimaryCB7.setVisible(false);
+					opodPrimaryCB8.setVisible(false);
+					opodBackupTypeCB1.setVisible(true);
+					opodBackupTypeCB2.setVisible(false);
+					opodBackupTypeCB3.setVisible(false);
+					opodBackupTypeCB4.setVisible(false);
+					opodBackupTypeCB5.setVisible(false);
+					opodBackupTypeCB6.setVisible(false);
+					opodBackupTypeCB7.setVisible(false);
+					opodBackupTypeCB8.setVisible(false);
 				}
-				if(comboBox_33.getSelectedItem().toString().equals("2")) {
-					textArea_21.setVisible(true);
-					textArea_22.setVisible(true);
-					textArea_23.setVisible(false);
-					textArea_24.setVisible(false);
-					textArea_25.setVisible(false);
-					textArea_26.setVisible(false);
-					textArea_27.setVisible(false);
-					textArea_28.setVisible(false);
-					comboBox_35.setVisible(true);
-					comboBox_36.setVisible(true);
-					comboBox_37.setVisible(false);
-					comboBox_38.setVisible(false);
-					comboBox_39.setVisible(false);
-					comboBox_40.setVisible(false);
-					comboBox_41.setVisible(false);
-					comboBox_42.setVisible(false);
-					comboBox_43.setVisible(true);
-					comboBox_44.setVisible(true);
-					comboBox_45.setVisible(false);
-					comboBox_46.setVisible(false);
-					comboBox_47.setVisible(false);
-					comboBox_48.setVisible(false);
-					comboBox_49.setVisible(false);
-					comboBox_50.setVisible(false);
-					comboBox_51.setVisible(true);
-					comboBox_52.setVisible(true);
-					comboBox_53.setVisible(false);
-					comboBox_54.setVisible(false);
-					comboBox_55.setVisible(false);
-					comboBox_56.setVisible(false);
-					comboBox_57.setVisible(false);
-					comboBox_58.setVisible(false);
-					comboBox_59.setVisible(true);
-					comboBox_60.setVisible(true);
-					comboBox_61.setVisible(false);
-					comboBox_62.setVisible(false);
-					comboBox_63.setVisible(false);
-					comboBox_64.setVisible(false);
-					comboBox_65.setVisible(false);
-					comboBox_66.setVisible(false);
+				if(opodNumDatabasesCB.getSelectedItem().toString().equals("2")) {
+					opodDatabaseNameTA1.setVisible(true);
+					opodDatabaseNameTA2.setVisible(true);
+					opodDatabaseNameTA3.setVisible(false);
+					opodDatabaseNameTA4.setVisible(false);
+					opodDatabaseNameTA5.setVisible(false);
+					opodDatabaseNameTA6.setVisible(false);
+					opodDatabaseNameTA7.setVisible(false);
+					opodDatabaseNameTA8.setVisible(false);
+					opodVersionCB1.setVisible(true);
+					opodVersionCB2.setVisible(true);
+					opodVersionCB3.setVisible(false);
+					opodVersionCB4.setVisible(false);
+					opodVersionCB5.setVisible(false);
+					opodVersionCB6.setVisible(false);
+					opodVersionCB7.setVisible(false);
+					opodVersionCB8.setVisible(false);
+					opodRelationshipCB1.setVisible(true);
+					opodRelationshipCB2.setVisible(true);
+					opodRelationshipCB3.setVisible(false);
+					opodRelationshipCB4.setVisible(false);
+					opodRelationshipCB5.setVisible(false);
+					opodRelationshipCB6.setVisible(false);
+					opodRelationshipCB7.setVisible(false);
+					opodRelationshipCB8.setVisible(false);
+					opodPrimaryCB1.setVisible(true);
+					opodPrimaryCB2.setVisible(true);
+					opodPrimaryCB3.setVisible(false);
+					opodPrimaryCB4.setVisible(false);
+					opodPrimaryCB5.setVisible(false);
+					opodPrimaryCB6.setVisible(false);
+					opodPrimaryCB7.setVisible(false);
+					opodPrimaryCB8.setVisible(false);
+					opodBackupTypeCB1.setVisible(true);
+					opodBackupTypeCB2.setVisible(true);
+					opodBackupTypeCB3.setVisible(false);
+					opodBackupTypeCB4.setVisible(false);
+					opodBackupTypeCB5.setVisible(false);
+					opodBackupTypeCB6.setVisible(false);
+					opodBackupTypeCB7.setVisible(false);
+					opodBackupTypeCB8.setVisible(false);
 				}
-				if(comboBox_33.getSelectedItem().toString().equals("3")) {
-					textArea_21.setVisible(true);
-					textArea_22.setVisible(true);
-					textArea_23.setVisible(true);
-					textArea_24.setVisible(false);
-					textArea_25.setVisible(false);
-					textArea_26.setVisible(false);
-					textArea_27.setVisible(false);
-					textArea_28.setVisible(false);
-					comboBox_35.setVisible(true);
-					comboBox_36.setVisible(true);
-					comboBox_37.setVisible(true);
-					comboBox_38.setVisible(false);
-					comboBox_39.setVisible(false);
-					comboBox_40.setVisible(false);
-					comboBox_41.setVisible(false);
-					comboBox_42.setVisible(false);
-					comboBox_43.setVisible(true);
-					comboBox_44.setVisible(true);
-					comboBox_45.setVisible(true);
-					comboBox_46.setVisible(false);
-					comboBox_47.setVisible(false);
-					comboBox_48.setVisible(false);
-					comboBox_49.setVisible(false);
-					comboBox_50.setVisible(false);
-					comboBox_51.setVisible(true);
-					comboBox_52.setVisible(true);
-					comboBox_53.setVisible(true);
-					comboBox_54.setVisible(false);
-					comboBox_55.setVisible(false);
-					comboBox_56.setVisible(false);
-					comboBox_57.setVisible(false);
-					comboBox_58.setVisible(false);
-					comboBox_59.setVisible(true);
-					comboBox_60.setVisible(true);
-					comboBox_61.setVisible(true);
-					comboBox_62.setVisible(false);
-					comboBox_63.setVisible(false);
-					comboBox_64.setVisible(false);
-					comboBox_65.setVisible(false);
-					comboBox_66.setVisible(false);
+				if(opodNumDatabasesCB.getSelectedItem().toString().equals("3")) {
+					opodDatabaseNameTA1.setVisible(true);
+					opodDatabaseNameTA2.setVisible(true);
+					opodDatabaseNameTA3.setVisible(true);
+					opodDatabaseNameTA4.setVisible(false);
+					opodDatabaseNameTA5.setVisible(false);
+					opodDatabaseNameTA6.setVisible(false);
+					opodDatabaseNameTA7.setVisible(false);
+					opodDatabaseNameTA8.setVisible(false);
+					opodVersionCB1.setVisible(true);
+					opodVersionCB2.setVisible(true);
+					opodVersionCB3.setVisible(true);
+					opodVersionCB4.setVisible(false);
+					opodVersionCB5.setVisible(false);
+					opodVersionCB6.setVisible(false);
+					opodVersionCB7.setVisible(false);
+					opodVersionCB8.setVisible(false);
+					opodRelationshipCB1.setVisible(true);
+					opodRelationshipCB2.setVisible(true);
+					opodRelationshipCB3.setVisible(true);
+					opodRelationshipCB4.setVisible(false);
+					opodRelationshipCB5.setVisible(false);
+					opodRelationshipCB6.setVisible(false);
+					opodRelationshipCB7.setVisible(false);
+					opodRelationshipCB8.setVisible(false);
+					opodPrimaryCB1.setVisible(true);
+					opodPrimaryCB2.setVisible(true);
+					opodPrimaryCB3.setVisible(true);
+					opodPrimaryCB4.setVisible(false);
+					opodPrimaryCB5.setVisible(false);
+					opodPrimaryCB6.setVisible(false);
+					opodPrimaryCB7.setVisible(false);
+					opodPrimaryCB8.setVisible(false);
+					opodBackupTypeCB1.setVisible(true);
+					opodBackupTypeCB2.setVisible(true);
+					opodBackupTypeCB3.setVisible(true);
+					opodBackupTypeCB4.setVisible(false);
+					opodBackupTypeCB5.setVisible(false);
+					opodBackupTypeCB6.setVisible(false);
+					opodBackupTypeCB7.setVisible(false);
+					opodBackupTypeCB8.setVisible(false);
 				}
-				if(comboBox_33.getSelectedItem().toString().equals("4")) {
-					textArea_21.setVisible(true);
-					textArea_22.setVisible(true);
-					textArea_23.setVisible(true);
-					textArea_24.setVisible(true);
-					textArea_25.setVisible(false);
-					textArea_26.setVisible(false);
-					textArea_27.setVisible(false);
-					textArea_28.setVisible(false);
-					comboBox_35.setVisible(true);
-					comboBox_36.setVisible(true);
-					comboBox_37.setVisible(true);
-					comboBox_38.setVisible(true);
-					comboBox_39.setVisible(false);
-					comboBox_40.setVisible(false);
-					comboBox_41.setVisible(false);
-					comboBox_42.setVisible(false);
-					comboBox_43.setVisible(true);
-					comboBox_44.setVisible(true);
-					comboBox_45.setVisible(true);
-					comboBox_46.setVisible(true);
-					comboBox_47.setVisible(false);
-					comboBox_48.setVisible(false);
-					comboBox_49.setVisible(false);
-					comboBox_50.setVisible(false);
-					comboBox_51.setVisible(true);
-					comboBox_52.setVisible(true);
-					comboBox_53.setVisible(true);
-					comboBox_54.setVisible(true);
-					comboBox_55.setVisible(false);
-					comboBox_56.setVisible(false);
-					comboBox_57.setVisible(false);
-					comboBox_58.setVisible(false);
-					comboBox_59.setVisible(true);
-					comboBox_60.setVisible(true);
-					comboBox_61.setVisible(true);
-					comboBox_62.setVisible(true);
-					comboBox_63.setVisible(false);
-					comboBox_64.setVisible(false);
-					comboBox_65.setVisible(false);
-					comboBox_66.setVisible(false);
+				if(opodNumDatabasesCB.getSelectedItem().toString().equals("4")) {
+					opodDatabaseNameTA1.setVisible(true);
+					opodDatabaseNameTA2.setVisible(true);
+					opodDatabaseNameTA3.setVisible(true);
+					opodDatabaseNameTA4.setVisible(true);
+					opodDatabaseNameTA5.setVisible(false);
+					opodDatabaseNameTA6.setVisible(false);
+					opodDatabaseNameTA7.setVisible(false);
+					opodDatabaseNameTA8.setVisible(false);
+					opodVersionCB1.setVisible(true);
+					opodVersionCB2.setVisible(true);
+					opodVersionCB3.setVisible(true);
+					opodVersionCB4.setVisible(true);
+					opodVersionCB5.setVisible(false);
+					opodVersionCB6.setVisible(false);
+					opodVersionCB7.setVisible(false);
+					opodVersionCB8.setVisible(false);
+					opodRelationshipCB1.setVisible(true);
+					opodRelationshipCB2.setVisible(true);
+					opodRelationshipCB3.setVisible(true);
+					opodRelationshipCB4.setVisible(true);
+					opodRelationshipCB5.setVisible(false);
+					opodRelationshipCB6.setVisible(false);
+					opodRelationshipCB7.setVisible(false);
+					opodRelationshipCB8.setVisible(false);
+					opodPrimaryCB1.setVisible(true);
+					opodPrimaryCB2.setVisible(true);
+					opodPrimaryCB3.setVisible(true);
+					opodPrimaryCB4.setVisible(true);
+					opodPrimaryCB5.setVisible(false);
+					opodPrimaryCB6.setVisible(false);
+					opodPrimaryCB7.setVisible(false);
+					opodPrimaryCB8.setVisible(false);
+					opodBackupTypeCB1.setVisible(true);
+					opodBackupTypeCB2.setVisible(true);
+					opodBackupTypeCB3.setVisible(true);
+					opodBackupTypeCB4.setVisible(true);
+					opodBackupTypeCB5.setVisible(false);
+					opodBackupTypeCB6.setVisible(false);
+					opodBackupTypeCB7.setVisible(false);
+					opodBackupTypeCB8.setVisible(false);
 				}
-				if(comboBox_33.getSelectedItem().toString().equals("5")) {
-					textArea_21.setVisible(true);
-					textArea_22.setVisible(true);
-					textArea_23.setVisible(true);
-					textArea_24.setVisible(true);
-					textArea_25.setVisible(true);
-					textArea_26.setVisible(false);
-					textArea_27.setVisible(false);
-					textArea_28.setVisible(false);
-					comboBox_35.setVisible(true);
-					comboBox_36.setVisible(true);
-					comboBox_37.setVisible(true);
-					comboBox_38.setVisible(true);
-					comboBox_39.setVisible(true);
-					comboBox_40.setVisible(false);
-					comboBox_41.setVisible(false);
-					comboBox_42.setVisible(false);
-					comboBox_43.setVisible(true);
-					comboBox_44.setVisible(true);
-					comboBox_45.setVisible(true);
-					comboBox_46.setVisible(true);
-					comboBox_47.setVisible(true);
-					comboBox_48.setVisible(false);
-					comboBox_49.setVisible(false);
-					comboBox_50.setVisible(false);
-					comboBox_51.setVisible(true);
-					comboBox_52.setVisible(true);
-					comboBox_53.setVisible(true);
-					comboBox_54.setVisible(true);
-					comboBox_55.setVisible(true);
-					comboBox_56.setVisible(false);
-					comboBox_57.setVisible(false);
-					comboBox_58.setVisible(false);
-					comboBox_59.setVisible(true);
-					comboBox_60.setVisible(true);
-					comboBox_61.setVisible(true);
-					comboBox_62.setVisible(true);
-					comboBox_63.setVisible(true);
-					comboBox_64.setVisible(false);
-					comboBox_65.setVisible(false);
-					comboBox_66.setVisible(false);
+				if(opodNumDatabasesCB.getSelectedItem().toString().equals("5")) {
+					opodDatabaseNameTA1.setVisible(true);
+					opodDatabaseNameTA2.setVisible(true);
+					opodDatabaseNameTA3.setVisible(true);
+					opodDatabaseNameTA4.setVisible(true);
+					opodDatabaseNameTA5.setVisible(true);
+					opodDatabaseNameTA6.setVisible(false);
+					opodDatabaseNameTA7.setVisible(false);
+					opodDatabaseNameTA8.setVisible(false);
+					opodVersionCB1.setVisible(true);
+					opodVersionCB2.setVisible(true);
+					opodVersionCB3.setVisible(true);
+					opodVersionCB4.setVisible(true);
+					opodVersionCB5.setVisible(true);
+					opodVersionCB6.setVisible(false);
+					opodVersionCB7.setVisible(false);
+					opodVersionCB8.setVisible(false);
+					opodRelationshipCB1.setVisible(true);
+					opodRelationshipCB2.setVisible(true);
+					opodRelationshipCB3.setVisible(true);
+					opodRelationshipCB4.setVisible(true);
+					opodRelationshipCB5.setVisible(true);
+					opodRelationshipCB6.setVisible(false);
+					opodRelationshipCB7.setVisible(false);
+					opodRelationshipCB8.setVisible(false);
+					opodPrimaryCB1.setVisible(true);
+					opodPrimaryCB2.setVisible(true);
+					opodPrimaryCB3.setVisible(true);
+					opodPrimaryCB4.setVisible(true);
+					opodPrimaryCB5.setVisible(true);
+					opodPrimaryCB6.setVisible(false);
+					opodPrimaryCB7.setVisible(false);
+					opodPrimaryCB8.setVisible(false);
+					opodBackupTypeCB1.setVisible(true);
+					opodBackupTypeCB2.setVisible(true);
+					opodBackupTypeCB3.setVisible(true);
+					opodBackupTypeCB4.setVisible(true);
+					opodBackupTypeCB5.setVisible(true);
+					opodBackupTypeCB6.setVisible(false);
+					opodBackupTypeCB7.setVisible(false);
+					opodBackupTypeCB8.setVisible(false);
 				}
-				if(comboBox_33.getSelectedItem().toString().equals("6")) {
-					textArea_21.setVisible(true);
-					textArea_22.setVisible(true);
-					textArea_23.setVisible(true);
-					textArea_24.setVisible(true);
-					textArea_25.setVisible(true);
-					textArea_26.setVisible(true);
-					textArea_27.setVisible(false);
-					textArea_28.setVisible(false);
-					comboBox_35.setVisible(true);
-					comboBox_36.setVisible(true);
-					comboBox_37.setVisible(true);
-					comboBox_38.setVisible(true);
-					comboBox_39.setVisible(true);
-					comboBox_40.setVisible(true);
-					comboBox_41.setVisible(false);
-					comboBox_42.setVisible(false);
-					comboBox_43.setVisible(true);
-					comboBox_44.setVisible(true);
-					comboBox_45.setVisible(true);
-					comboBox_46.setVisible(true);
-					comboBox_47.setVisible(true);
-					comboBox_48.setVisible(true);
-					comboBox_49.setVisible(false);
-					comboBox_50.setVisible(false);
-					comboBox_51.setVisible(true);
-					comboBox_52.setVisible(true);
-					comboBox_53.setVisible(true);
-					comboBox_54.setVisible(true);
-					comboBox_55.setVisible(true);
-					comboBox_56.setVisible(true);
-					comboBox_57.setVisible(false);
-					comboBox_58.setVisible(false);
-					comboBox_59.setVisible(true);
-					comboBox_60.setVisible(true);
-					comboBox_61.setVisible(true);
-					comboBox_62.setVisible(true);
-					comboBox_63.setVisible(true);
-					comboBox_64.setVisible(true);
-					comboBox_65.setVisible(false);
-					comboBox_66.setVisible(false);
+				if(opodNumDatabasesCB.getSelectedItem().toString().equals("6")) {
+					opodDatabaseNameTA1.setVisible(true);
+					opodDatabaseNameTA2.setVisible(true);
+					opodDatabaseNameTA3.setVisible(true);
+					opodDatabaseNameTA4.setVisible(true);
+					opodDatabaseNameTA5.setVisible(true);
+					opodDatabaseNameTA6.setVisible(true);
+					opodDatabaseNameTA7.setVisible(false);
+					opodDatabaseNameTA8.setVisible(false);
+					opodVersionCB1.setVisible(true);
+					opodVersionCB2.setVisible(true);
+					opodVersionCB3.setVisible(true);
+					opodVersionCB4.setVisible(true);
+					opodVersionCB5.setVisible(true);
+					opodVersionCB6.setVisible(true);
+					opodVersionCB7.setVisible(false);
+					opodVersionCB8.setVisible(false);
+					opodRelationshipCB1.setVisible(true);
+					opodRelationshipCB2.setVisible(true);
+					opodRelationshipCB3.setVisible(true);
+					opodRelationshipCB4.setVisible(true);
+					opodRelationshipCB5.setVisible(true);
+					opodRelationshipCB6.setVisible(true);
+					opodRelationshipCB7.setVisible(false);
+					opodRelationshipCB8.setVisible(false);
+					opodPrimaryCB1.setVisible(true);
+					opodPrimaryCB2.setVisible(true);
+					opodPrimaryCB3.setVisible(true);
+					opodPrimaryCB4.setVisible(true);
+					opodPrimaryCB5.setVisible(true);
+					opodPrimaryCB6.setVisible(true);
+					opodPrimaryCB7.setVisible(false);
+					opodPrimaryCB8.setVisible(false);
+					opodBackupTypeCB1.setVisible(true);
+					opodBackupTypeCB2.setVisible(true);
+					opodBackupTypeCB3.setVisible(true);
+					opodBackupTypeCB4.setVisible(true);
+					opodBackupTypeCB5.setVisible(true);
+					opodBackupTypeCB6.setVisible(true);
+					opodBackupTypeCB7.setVisible(false);
+					opodBackupTypeCB8.setVisible(false);
 				}
-				if(comboBox_33.getSelectedItem().toString().equals("7")) {
-					textArea_21.setVisible(true);
-					textArea_22.setVisible(true);
-					textArea_23.setVisible(true);
-					textArea_24.setVisible(true);
-					textArea_25.setVisible(true);
-					textArea_26.setVisible(true);
-					textArea_27.setVisible(true);
-					textArea_28.setVisible(false);
-					comboBox_35.setVisible(true);
-					comboBox_36.setVisible(true);
-					comboBox_37.setVisible(true);
-					comboBox_38.setVisible(true);
-					comboBox_39.setVisible(true);
-					comboBox_40.setVisible(true);
-					comboBox_41.setVisible(true);
-					comboBox_42.setVisible(false);
-					comboBox_43.setVisible(true);
-					comboBox_44.setVisible(true);
-					comboBox_45.setVisible(true);
-					comboBox_46.setVisible(true);
-					comboBox_47.setVisible(true);
-					comboBox_48.setVisible(true);
-					comboBox_49.setVisible(true);
-					comboBox_50.setVisible(false);
-					comboBox_51.setVisible(true);
-					comboBox_52.setVisible(true);
-					comboBox_53.setVisible(true);
-					comboBox_54.setVisible(true);
-					comboBox_55.setVisible(true);
-					comboBox_56.setVisible(true);
-					comboBox_57.setVisible(true);
-					comboBox_58.setVisible(false);
-					comboBox_59.setVisible(true);
-					comboBox_60.setVisible(true);
-					comboBox_61.setVisible(true);
-					comboBox_62.setVisible(true);
-					comboBox_63.setVisible(true);
-					comboBox_64.setVisible(true);
-					comboBox_65.setVisible(true);
-					comboBox_66.setVisible(false);
+				if(opodNumDatabasesCB.getSelectedItem().toString().equals("7")) {
+					opodDatabaseNameTA1.setVisible(true);
+					opodDatabaseNameTA2.setVisible(true);
+					opodDatabaseNameTA3.setVisible(true);
+					opodDatabaseNameTA4.setVisible(true);
+					opodDatabaseNameTA5.setVisible(true);
+					opodDatabaseNameTA6.setVisible(true);
+					opodDatabaseNameTA7.setVisible(true);
+					opodDatabaseNameTA8.setVisible(false);
+					opodVersionCB1.setVisible(true);
+					opodVersionCB2.setVisible(true);
+					opodVersionCB3.setVisible(true);
+					opodVersionCB4.setVisible(true);
+					opodVersionCB5.setVisible(true);
+					opodVersionCB6.setVisible(true);
+					opodVersionCB7.setVisible(true);
+					opodVersionCB8.setVisible(false);
+					opodRelationshipCB1.setVisible(true);
+					opodRelationshipCB2.setVisible(true);
+					opodRelationshipCB3.setVisible(true);
+					opodRelationshipCB4.setVisible(true);
+					opodRelationshipCB5.setVisible(true);
+					opodRelationshipCB6.setVisible(true);
+					opodRelationshipCB7.setVisible(true);
+					opodRelationshipCB8.setVisible(false);
+					opodPrimaryCB1.setVisible(true);
+					opodPrimaryCB2.setVisible(true);
+					opodPrimaryCB3.setVisible(true);
+					opodPrimaryCB4.setVisible(true);
+					opodPrimaryCB5.setVisible(true);
+					opodPrimaryCB6.setVisible(true);
+					opodPrimaryCB7.setVisible(true);
+					opodPrimaryCB8.setVisible(false);
+					opodBackupTypeCB1.setVisible(true);
+					opodBackupTypeCB2.setVisible(true);
+					opodBackupTypeCB3.setVisible(true);
+					opodBackupTypeCB4.setVisible(true);
+					opodBackupTypeCB5.setVisible(true);
+					opodBackupTypeCB6.setVisible(true);
+					opodBackupTypeCB7.setVisible(true);
+					opodBackupTypeCB8.setVisible(false);
 				}
-				if(comboBox_33.getSelectedItem().toString().equals("8")) {
-					textArea_21.setVisible(true);
-					textArea_22.setVisible(true);
-					textArea_23.setVisible(true);
-					textArea_24.setVisible(true);
-					textArea_25.setVisible(true);
-					textArea_26.setVisible(true);
-					textArea_27.setVisible(true);
-					textArea_28.setVisible(true);
-					comboBox_35.setVisible(true);
-					comboBox_36.setVisible(true);
-					comboBox_37.setVisible(true);
-					comboBox_38.setVisible(true);
-					comboBox_39.setVisible(true);
-					comboBox_40.setVisible(true);
-					comboBox_41.setVisible(true);
-					comboBox_42.setVisible(true);
-					comboBox_43.setVisible(true);
-					comboBox_44.setVisible(true);
-					comboBox_45.setVisible(true);
-					comboBox_46.setVisible(true);
-					comboBox_47.setVisible(true);
-					comboBox_48.setVisible(true);
-					comboBox_49.setVisible(true);
-					comboBox_50.setVisible(true);
-					comboBox_51.setVisible(true);
-					comboBox_52.setVisible(true);
-					comboBox_53.setVisible(true);
-					comboBox_54.setVisible(true);
-					comboBox_55.setVisible(true);
-					comboBox_56.setVisible(true);
-					comboBox_57.setVisible(true);
-					comboBox_58.setVisible(true);
-					comboBox_59.setVisible(true);
-					comboBox_60.setVisible(true);
-					comboBox_61.setVisible(true);
-					comboBox_62.setVisible(true);
-					comboBox_63.setVisible(true);
-					comboBox_64.setVisible(true);
-					comboBox_65.setVisible(true);
-					comboBox_66.setVisible(true);
+				if(opodNumDatabasesCB.getSelectedItem().toString().equals("8")) {
+					opodDatabaseNameTA1.setVisible(true);
+					opodDatabaseNameTA2.setVisible(true);
+					opodDatabaseNameTA3.setVisible(true);
+					opodDatabaseNameTA4.setVisible(true);
+					opodDatabaseNameTA5.setVisible(true);
+					opodDatabaseNameTA6.setVisible(true);
+					opodDatabaseNameTA7.setVisible(true);
+					opodDatabaseNameTA8.setVisible(true);
+					opodVersionCB1.setVisible(true);
+					opodVersionCB2.setVisible(true);
+					opodVersionCB3.setVisible(true);
+					opodVersionCB4.setVisible(true);
+					opodVersionCB5.setVisible(true);
+					opodVersionCB6.setVisible(true);
+					opodVersionCB7.setVisible(true);
+					opodVersionCB8.setVisible(true);
+					opodRelationshipCB1.setVisible(true);
+					opodRelationshipCB2.setVisible(true);
+					opodRelationshipCB3.setVisible(true);
+					opodRelationshipCB4.setVisible(true);
+					opodRelationshipCB5.setVisible(true);
+					opodRelationshipCB6.setVisible(true);
+					opodRelationshipCB7.setVisible(true);
+					opodRelationshipCB8.setVisible(true);
+					opodPrimaryCB1.setVisible(true);
+					opodPrimaryCB2.setVisible(true);
+					opodPrimaryCB3.setVisible(true);
+					opodPrimaryCB4.setVisible(true);
+					opodPrimaryCB5.setVisible(true);
+					opodPrimaryCB6.setVisible(true);
+					opodPrimaryCB7.setVisible(true);
+					opodPrimaryCB8.setVisible(true);
+					opodBackupTypeCB1.setVisible(true);
+					opodBackupTypeCB2.setVisible(true);
+					opodBackupTypeCB3.setVisible(true);
+					opodBackupTypeCB4.setVisible(true);
+					opodBackupTypeCB5.setVisible(true);
+					opodBackupTypeCB6.setVisible(true);
+					opodBackupTypeCB7.setVisible(true);
+					opodBackupTypeCB8.setVisible(true);
 				}
 
 			}
@@ -3629,714 +3588,714 @@ public class GUI {
 		lblServerRelationship.setBounds(785, 181, 148, 14);
 		OPOD.add(lblServerRelationship);
 		
-		JLabel lblNewLabel_4 = new JLabel("Database Name");
-		lblNewLabel_4.setBounds(10, 560, 148, 14);
-		OPOD.add(lblNewLabel_4);
-		
-		JLabel lblLuns = new JLabel("Version");
-		lblLuns.setBounds(168, 562, 161, 14);
-		OPOD.add(lblLuns);
-		
-		JLabel lblLunSizegb = new JLabel("Relationship");
-		lblLunSizegb.setBounds(339, 560, 150, 14);
-		OPOD.add(lblLunSizegb);
-		
-		JLabel lblTier = new JLabel("Primary");
-		lblTier.setBounds(510, 560, 161, 14);
-		OPOD.add(lblTier);
-		
-		JLabel lblStorageArray = new JLabel("Backup Type");
-		lblStorageArray.setBounds(681, 560, 148, 14);
-		OPOD.add(lblStorageArray);
-		
-		JComboBox comboBox_67 = new JComboBox(opod.getOracleSHSModulesOpts());
-		comboBox_67.setBounds(1040, 721, 393, 20);
-		OPOD.add(comboBox_67);
-		
-		JButton btnNewButton_1 = new JButton("Proceed with the selected option");
-		btnNewButton_1.setBounds(1498, 720, 233, 23);
-		OPOD.add(btnNewButton_1);
-		
-		JTextArea diskGroup1 = new JTextArea();
-		diskGroup1.setText("FRA");
-		diskGroup1.setBounds(989, 206, 148, 22);
-		OPOD.add(diskGroup1);
-		
-		JTextArea diskGroup2 = new JTextArea();
-		diskGroup2.setText("TEMP");
-		diskGroup2.setBounds(989, 239, 148, 22);
-		OPOD.add(diskGroup2);
-		
-		JTextArea diskGroup3 = new JTextArea();
-		diskGroup3.setText("REDOA");
-		diskGroup3.setBounds(989, 272, 148, 22);
-		OPOD.add(diskGroup3);
-		
-		JTextArea diskGroup4 = new JTextArea();
-		diskGroup4.setText("REDOB");
-		diskGroup4.setBounds(989, 305, 148, 22);
-		OPOD.add(diskGroup4);
-		
-		JTextArea diskGroup5 = new JTextArea();
-		diskGroup5.setText("OCRVOTE");
-		diskGroup5.setBounds(989, 337, 148, 22);
-		OPOD.add(diskGroup5);
-		
-		JTextArea textArea_34 = new JTextArea();
-		textArea_34.setBounds(989, 370, 148, 22);
-		OPOD.add(textArea_34);
-		
-		JTextArea textArea_35 = new JTextArea();
-		textArea_35.setBounds(989, 403, 148, 22);
-		OPOD.add(textArea_35);
-		
-		JTextArea textArea_36 = new JTextArea();
-		textArea_36.setBounds(989, 436, 148, 22);
-		OPOD.add(textArea_36);
-		
-		JTextArea textArea_37 = new JTextArea();
-		textArea_37.setBounds(989, 471, 148, 22);
-		OPOD.add(textArea_37);
-		
-		JTextArea textArea_38 = new JTextArea();
-		textArea_38.setBounds(989, 504, 148, 22);
-		OPOD.add(textArea_38);
-		
-		JTextArea textArea_39 = new JTextArea();
-		textArea_39.setBounds(989, 537, 148, 22);
-		OPOD.add(textArea_39);
-		
-		JTextArea textArea_40 = new JTextArea();
-		textArea_40.setBounds(989, 570, 148, 22);
-		OPOD.add(textArea_40);
-		
-		JTextArea textArea_41 = new JTextArea();
-		textArea_41.setBounds(989, 603, 148, 22);
-		OPOD.add(textArea_41);
-		
-		JTextArea textArea_42 = new JTextArea();
-		textArea_42.setBounds(989, 636, 148, 22);
-		OPOD.add(textArea_42);
-		
-		JTextArea textArea_43 = new JTextArea();
-		textArea_43.setBounds(989, 669, 148, 22);
-		OPOD.add(textArea_43);
-		
-		JTextArea textArea_44 = new JTextArea();
-		textArea_44.setText("8");
-		textArea_44.setBounds(1147, 206, 148, 22);
-		OPOD.add(textArea_44);
-		
-		JTextArea textArea_45 = new JTextArea();
-		textArea_45.setText("8");
-		textArea_45.setBounds(1147, 239, 148, 22);
-		OPOD.add(textArea_45);
-		
-		JTextArea textArea_46 = new JTextArea();
-		textArea_46.setText("8");
-		textArea_46.setBounds(1147, 272, 148, 22);
-		OPOD.add(textArea_46);
-		
-		JTextArea textArea_47 = new JTextArea();
-		textArea_47.setText("8");
-		textArea_47.setBounds(1147, 305, 148, 22);
-		OPOD.add(textArea_47);
-		
-		JTextArea textArea_48 = new JTextArea();
-		textArea_48.setText("2");
-		textArea_48.setBounds(1147, 337, 148, 22);
-		OPOD.add(textArea_48);
-		
-		JTextArea textArea_49 = new JTextArea();
-		textArea_49.setBounds(1147, 370, 148, 22);
-		OPOD.add(textArea_49);
-		
-		JTextArea textArea_50 = new JTextArea();
-		textArea_50.setBounds(1147, 403, 148, 22);
-		OPOD.add(textArea_50);
-		
-		JTextArea textArea_51 = new JTextArea();
-		textArea_51.setBounds(1147, 436, 148, 22);
-		OPOD.add(textArea_51);
-		
-		JTextArea textArea_52 = new JTextArea();
-		textArea_52.setBounds(1147, 471, 148, 22);
-		OPOD.add(textArea_52);
-		
-		JTextArea textArea_53 = new JTextArea();
-		textArea_53.setBounds(1147, 504, 148, 22);
-		OPOD.add(textArea_53);
-		
-		JTextArea textArea_54 = new JTextArea();
-		textArea_54.setBounds(1147, 537, 148, 22);
-		OPOD.add(textArea_54);
-		
-		JTextArea textArea_55 = new JTextArea();
-		textArea_55.setBounds(1147, 570, 148, 22);
-		OPOD.add(textArea_55);
-		
-		JTextArea textArea_56 = new JTextArea();
-		textArea_56.setBounds(1147, 603, 148, 22);
-		OPOD.add(textArea_56);
-		
-		JTextArea textArea_57 = new JTextArea();
-		textArea_57.setBounds(1147, 636, 148, 22);
-		OPOD.add(textArea_57);
-		
-		JTextArea textArea_58 = new JTextArea();
-		textArea_58.setBounds(1147, 669, 148, 22);
-		OPOD.add(textArea_58);
-		
-		JTextArea textArea_59 = new JTextArea();
-		textArea_59.setText("32");
-		textArea_59.setBounds(1305, 206, 148, 22);
-		OPOD.add(textArea_59);
-		
-		JTextArea textArea_60 = new JTextArea();
-		textArea_60.setText("32");
-		textArea_60.setBounds(1305, 239, 148, 22);
-		OPOD.add(textArea_60);
-		
-		JTextArea textArea_61 = new JTextArea();
-		textArea_61.setText("32");
-		textArea_61.setBounds(1305, 272, 148, 22);
-		OPOD.add(textArea_61);
-		
-		JTextArea textArea_62 = new JTextArea();
-		textArea_62.setText("32");
-		textArea_62.setBounds(1305, 305, 148, 22);
-		OPOD.add(textArea_62);
-		
-		JTextArea textArea_63 = new JTextArea();
-		textArea_63.setText("2");
-		textArea_63.setBounds(1305, 337, 148, 22);
-		OPOD.add(textArea_63);
-		
-		JTextArea textArea_64 = new JTextArea();
-		textArea_64.setText("0");
-		textArea_64.setBounds(1305, 370, 148, 22);
-		OPOD.add(textArea_64);
-		
-		JTextArea textArea_65 = new JTextArea();
-		textArea_65.setText("0");
-		textArea_65.setBounds(1305, 403, 148, 22);
-		OPOD.add(textArea_65);
-		
-		JTextArea textArea_66 = new JTextArea();
-		textArea_66.setText("0");
-		textArea_66.setBounds(1305, 436, 148, 22);
-		OPOD.add(textArea_66);
-		
-		JTextArea textArea_67 = new JTextArea();
-		textArea_67.setText("0");
-		textArea_67.setBounds(1305, 471, 148, 22);
-		OPOD.add(textArea_67);
-		
-		JTextArea textArea_68 = new JTextArea();
-		textArea_68.setText("0");
-		textArea_68.setBounds(1305, 504, 148, 22);
-		OPOD.add(textArea_68);
-		
-		JTextArea textArea_69 = new JTextArea();
-		textArea_69.setText("0");
-		textArea_69.setBounds(1305, 537, 148, 22);
-		OPOD.add(textArea_69);
-		
-		JTextArea textArea_70 = new JTextArea();
-		textArea_70.setText("0");
-		textArea_70.setBounds(1305, 570, 148, 22);
-		OPOD.add(textArea_70);
-		
-		JTextArea textArea_71 = new JTextArea();
-		textArea_71.setText("0");
-		textArea_71.setBounds(1305, 603, 148, 22);
-		OPOD.add(textArea_71);
-		
-		JTextArea textArea_72 = new JTextArea();
-		textArea_72.setText("0");
-		textArea_72.setBounds(1305, 636, 148, 22);
-		OPOD.add(textArea_72);
-		
-		JTextArea textArea_73 = new JTextArea();
-		textArea_73.setText("0");
-		textArea_73.setBounds(1305, 669, 148, 22);
-		OPOD.add(textArea_73);
-		
-		JComboBox comboBox_68 = new JComboBox(opod.getTierOpts());
-		comboBox_68.setSelectedItem("Tier 2");
-		comboBox_68.setBounds(1463, 208, 148, 20);
-		OPOD.add(comboBox_68);
-		
-		JComboBox comboBox_69 = new JComboBox(opod.getTierOpts());
-		comboBox_69.setSelectedItem("Tier 2");
-		comboBox_69.setBounds(1463, 241, 148, 20);
-		OPOD.add(comboBox_69);
-		
-		JComboBox comboBox_70 = new JComboBox(opod.getTierOpts());
-		comboBox_70.setSelectedItem("Tier 2");
-		comboBox_70.setBounds(1463, 274, 148, 20);
-		OPOD.add(comboBox_70);
-		
-		JComboBox comboBox_71 = new JComboBox(opod.getTierOpts());
-		comboBox_71.setSelectedItem("Tier 2");
-		comboBox_71.setBounds(1463, 307, 148, 20);
-		OPOD.add(comboBox_71);
-		
-		JComboBox comboBox_72 = new JComboBox(opod.getTierOpts());
-		comboBox_72.setSelectedItem("Tier 2");
-		comboBox_72.setBounds(1463, 339, 148, 20);
-		OPOD.add(comboBox_72);
-		
-		JComboBox comboBox_73 = new JComboBox(opod.getTierOpts());
-		comboBox_73.setBounds(1463, 372, 148, 20);
-		OPOD.add(comboBox_73);
-		
-		JComboBox comboBox_74 = new JComboBox(opod.getTierOpts());
-		comboBox_74.setBounds(1463, 405, 148, 20);
-		OPOD.add(comboBox_74);
-		
-		JComboBox comboBox_75 = new JComboBox(opod.getTierOpts());
-		comboBox_75.setBounds(1463, 438, 148, 20);
-		OPOD.add(comboBox_75);
-		
-		JComboBox comboBox_76 = new JComboBox(opod.getTierOpts());
-		comboBox_76.setBounds(1463, 473, 148, 20);
-		OPOD.add(comboBox_76);
-		
-		JComboBox comboBox_77 = new JComboBox(opod.getTierOpts());
-		comboBox_77.setBounds(1463, 506, 148, 20);
-		OPOD.add(comboBox_77);
-		
-		JComboBox comboBox_78 = new JComboBox(opod.getTierOpts());
-		comboBox_78.setBounds(1463, 539, 148, 20);
-		OPOD.add(comboBox_78);
-		
-		JComboBox comboBox_79 = new JComboBox(opod.getTierOpts());
-		comboBox_79.setBounds(1463, 572, 148, 20);
-		OPOD.add(comboBox_79);
-		
-		JComboBox comboBox_80 = new JComboBox(opod.getTierOpts());
-		comboBox_80.setBounds(1463, 605, 148, 20);
-		OPOD.add(comboBox_80);
-		
-		JComboBox comboBox_81 = new JComboBox(opod.getTierOpts());
-		comboBox_81.setBounds(1463, 638, 148, 20);
-		OPOD.add(comboBox_81);
-		
-		JComboBox comboBox_82 = new JComboBox(opod.getTierOpts());
-		comboBox_82.setBounds(1463, 671, 148, 20);
-		OPOD.add(comboBox_82);
-		
-		JComboBox comboBox_83 = new JComboBox(opod.getStorageArrayOpts());
-		comboBox_83.setBounds(1621, 208, 214, 20);
-		OPOD.add(comboBox_83);
-		
-		JComboBox comboBox_84 = new JComboBox(opod.getStorageArrayOpts());
-		comboBox_84.setBounds(1621, 241, 214, 20);
-		OPOD.add(comboBox_84);
-		
-		JComboBox comboBox_85 = new JComboBox(opod.getStorageArrayOpts());
-		comboBox_85.setBounds(1621, 274, 214, 20);
-		OPOD.add(comboBox_85);
-		
-		JComboBox comboBox_86 = new JComboBox(opod.getStorageArrayOpts());
-		comboBox_86.setBounds(1621, 307, 214, 20);
-		OPOD.add(comboBox_86);
-		
-		JComboBox comboBox_87 = new JComboBox(opod.getStorageArrayOpts());
-		comboBox_87.setBounds(1621, 339, 214, 20);
-		OPOD.add(comboBox_87);
-		
-		JComboBox comboBox_88 = new JComboBox(opod.getStorageArrayOpts());
-		comboBox_88.setBounds(1621, 372, 214, 20);
-		OPOD.add(comboBox_88);
-		
-		JComboBox comboBox_89 = new JComboBox(opod.getStorageArrayOpts());
-		comboBox_89.setBounds(1621, 405, 214, 20);
-		OPOD.add(comboBox_89);
-		
-		JComboBox comboBox_90 = new JComboBox(opod.getStorageArrayOpts());
-		comboBox_90.setBounds(1621, 438, 214, 20);
-		OPOD.add(comboBox_90);
-		
-		JComboBox comboBox_91 = new JComboBox(opod.getStorageArrayOpts());
-		comboBox_91.setBounds(1621, 473, 214, 20);
-		OPOD.add(comboBox_91);
-		
-		JComboBox comboBox_92 = new JComboBox(opod.getStorageArrayOpts());
-		comboBox_92.setBounds(1621, 506, 214, 20);
-		OPOD.add(comboBox_92);
-		
-		JComboBox comboBox_93 = new JComboBox(opod.getStorageArrayOpts());
-		comboBox_93.setBounds(1621, 539, 214, 20);
-		OPOD.add(comboBox_93);
-		
-		JComboBox comboBox_94 = new JComboBox(opod.getStorageArrayOpts());
-		comboBox_94.setBounds(1621, 572, 214, 20);
-		OPOD.add(comboBox_94);
-		
-		JComboBox comboBox_95 = new JComboBox(opod.getStorageArrayOpts());
-		comboBox_95.setBounds(1621, 605, 214, 20);
-		OPOD.add(comboBox_95);
-		
-		JComboBox comboBox_96 = new JComboBox(opod.getStorageArrayOpts());
-		comboBox_96.setBounds(1621, 638, 214, 20);
-		OPOD.add(comboBox_96);
-		
-		JComboBox comboBox_97 = new JComboBox(opod.getStorageArrayOpts());
-		comboBox_97.setBounds(1621, 671, 214, 20);
-		OPOD.add(comboBox_97);
-		
-		JLabel lblDiskGroupName = new JLabel("Disk Group Name");
-		lblDiskGroupName.setBounds(989, 181, 148, 14);
-		OPOD.add(lblDiskGroupName);
-		
-		JLabel lblLuns_1 = new JLabel("LUNS");
-		lblLuns_1.setBounds(1147, 181, 136, 14);
-		OPOD.add(lblLuns_1);
-		
-		JLabel lblLunSizegb_1 = new JLabel("LUN Size (GB)");
-		lblLunSizegb_1.setBounds(1305, 181, 148, 14);
-		OPOD.add(lblLunSizegb_1);
-		
-		JLabel lblTier_1 = new JLabel("Tier");
-		lblTier_1.setBounds(1463, 181, 148, 14);
-		OPOD.add(lblTier_1);
-		
-		JLabel lblStorageArray_1 = new JLabel("Storage Array");
-		lblStorageArray_1.setBounds(1621, 181, 130, 14);
-		OPOD.add(lblStorageArray_1);
-		
-		JLabel lblTotalNewAsm = new JLabel("Total New ASM Disk Groups");
-		lblTotalNewAsm.setBounds(1147, 114, 174, 14);
-		OPOD.add(lblTotalNewAsm);
-		
-		textArea_43.setVisible(false);
-		textArea_58.setVisible(false);
-		textArea_73.setVisible(false);
-		comboBox_82.setVisible(false);
-		comboBox_97.setVisible(false);
-		lblDiskGroupName.setVisible(false);
-		lblLuns_1.setVisible(false);
-		lblLunSizegb_1.setVisible(false);
-		lblTier_1.setVisible(false);
-		lblStorageArray_1.setVisible(false);
-		diskGroup1.setVisible(false);
-		textArea_44.setVisible(false);
-		textArea_59.setVisible(false);
-		comboBox_68.setVisible(false);
-		comboBox_83.setVisible(false);
-		diskGroup2.setVisible(false);
-		textArea_45.setVisible(false);
-		textArea_60.setVisible(false);
-		comboBox_69.setVisible(false);
-		comboBox_84.setVisible(false);
-		diskGroup3.setVisible(false);
-		textArea_46.setVisible(false);
-		textArea_61.setVisible(false);
-		comboBox_70.setVisible(false);
-		comboBox_85.setVisible(false);
-		diskGroup4.setVisible(false);
-		textArea_47.setVisible(false);
-		textArea_62.setVisible(false);
-		comboBox_71.setVisible(false);
-		comboBox_86.setVisible(false);
-		diskGroup5.setVisible(false);
-		textArea_48.setVisible(false);
-		textArea_63.setVisible(false);
-		comboBox_72.setVisible(false);
-		textArea_34.setVisible(false);
-		textArea_49.setVisible(false);
-		textArea_64.setVisible(false);
-		comboBox_73.setVisible(false);
-		comboBox_88.setVisible(false);
-		comboBox_87.setVisible(false);
-		textArea_35.setVisible(false);
-		textArea_50.setVisible(false);
-		textArea_65.setVisible(false);
-		comboBox_74.setVisible(false);
-		comboBox_89.setVisible(false);
-		textArea_36.setVisible(false);
-		textArea_51.setVisible(false);
-		textArea_66.setVisible(false);
-		comboBox_75.setVisible(false);
-		comboBox_90.setVisible(false);
-		textArea_37.setVisible(false);
-		textArea_52.setVisible(false);
-		textArea_67.setVisible(false);
-		comboBox_76.setVisible(false);
-		comboBox_91.setVisible(false);
-		textArea_38.setVisible(false);
-		textArea_53.setVisible(false);
-		textArea_68.setVisible(false);
-		comboBox_77.setVisible(false);
-		comboBox_92.setVisible(false);
-		textArea_39.setVisible(false);
-		textArea_54.setVisible(false);
-		textArea_69.setVisible(false);
-		comboBox_78.setVisible(false);
-		comboBox_93.setVisible(false);
-		textArea_40.setVisible(false);
-		textArea_55.setVisible(false);
-		textArea_70.setVisible(false);
-		comboBox_79.setVisible(false);
-		comboBox_94.setVisible(false);
-		textArea_41.setVisible(false);
-		textArea_56.setVisible(false);
-		textArea_71.setVisible(false);
-		comboBox_80.setVisible(false);
-		comboBox_95.setVisible(false);
-		textArea_42.setVisible(false);
-		textArea_57.setVisible(false);
-		textArea_72.setVisible(false);
-		comboBox_81.setVisible(false);
-		comboBox_96.setVisible(false);
-		
-		
-		JComboBox comboBox_98 = new JComboBox(opod.numDiskGroupsOpts);
-		comboBox_98.setBounds(1305, 111, 261, 20);
-		OPOD.add(comboBox_98);
-		comboBox_98.addActionListener(new ActionListener() {
+		JLabel lblOpodDatabaseName = new JLabel("Database Name");
+		lblOpodDatabaseName.setBounds(10, 560, 148, 14);
+		OPOD.add(lblOpodDatabaseName);
+		
+		JLabel lblOpodVersion = new JLabel("Version");
+		lblOpodVersion.setBounds(168, 562, 161, 14);
+		OPOD.add(lblOpodVersion);
+		
+		JLabel lblOpodRelationship = new JLabel("Relationship");
+		lblOpodRelationship.setBounds(339, 560, 150, 14);
+		OPOD.add(lblOpodRelationship);
+		
+		JLabel lblOpodPrimary = new JLabel("Primary");
+		lblOpodPrimary.setBounds(510, 560, 161, 14);
+		OPOD.add(lblOpodPrimary);
+		
+		JLabel lblOpodBackupType = new JLabel("Backup Type");
+		lblOpodBackupType.setBounds(681, 560, 148, 14);
+		OPOD.add(lblOpodBackupType);
+		
+		JComboBox opodModulesCB = new JComboBox(opod.getOracleSHSModulesOpts());
+		opodModulesCB.setBounds(1040, 721, 393, 20);
+		OPOD.add(opodModulesCB);
+		
+		JButton opodModulesBtn = new JButton("Proceed with the selected option");
+		opodModulesBtn.setBounds(1498, 720, 233, 23);
+		OPOD.add(opodModulesBtn);
+		
+		JTextArea opodDiskGroupNameTA1 = new JTextArea();
+		opodDiskGroupNameTA1.setText("FRA");
+		opodDiskGroupNameTA1.setBounds(989, 206, 148, 22);
+		OPOD.add(opodDiskGroupNameTA1);
+		
+		JTextArea opodDiskGroupNameTA2 = new JTextArea();
+		opodDiskGroupNameTA2.setText("TEMP");
+		opodDiskGroupNameTA2.setBounds(989, 239, 148, 22);
+		OPOD.add(opodDiskGroupNameTA2);
+		
+		JTextArea opodDiskGroupNameTA3 = new JTextArea();
+		opodDiskGroupNameTA3.setText("REDOA");
+		opodDiskGroupNameTA3.setBounds(989, 272, 148, 22);
+		OPOD.add(opodDiskGroupNameTA3);
+		
+		JTextArea opodDiskGroupNameTA4 = new JTextArea();
+		opodDiskGroupNameTA4.setText("REDOB");
+		opodDiskGroupNameTA4.setBounds(989, 305, 148, 22);
+		OPOD.add(opodDiskGroupNameTA4);
+		
+		JTextArea opodDiskGroupNameTA5 = new JTextArea();
+		opodDiskGroupNameTA5.setText("OCRVOTE");
+		opodDiskGroupNameTA5.setBounds(989, 337, 148, 22);
+		OPOD.add(opodDiskGroupNameTA5);
+		
+		JTextArea opodDiskGroupNameTA6 = new JTextArea();
+		opodDiskGroupNameTA6.setBounds(989, 370, 148, 22);
+		OPOD.add(opodDiskGroupNameTA6);
+		
+		JTextArea opodDiskGroupNameTA7 = new JTextArea();
+		opodDiskGroupNameTA7.setBounds(989, 403, 148, 22);
+		OPOD.add(opodDiskGroupNameTA7);
+		
+		JTextArea opodDiskGroupNameTA8 = new JTextArea();
+		opodDiskGroupNameTA8.setBounds(989, 436, 148, 22);
+		OPOD.add(opodDiskGroupNameTA8);
+		
+		JTextArea opodDiskGroupNameTA9 = new JTextArea();
+		opodDiskGroupNameTA9.setBounds(989, 471, 148, 22);
+		OPOD.add(opodDiskGroupNameTA9);
+		
+		JTextArea opodDiskGroupNameTA10 = new JTextArea();
+		opodDiskGroupNameTA10.setBounds(989, 504, 148, 22);
+		OPOD.add(opodDiskGroupNameTA10);
+		
+		JTextArea opodDiskGroupNameTA11 = new JTextArea();
+		opodDiskGroupNameTA11.setBounds(989, 537, 148, 22);
+		OPOD.add(opodDiskGroupNameTA11);
+		
+		JTextArea opodDiskGroupNameTA12 = new JTextArea();
+		opodDiskGroupNameTA12.setBounds(989, 570, 148, 22);
+		OPOD.add(opodDiskGroupNameTA12);
+		
+		JTextArea opodDiskGroupNameTA13 = new JTextArea();
+		opodDiskGroupNameTA13.setBounds(989, 603, 148, 22);
+		OPOD.add(opodDiskGroupNameTA13);
+		
+		JTextArea opodDiskGroupNameTA14 = new JTextArea();
+		opodDiskGroupNameTA14.setBounds(989, 636, 148, 22);
+		OPOD.add(opodDiskGroupNameTA14);
+		
+		JTextArea opodDiskGroupNameTA15 = new JTextArea();
+		opodDiskGroupNameTA15.setBounds(989, 669, 148, 22);
+		OPOD.add(opodDiskGroupNameTA15);
+		
+		JTextArea opodLunsTA1 = new JTextArea();
+		opodLunsTA1.setText("8");
+		opodLunsTA1.setBounds(1147, 206, 148, 22);
+		OPOD.add(opodLunsTA1);
+		
+		JTextArea opodLunsTA2 = new JTextArea();
+		opodLunsTA2.setText("8");
+		opodLunsTA2.setBounds(1147, 239, 148, 22);
+		OPOD.add(opodLunsTA2);
+		
+		JTextArea opodLunsTA3 = new JTextArea();
+		opodLunsTA3.setText("8");
+		opodLunsTA3.setBounds(1147, 272, 148, 22);
+		OPOD.add(opodLunsTA3);
+		
+		JTextArea opodLunsTA4 = new JTextArea();
+		opodLunsTA4.setText("8");
+		opodLunsTA4.setBounds(1147, 305, 148, 22);
+		OPOD.add(opodLunsTA4);
+		
+		JTextArea opodLunsTA5 = new JTextArea();
+		opodLunsTA5.setText("2");
+		opodLunsTA5.setBounds(1147, 337, 148, 22);
+		OPOD.add(opodLunsTA5);
+		
+		JTextArea opodLunsTA6 = new JTextArea();
+		opodLunsTA6.setBounds(1147, 370, 148, 22);
+		OPOD.add(opodLunsTA6);
+		
+		JTextArea opodLunsTA7 = new JTextArea();
+		opodLunsTA7.setBounds(1147, 403, 148, 22);
+		OPOD.add(opodLunsTA7);
+		
+		JTextArea opodLunsTA8 = new JTextArea();
+		opodLunsTA8.setBounds(1147, 436, 148, 22);
+		OPOD.add(opodLunsTA8);
+		
+		JTextArea opodLunsTA9 = new JTextArea();
+		opodLunsTA9.setBounds(1147, 471, 148, 22);
+		OPOD.add(opodLunsTA9);
+		
+		JTextArea opodLunsTA10 = new JTextArea();
+		opodLunsTA10.setBounds(1147, 504, 148, 22);
+		OPOD.add(opodLunsTA10);
+		
+		JTextArea opodLunsTA11 = new JTextArea();
+		opodLunsTA11.setBounds(1147, 537, 148, 22);
+		OPOD.add(opodLunsTA11);
+		
+		JTextArea opodLunsTA12 = new JTextArea();
+		opodLunsTA12.setBounds(1147, 570, 148, 22);
+		OPOD.add(opodLunsTA12);
+		
+		JTextArea opodLunsTA13 = new JTextArea();
+		opodLunsTA13.setBounds(1147, 603, 148, 22);
+		OPOD.add(opodLunsTA13);
+		
+		JTextArea opodLunsTA14 = new JTextArea();
+		opodLunsTA14.setBounds(1147, 636, 148, 22);
+		OPOD.add(opodLunsTA14);
+		
+		JTextArea opodLunsTA15 = new JTextArea();
+		opodLunsTA15.setBounds(1147, 669, 148, 22);
+		OPOD.add(opodLunsTA15);
+		
+		JTextArea opodLunSizeTA1 = new JTextArea();
+		opodLunSizeTA1.setText("32");
+		opodLunSizeTA1.setBounds(1305, 206, 148, 22);
+		OPOD.add(opodLunSizeTA1);
+		
+		JTextArea opodLunSizeTA2 = new JTextArea();
+		opodLunSizeTA2.setText("32");
+		opodLunSizeTA2.setBounds(1305, 239, 148, 22);
+		OPOD.add(opodLunSizeTA2);
+		
+		JTextArea opodLunSizeTA3 = new JTextArea();
+		opodLunSizeTA3.setText("32");
+		opodLunSizeTA3.setBounds(1305, 272, 148, 22);
+		OPOD.add(opodLunSizeTA3);
+		
+		JTextArea opodLunSizeTA4 = new JTextArea();
+		opodLunSizeTA4.setText("32");
+		opodLunSizeTA4.setBounds(1305, 305, 148, 22);
+		OPOD.add(opodLunSizeTA4);
+		
+		JTextArea opodLunSizeTA5 = new JTextArea();
+		opodLunSizeTA5.setText("2");
+		opodLunSizeTA5.setBounds(1305, 337, 148, 22);
+		OPOD.add(opodLunSizeTA5);
+		
+		JTextArea opodLunSizeTA6 = new JTextArea();
+		opodLunSizeTA6.setText("0");
+		opodLunSizeTA6.setBounds(1305, 370, 148, 22);
+		OPOD.add(opodLunSizeTA6);
+		
+		JTextArea opodLunSizeTA7 = new JTextArea();
+		opodLunSizeTA7.setText("0");
+		opodLunSizeTA7.setBounds(1305, 403, 148, 22);
+		OPOD.add(opodLunSizeTA7);
+		
+		JTextArea opodLunSizeTA8 = new JTextArea();
+		opodLunSizeTA8.setText("0");
+		opodLunSizeTA8.setBounds(1305, 436, 148, 22);
+		OPOD.add(opodLunSizeTA8);
+		
+		JTextArea opodLunSizeTA9 = new JTextArea();
+		opodLunSizeTA9.setText("0");
+		opodLunSizeTA9.setBounds(1305, 471, 148, 22);
+		OPOD.add(opodLunSizeTA9);
+		
+		JTextArea opodLunSizeTA10 = new JTextArea();
+		opodLunSizeTA10.setText("0");
+		opodLunSizeTA10.setBounds(1305, 504, 148, 22);
+		OPOD.add(opodLunSizeTA10);
+		
+		JTextArea opodLunSizeTA11 = new JTextArea();
+		opodLunSizeTA11.setText("0");
+		opodLunSizeTA11.setBounds(1305, 537, 148, 22);
+		OPOD.add(opodLunSizeTA11);
+		
+		JTextArea opodLunSizeTA12 = new JTextArea();
+		opodLunSizeTA12.setText("0");
+		opodLunSizeTA12.setBounds(1305, 570, 148, 22);
+		OPOD.add(opodLunSizeTA12);
+		
+		JTextArea opodLunSizeTA13 = new JTextArea();
+		opodLunSizeTA13.setText("0");
+		opodLunSizeTA13.setBounds(1305, 603, 148, 22);
+		OPOD.add(opodLunSizeTA13);
+		
+		JTextArea opodLunSizeTA14 = new JTextArea();
+		opodLunSizeTA14.setText("0");
+		opodLunSizeTA14.setBounds(1305, 636, 148, 22);
+		OPOD.add(opodLunSizeTA14);
+		
+		JTextArea opodLunSizeTA15 = new JTextArea();
+		opodLunSizeTA15.setText("0");
+		opodLunSizeTA15.setBounds(1305, 669, 148, 22);
+		OPOD.add(opodLunSizeTA15);
+		
+		JComboBox opodTierCB1 = new JComboBox(opod.getTierOpts());
+		opodTierCB1.setSelectedItem("Tier 2");
+		opodTierCB1.setBounds(1463, 208, 148, 20);
+		OPOD.add(opodTierCB1);
+		
+		JComboBox opodTierCB2 = new JComboBox(opod.getTierOpts());
+		opodTierCB2.setSelectedItem("Tier 2");
+		opodTierCB2.setBounds(1463, 241, 148, 20);
+		OPOD.add(opodTierCB2);
+		
+		JComboBox opodTierCB3 = new JComboBox(opod.getTierOpts());
+		opodTierCB3.setSelectedItem("Tier 2");
+		opodTierCB3.setBounds(1463, 274, 148, 20);
+		OPOD.add(opodTierCB3);
+		
+		JComboBox opodTierCB4 = new JComboBox(opod.getTierOpts());
+		opodTierCB4.setSelectedItem("Tier 2");
+		opodTierCB4.setBounds(1463, 307, 148, 20);
+		OPOD.add(opodTierCB4);
+		
+		JComboBox opodTierCB5 = new JComboBox(opod.getTierOpts());
+		opodTierCB5.setSelectedItem("Tier 2");
+		opodTierCB5.setBounds(1463, 339, 148, 20);
+		OPOD.add(opodTierCB5);
+		
+		JComboBox opodTierCB6 = new JComboBox(opod.getTierOpts());
+		opodTierCB6.setBounds(1463, 372, 148, 20);
+		OPOD.add(opodTierCB6);
+		
+		JComboBox opodTierCB7 = new JComboBox(opod.getTierOpts());
+		opodTierCB7.setBounds(1463, 405, 148, 20);
+		OPOD.add(opodTierCB7);
+		
+		JComboBox opodTierCB8 = new JComboBox(opod.getTierOpts());
+		opodTierCB8.setBounds(1463, 438, 148, 20);
+		OPOD.add(opodTierCB8);
+		
+		JComboBox opodTierCB9 = new JComboBox(opod.getTierOpts());
+		opodTierCB9.setBounds(1463, 473, 148, 20);
+		OPOD.add(opodTierCB9);
+		
+		JComboBox opodTierCB10 = new JComboBox(opod.getTierOpts());
+		opodTierCB10.setBounds(1463, 506, 148, 20);
+		OPOD.add(opodTierCB10);
+		
+		JComboBox opodTierCB11 = new JComboBox(opod.getTierOpts());
+		opodTierCB11.setBounds(1463, 539, 148, 20);
+		OPOD.add(opodTierCB11);
+		
+		JComboBox opodTierCB12 = new JComboBox(opod.getTierOpts());
+		opodTierCB12.setBounds(1463, 572, 148, 20);
+		OPOD.add(opodTierCB12);
+		
+		JComboBox opodTierCB13 = new JComboBox(opod.getTierOpts());
+		opodTierCB13.setBounds(1463, 605, 148, 20);
+		OPOD.add(opodTierCB13);
+		
+		JComboBox opodTierCB14 = new JComboBox(opod.getTierOpts());
+		opodTierCB14.setBounds(1463, 638, 148, 20);
+		OPOD.add(opodTierCB14);
+		
+		JComboBox opodTierCB15 = new JComboBox(opod.getTierOpts());
+		opodTierCB15.setBounds(1463, 671, 148, 20);
+		OPOD.add(opodTierCB15);
+		
+		JComboBox opodStorageArrayCB1 = new JComboBox(opod.getStorageArrayOpts());
+		opodStorageArrayCB1.setBounds(1621, 208, 214, 20);
+		OPOD.add(opodStorageArrayCB1);
+		
+		JComboBox opodStorageArrayCB2 = new JComboBox(opod.getStorageArrayOpts());
+		opodStorageArrayCB2.setBounds(1621, 241, 214, 20);
+		OPOD.add(opodStorageArrayCB2);
+		
+		JComboBox opodStorageArrayCB3 = new JComboBox(opod.getStorageArrayOpts());
+		opodStorageArrayCB3.setBounds(1621, 274, 214, 20);
+		OPOD.add(opodStorageArrayCB3);
+		
+		JComboBox opodStorageArrayCB4 = new JComboBox(opod.getStorageArrayOpts());
+		opodStorageArrayCB4.setBounds(1621, 307, 214, 20);
+		OPOD.add(opodStorageArrayCB4);
+		
+		JComboBox opodStorageArrayCB5 = new JComboBox(opod.getStorageArrayOpts());
+		opodStorageArrayCB5.setBounds(1621, 339, 214, 20);
+		OPOD.add(opodStorageArrayCB5);
+		
+		JComboBox opodStorageArrayCB6 = new JComboBox(opod.getStorageArrayOpts());
+		opodStorageArrayCB6.setBounds(1621, 372, 214, 20);
+		OPOD.add(opodStorageArrayCB6);
+		
+		JComboBox opodStorageArrayCB7 = new JComboBox(opod.getStorageArrayOpts());
+		opodStorageArrayCB7.setBounds(1621, 405, 214, 20);
+		OPOD.add(opodStorageArrayCB7);
+		
+		JComboBox opodStorageArrayCB8 = new JComboBox(opod.getStorageArrayOpts());
+		opodStorageArrayCB8.setBounds(1621, 438, 214, 20);
+		OPOD.add(opodStorageArrayCB8);
+		
+		JComboBox opodStorageArrayCB9 = new JComboBox(opod.getStorageArrayOpts());
+		opodStorageArrayCB9.setBounds(1621, 473, 214, 20);
+		OPOD.add(opodStorageArrayCB9);
+		
+		JComboBox opodStorageArrayCB10 = new JComboBox(opod.getStorageArrayOpts());
+		opodStorageArrayCB10.setBounds(1621, 506, 214, 20);
+		OPOD.add(opodStorageArrayCB10);
+		
+		JComboBox opodStorageArrayCB11 = new JComboBox(opod.getStorageArrayOpts());
+		opodStorageArrayCB11.setBounds(1621, 539, 214, 20);
+		OPOD.add(opodStorageArrayCB11);
+		
+		JComboBox opodStorageArrayCB12 = new JComboBox(opod.getStorageArrayOpts());
+		opodStorageArrayCB12.setBounds(1621, 572, 214, 20);
+		OPOD.add(opodStorageArrayCB12);
+		
+		JComboBox opodStorageArrayCB13 = new JComboBox(opod.getStorageArrayOpts());
+		opodStorageArrayCB13.setBounds(1621, 605, 214, 20);
+		OPOD.add(opodStorageArrayCB13);
+		
+		JComboBox opodStorageArrayCB14 = new JComboBox(opod.getStorageArrayOpts());
+		opodStorageArrayCB14.setBounds(1621, 638, 214, 20);
+		OPOD.add(opodStorageArrayCB14);
+		
+		JComboBox opodStorageArrayCB15 = new JComboBox(opod.getStorageArrayOpts());
+		opodStorageArrayCB15.setBounds(1621, 671, 214, 20);
+		OPOD.add(opodStorageArrayCB15);
+		
+		JLabel lblOpodDiskGroupName = new JLabel("Disk Group Name");
+		lblOpodDiskGroupName.setBounds(989, 181, 148, 14);
+		OPOD.add(lblOpodDiskGroupName);
+		
+		JLabel lblOpodLuns = new JLabel("LUNS");
+		lblOpodLuns.setBounds(1147, 181, 136, 14);
+		OPOD.add(lblOpodLuns);
+		
+		JLabel lblOpodLunSize = new JLabel("LUN Size (GB)");
+		lblOpodLunSize.setBounds(1305, 181, 148, 14);
+		OPOD.add(lblOpodLunSize);
+		
+		JLabel lblOpodTier = new JLabel("Tier");
+		lblOpodTier.setBounds(1463, 181, 148, 14);
+		OPOD.add(lblOpodTier);
+		
+		JLabel lblOpodStorageArray = new JLabel("Storage Array");
+		lblOpodStorageArray.setBounds(1621, 181, 130, 14);
+		OPOD.add(lblOpodStorageArray);
+		
+		JLabel lblOpodNumDiskGroups = new JLabel("Total New ASM Disk Groups");
+		lblOpodNumDiskGroups.setBounds(1121, 114, 174, 14);
+		OPOD.add(lblOpodNumDiskGroups);
+		
+		opodDiskGroupNameTA15.setVisible(false);
+		opodLunsTA15.setVisible(false);
+		opodLunSizeTA15.setVisible(false);
+		opodTierCB15.setVisible(false);
+		opodStorageArrayCB15.setVisible(false);
+		lblOpodDiskGroupName.setVisible(false);
+		lblOpodLuns.setVisible(false);
+		lblOpodLunSize.setVisible(false);
+		lblOpodTier.setVisible(false);
+		lblOpodStorageArray.setVisible(false);
+		opodDiskGroupNameTA1.setVisible(false);
+		opodLunsTA1.setVisible(false);
+		opodLunSizeTA1.setVisible(false);
+		opodTierCB1.setVisible(false);
+		opodStorageArrayCB1.setVisible(false);
+		opodDiskGroupNameTA2.setVisible(false);
+		opodLunsTA2.setVisible(false);
+		opodLunSizeTA2.setVisible(false);
+		opodTierCB2.setVisible(false);
+		opodStorageArrayCB2.setVisible(false);
+		opodDiskGroupNameTA3.setVisible(false);
+		opodLunsTA3.setVisible(false);
+		opodLunSizeTA3.setVisible(false);
+		opodTierCB3.setVisible(false);
+		opodStorageArrayCB3.setVisible(false);
+		opodDiskGroupNameTA4.setVisible(false);
+		opodLunsTA4.setVisible(false);
+		opodLunSizeTA4.setVisible(false);
+		opodTierCB4.setVisible(false);
+		opodStorageArrayCB4.setVisible(false);
+		opodDiskGroupNameTA5.setVisible(false);
+		opodLunsTA5.setVisible(false);
+		opodLunSizeTA5.setVisible(false);
+		opodTierCB5.setVisible(false);
+		opodDiskGroupNameTA6.setVisible(false);
+		opodLunsTA6.setVisible(false);
+		opodLunSizeTA6.setVisible(false);
+		opodTierCB6.setVisible(false);
+		opodStorageArrayCB6.setVisible(false);
+		opodStorageArrayCB5.setVisible(false);
+		opodDiskGroupNameTA7.setVisible(false);
+		opodLunsTA7.setVisible(false);
+		opodLunSizeTA7.setVisible(false);
+		opodTierCB7.setVisible(false);
+		opodStorageArrayCB7.setVisible(false);
+		opodDiskGroupNameTA8.setVisible(false);
+		opodLunsTA8.setVisible(false);
+		opodLunSizeTA8.setVisible(false);
+		opodTierCB8.setVisible(false);
+		opodStorageArrayCB8.setVisible(false);
+		opodDiskGroupNameTA9.setVisible(false);
+		opodLunsTA9.setVisible(false);
+		opodLunSizeTA9.setVisible(false);
+		opodTierCB9.setVisible(false);
+		opodStorageArrayCB9.setVisible(false);
+		opodDiskGroupNameTA10.setVisible(false);
+		opodLunsTA10.setVisible(false);
+		opodLunSizeTA10.setVisible(false);
+		opodTierCB10.setVisible(false);
+		opodStorageArrayCB10.setVisible(false);
+		opodDiskGroupNameTA11.setVisible(false);
+		opodLunsTA11.setVisible(false);
+		opodLunSizeTA11.setVisible(false);
+		opodTierCB11.setVisible(false);
+		opodStorageArrayCB11.setVisible(false);
+		opodDiskGroupNameTA12.setVisible(false);
+		opodLunsTA12.setVisible(false);
+		opodLunSizeTA12.setVisible(false);
+		opodTierCB12.setVisible(false);
+		opodStorageArrayCB12.setVisible(false);
+		opodDiskGroupNameTA13.setVisible(false);
+		opodLunsTA13.setVisible(false);
+		opodLunSizeTA13.setVisible(false);
+		opodTierCB13.setVisible(false);
+		opodStorageArrayCB13.setVisible(false);
+		opodDiskGroupNameTA14.setVisible(false);
+		opodLunsTA14.setVisible(false);
+		opodLunSizeTA14.setVisible(false);
+		opodTierCB14.setVisible(false);
+		opodStorageArrayCB14.setVisible(false);
+		
+		
+		JComboBox opodNumDiskGroupsCB = new JComboBox(opod.numDiskGroupsOpts);
+		opodNumDiskGroupsCB.setBounds(1305, 111, 261, 20);
+		OPOD.add(opodNumDiskGroupsCB);
+		opodNumDiskGroupsCB.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				if(comboBox_98.getSelectedIndex() == 0) {
-					lblDiskGroupName.setVisible(false);
-					lblLuns_1.setVisible(false);
-					lblLunSizegb_1.setVisible(false);
-					lblTier_1.setVisible(false);
-					lblStorageArray_1.setVisible(false);
+				if(opodNumDiskGroupsCB.getSelectedIndex() == 0) {
+					lblOpodDiskGroupName.setVisible(false);
+					lblOpodLuns.setVisible(false);
+					lblOpodLunSize.setVisible(false);
+					lblOpodTier.setVisible(false);
+					lblOpodStorageArray.setVisible(false);
 				} else {
-					lblDiskGroupName.setVisible(true);
-					lblLuns_1.setVisible(true);
-					lblLunSizegb_1.setVisible(true);
-					lblTier_1.setVisible(true);
-					lblStorageArray_1.setVisible(true);
+					lblOpodDiskGroupName.setVisible(true);
+					lblOpodLuns.setVisible(true);
+					lblOpodLunSize.setVisible(true);
+					lblOpodTier.setVisible(true);
+					lblOpodStorageArray.setVisible(true);
 				}
 				
-				if(comboBox_98.getSelectedIndex() >= 1) {
-					diskGroup1.setVisible(true);
-					textArea_44.setVisible(true);
-					textArea_59.setVisible(true);
-					comboBox_68.setVisible(true);
-					comboBox_83.setVisible(true);
+				if(opodNumDiskGroupsCB.getSelectedIndex() >= 1) {
+					opodDiskGroupNameTA1.setVisible(true);
+					opodLunsTA1.setVisible(true);
+					opodLunSizeTA1.setVisible(true);
+					opodTierCB1.setVisible(true);
+					opodStorageArrayCB1.setVisible(true);
 					
 				} else {
-					diskGroup1.setVisible(false);
-					textArea_44.setVisible(false);
-					textArea_59.setVisible(false);
-					comboBox_68.setVisible(false);
-					comboBox_83.setVisible(false);
+					opodDiskGroupNameTA1.setVisible(false);
+					opodLunsTA1.setVisible(false);
+					opodLunSizeTA1.setVisible(false);
+					opodTierCB1.setVisible(false);
+					opodStorageArrayCB1.setVisible(false);
 				}
 				
-				if(comboBox_98.getSelectedIndex() >= 2) {
-					diskGroup2.setVisible(true);
-					textArea_45.setVisible(true);
-					textArea_60.setVisible(true);
-					comboBox_69.setVisible(true);
-					comboBox_84.setVisible(true);
+				if(opodNumDiskGroupsCB.getSelectedIndex() >= 2) {
+					opodDiskGroupNameTA2.setVisible(true);
+					opodLunsTA2.setVisible(true);
+					opodLunSizeTA2.setVisible(true);
+					opodTierCB2.setVisible(true);
+					opodStorageArrayCB2.setVisible(true);
 					
 				} else {
-					diskGroup2.setVisible(false);
-					textArea_45.setVisible(false);
-					textArea_60.setVisible(false);
-					comboBox_69.setVisible(false);
-					comboBox_84.setVisible(false);
+					opodDiskGroupNameTA2.setVisible(false);
+					opodLunsTA2.setVisible(false);
+					opodLunSizeTA2.setVisible(false);
+					opodTierCB2.setVisible(false);
+					opodStorageArrayCB2.setVisible(false);
 				}
 				
-				if(comboBox_98.getSelectedIndex() >= 3) {
-					diskGroup3.setVisible(true);
-					textArea_46.setVisible(true);
-					textArea_61.setVisible(true);
-					comboBox_70.setVisible(true);
-					comboBox_85.setVisible(true);
+				if(opodNumDiskGroupsCB.getSelectedIndex() >= 3) {
+					opodDiskGroupNameTA3.setVisible(true);
+					opodLunsTA3.setVisible(true);
+					opodLunSizeTA3.setVisible(true);
+					opodTierCB3.setVisible(true);
+					opodStorageArrayCB3.setVisible(true);
 					
 				} else {
-					diskGroup3.setVisible(false);
-					textArea_46.setVisible(false);
-					textArea_61.setVisible(false);
-					comboBox_70.setVisible(false);
-					comboBox_85.setVisible(false);
+					opodDiskGroupNameTA3.setVisible(false);
+					opodLunsTA3.setVisible(false);
+					opodLunSizeTA3.setVisible(false);
+					opodTierCB3.setVisible(false);
+					opodStorageArrayCB3.setVisible(false);
 				}
 				
-				if(comboBox_98.getSelectedIndex() >= 4) {
-					diskGroup4.setVisible(true);
-					textArea_47.setVisible(true);
-					textArea_62.setVisible(true);
-					comboBox_71.setVisible(true);
-					comboBox_86.setVisible(true);
+				if(opodNumDiskGroupsCB.getSelectedIndex() >= 4) {
+					opodDiskGroupNameTA4.setVisible(true);
+					opodLunsTA4.setVisible(true);
+					opodLunSizeTA4.setVisible(true);
+					opodTierCB4.setVisible(true);
+					opodStorageArrayCB4.setVisible(true);
 					
 				} else {
-					diskGroup4.setVisible(false);
-					textArea_47.setVisible(false);
-					textArea_62.setVisible(false);
-					comboBox_71.setVisible(false);
-					comboBox_86.setVisible(false);
+					opodDiskGroupNameTA4.setVisible(false);
+					opodLunsTA4.setVisible(false);
+					opodLunSizeTA4.setVisible(false);
+					opodTierCB4.setVisible(false);
+					opodStorageArrayCB4.setVisible(false);
 				}
 				
 				
-				if(comboBox_98.getSelectedIndex() >= 5) {
-					diskGroup5.setVisible(true);
-					textArea_48.setVisible(true);
-					textArea_63.setVisible(true);
-					comboBox_72.setVisible(true);
-					comboBox_87.setVisible(true);
+				if(opodNumDiskGroupsCB.getSelectedIndex() >= 5) {
+					opodDiskGroupNameTA5.setVisible(true);
+					opodLunsTA5.setVisible(true);
+					opodLunSizeTA5.setVisible(true);
+					opodTierCB5.setVisible(true);
+					opodStorageArrayCB5.setVisible(true);
 					
 				} else {
-					diskGroup5.setVisible(false);
-					textArea_48.setVisible(false);
-					textArea_63.setVisible(false);
-					comboBox_72.setVisible(false);
-					comboBox_87.setVisible(false);
+					opodDiskGroupNameTA5.setVisible(false);
+					opodLunsTA5.setVisible(false);
+					opodLunSizeTA5.setVisible(false);
+					opodTierCB5.setVisible(false);
+					opodStorageArrayCB5.setVisible(false);
 				}
 				
-				if(comboBox_98.getSelectedIndex() >= 6) {
-					textArea_34.setVisible(true);
-					textArea_49.setVisible(true);
-					textArea_64.setVisible(true);
-					comboBox_73.setVisible(true);
-					comboBox_88.setVisible(true);
+				if(opodNumDiskGroupsCB.getSelectedIndex() >= 6) {
+					opodDiskGroupNameTA6.setVisible(true);
+					opodLunsTA6.setVisible(true);
+					opodLunSizeTA6.setVisible(true);
+					opodTierCB6.setVisible(true);
+					opodStorageArrayCB6.setVisible(true);
 					
 				} else {
-					textArea_34.setVisible(false);
-					textArea_49.setVisible(false);
-					textArea_64.setVisible(false);
-					comboBox_73.setVisible(false);
-					comboBox_88.setVisible(false);
+					opodDiskGroupNameTA6.setVisible(false);
+					opodLunsTA6.setVisible(false);
+					opodLunSizeTA6.setVisible(false);
+					opodTierCB6.setVisible(false);
+					opodStorageArrayCB6.setVisible(false);
 				}
 				
-				if(comboBox_98.getSelectedIndex() >= 7) {
-					textArea_35.setVisible(true);
-					textArea_50.setVisible(true);
-					textArea_65.setVisible(true);
-					comboBox_74.setVisible(true);
-					comboBox_89.setVisible(true);
+				if(opodNumDiskGroupsCB.getSelectedIndex() >= 7) {
+					opodDiskGroupNameTA7.setVisible(true);
+					opodLunsTA7.setVisible(true);
+					opodLunSizeTA7.setVisible(true);
+					opodTierCB7.setVisible(true);
+					opodStorageArrayCB7.setVisible(true);
 					
 				} else {
-					textArea_35.setVisible(false);
-					textArea_50.setVisible(false);
-					textArea_65.setVisible(false);
-					comboBox_74.setVisible(false);
-					comboBox_89.setVisible(false);
+					opodDiskGroupNameTA7.setVisible(false);
+					opodLunsTA7.setVisible(false);
+					opodLunSizeTA7.setVisible(false);
+					opodTierCB7.setVisible(false);
+					opodStorageArrayCB7.setVisible(false);
 				}
 				
-				if(comboBox_98.getSelectedIndex() >= 8) {
-					textArea_36.setVisible(true);
-					textArea_51.setVisible(true);
-					textArea_66.setVisible(true);
-					comboBox_75.setVisible(true);
-					comboBox_90.setVisible(true);
+				if(opodNumDiskGroupsCB.getSelectedIndex() >= 8) {
+					opodDiskGroupNameTA8.setVisible(true);
+					opodLunsTA8.setVisible(true);
+					opodLunSizeTA8.setVisible(true);
+					opodTierCB8.setVisible(true);
+					opodStorageArrayCB8.setVisible(true);
 					
 				} else {
-					textArea_36.setVisible(false);
-					textArea_51.setVisible(false);
-					textArea_66.setVisible(false);
-					comboBox_75.setVisible(false);
-					comboBox_90.setVisible(false);
+					opodDiskGroupNameTA8.setVisible(false);
+					opodLunsTA8.setVisible(false);
+					opodLunSizeTA8.setVisible(false);
+					opodTierCB8.setVisible(false);
+					opodStorageArrayCB8.setVisible(false);
 				}
 				
-				if(comboBox_98.getSelectedIndex() >= 9) {
-					textArea_37.setVisible(true);
-					textArea_52.setVisible(true);
-					textArea_67.setVisible(true);
-					comboBox_76.setVisible(true);
-					comboBox_91.setVisible(true);
+				if(opodNumDiskGroupsCB.getSelectedIndex() >= 9) {
+					opodDiskGroupNameTA9.setVisible(true);
+					opodLunsTA9.setVisible(true);
+					opodLunSizeTA9.setVisible(true);
+					opodTierCB9.setVisible(true);
+					opodStorageArrayCB9.setVisible(true);
 					
 				} else {
-					textArea_37.setVisible(false);
-					textArea_52.setVisible(false);
-					textArea_67.setVisible(false);
-					comboBox_76.setVisible(false);
-					comboBox_91.setVisible(false);
+					opodDiskGroupNameTA9.setVisible(false);
+					opodLunsTA9.setVisible(false);
+					opodLunSizeTA9.setVisible(false);
+					opodTierCB9.setVisible(false);
+					opodStorageArrayCB9.setVisible(false);
 				}
 				
-				if(comboBox_98.getSelectedIndex() >= 10) {
-					textArea_38.setVisible(true);
-					textArea_53.setVisible(true);
-					textArea_68.setVisible(true);
-					comboBox_77.setVisible(true);
-					comboBox_92.setVisible(true);
+				if(opodNumDiskGroupsCB.getSelectedIndex() >= 10) {
+					opodDiskGroupNameTA10.setVisible(true);
+					opodLunsTA10.setVisible(true);
+					opodLunSizeTA10.setVisible(true);
+					opodTierCB10.setVisible(true);
+					opodStorageArrayCB10.setVisible(true);
 					
 				} else {
-					textArea_38.setVisible(false);
-					textArea_53.setVisible(false);
-					textArea_68.setVisible(false);
-					comboBox_77.setVisible(false);
-					comboBox_92.setVisible(false);
+					opodDiskGroupNameTA10.setVisible(false);
+					opodLunsTA10.setVisible(false);
+					opodLunSizeTA10.setVisible(false);
+					opodTierCB10.setVisible(false);
+					opodStorageArrayCB10.setVisible(false);
 				}
 				
-				if(comboBox_98.getSelectedIndex() >= 11) {
-					textArea_39.setVisible(true);
-					textArea_54.setVisible(true);
-					textArea_69.setVisible(true);
-					comboBox_78.setVisible(true);
-					comboBox_93.setVisible(true);
+				if(opodNumDiskGroupsCB.getSelectedIndex() >= 11) {
+					opodDiskGroupNameTA11.setVisible(true);
+					opodLunsTA11.setVisible(true);
+					opodLunSizeTA11.setVisible(true);
+					opodTierCB11.setVisible(true);
+					opodStorageArrayCB11.setVisible(true);
 					
 				} else {
-					textArea_39.setVisible(false);
-					textArea_54.setVisible(false);
-					textArea_69.setVisible(false);
-					comboBox_78.setVisible(false);
-					comboBox_93.setVisible(false);
+					opodDiskGroupNameTA11.setVisible(false);
+					opodLunsTA11.setVisible(false);
+					opodLunSizeTA11.setVisible(false);
+					opodTierCB11.setVisible(false);
+					opodStorageArrayCB11.setVisible(false);
 				}
 				
-				if(comboBox_98.getSelectedIndex() >= 12) {
-					textArea_40.setVisible(true);
-					textArea_55.setVisible(true);
-					textArea_70.setVisible(true);
-					comboBox_79.setVisible(true);
-					comboBox_94.setVisible(true);
+				if(opodNumDiskGroupsCB.getSelectedIndex() >= 12) {
+					opodDiskGroupNameTA12.setVisible(true);
+					opodLunsTA12.setVisible(true);
+					opodLunSizeTA12.setVisible(true);
+					opodTierCB12.setVisible(true);
+					opodStorageArrayCB12.setVisible(true);
 					
 				} else {
-					textArea_40.setVisible(false);
-					textArea_55.setVisible(false);
-					textArea_70.setVisible(false);
-					comboBox_79.setVisible(false);
-					comboBox_94.setVisible(false);
+					opodDiskGroupNameTA12.setVisible(false);
+					opodLunsTA12.setVisible(false);
+					opodLunSizeTA12.setVisible(false);
+					opodTierCB12.setVisible(false);
+					opodStorageArrayCB12.setVisible(false);
 				}
 				
-				if(comboBox_98.getSelectedIndex() >= 13) {
-					textArea_41.setVisible(true);
-					textArea_56.setVisible(true);
-					textArea_71.setVisible(true);
-					comboBox_80.setVisible(true);
-					comboBox_95.setVisible(true);
+				if(opodNumDiskGroupsCB.getSelectedIndex() >= 13) {
+					opodDiskGroupNameTA13.setVisible(true);
+					opodLunsTA13.setVisible(true);
+					opodLunSizeTA13.setVisible(true);
+					opodTierCB13.setVisible(true);
+					opodStorageArrayCB13.setVisible(true);
 					
 				} else {
-					textArea_41.setVisible(false);
-					textArea_56.setVisible(false);
-					textArea_71.setVisible(false);
-					comboBox_80.setVisible(false);
-					comboBox_95.setVisible(false);
+					opodDiskGroupNameTA13.setVisible(false);
+					opodLunsTA13.setVisible(false);
+					opodLunSizeTA13.setVisible(false);
+					opodTierCB13.setVisible(false);
+					opodStorageArrayCB13.setVisible(false);
 				}
 				
-				if(comboBox_98.getSelectedIndex() >= 14) {
-					textArea_42.setVisible(true);
-					textArea_57.setVisible(true);
-					textArea_72.setVisible(true);
-					comboBox_81.setVisible(true);
-					comboBox_96.setVisible(true);
+				if(opodNumDiskGroupsCB.getSelectedIndex() >= 14) {
+					opodDiskGroupNameTA14.setVisible(true);
+					opodLunsTA14.setVisible(true);
+					opodLunSizeTA14.setVisible(true);
+					opodTierCB14.setVisible(true);
+					opodStorageArrayCB14.setVisible(true);
 					
 				} else {
-					textArea_42.setVisible(false);
-					textArea_57.setVisible(false);
-					textArea_72.setVisible(false);
-					comboBox_81.setVisible(false);
-					comboBox_96.setVisible(false);
+					opodDiskGroupNameTA14.setVisible(false);
+					opodLunsTA14.setVisible(false);
+					opodLunSizeTA14.setVisible(false);
+					opodTierCB14.setVisible(false);
+					opodStorageArrayCB14.setVisible(false);
 				}
 				
-				if(comboBox_98.getSelectedIndex() >= 15) {
-					textArea_43.setVisible(true);
-					textArea_58.setVisible(true);
-					textArea_73.setVisible(true);
-					comboBox_82.setVisible(true);
-					comboBox_97.setVisible(true);
+				if(opodNumDiskGroupsCB.getSelectedIndex() >= 15) {
+					opodDiskGroupNameTA15.setVisible(true);
+					opodLunsTA15.setVisible(true);
+					opodLunSizeTA15.setVisible(true);
+					opodTierCB15.setVisible(true);
+					opodStorageArrayCB15.setVisible(true);
 					
 				} else {
-					textArea_43.setVisible(false);
-					textArea_58.setVisible(false);
-					textArea_73.setVisible(false);
-					comboBox_82.setVisible(false);
-					comboBox_97.setVisible(false);
+					opodDiskGroupNameTA15.setVisible(false);
+					opodLunsTA15.setVisible(false);
+					opodLunSizeTA15.setVisible(false);
+					opodTierCB15.setVisible(false);
+					opodStorageArrayCB15.setVisible(false);
 				}
 			}
 			

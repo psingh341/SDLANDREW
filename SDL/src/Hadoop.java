@@ -232,6 +232,27 @@ public class Hadoop {
 	public Hadoop() {
 		parseHadoopFile();
 	}
+
+
+	public dataCenterRtn dataCenterUpdate(String selectedOption) {
+		dataCenterRtn retOpts = new dataCenterRtn();
+		
+		if(selectedOption.equals("Hudson")) {
+			retOpts.addWingLocation = true;
+			retOpts.wingLocationOptions = wingLocationOpts;
+			retOpts.securityZoneOptions = securityZoneHudsonOpts;
+		}
+		else if(selectedOption.equals("Rochelle")) {
+			retOpts.addWingLocation = false;
+			retOpts.securityZoneOptions = securityZoneRochelleOpts;
+		}
+		else {
+			retOpts.addWingLocation = false;
+			retOpts.securityZoneOptions = securityZoneZeroOpts;
+		}
+		
+		return retOpts;
+	}
 }
 
 

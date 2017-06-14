@@ -3,6 +3,11 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+class NumServersRtn
+{
+	
+}
+
 public class Opod {
 
 	File file = new File("ProgramFiles\\Opod.txt");
@@ -380,5 +385,25 @@ public class Opod {
 	
 	public Opod() {
 		parseOpodFile();
+	}
+
+	public dataCenterRtn dataCenterUpdate(String selectedOption) {
+		dataCenterRtn retOpts = new dataCenterRtn();
+		
+		if(selectedOption.equals("Hudson")) {
+			retOpts.addWingLocation = true;
+			retOpts.wingLocationOptions = wingLocationOpts;
+			retOpts.securityZoneOptions = securityZoneHudsonOpts;
+		}
+		else if(selectedOption.equals("Rochelle")) {
+			retOpts.addWingLocation = false;
+			retOpts.securityZoneOptions = securityZoneRochelleOpts;
+		}
+		else {
+			retOpts.addWingLocation = false;
+			retOpts.securityZoneOptions = securityZoneZeroOpts;
+		}
+		
+		return retOpts;
 	}
 }

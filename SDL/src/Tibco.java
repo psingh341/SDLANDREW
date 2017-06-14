@@ -3,6 +3,13 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+class dataCenterRtn
+{
+	String[] wingLocationOptions;
+	String[] securityZoneOptions;
+	boolean addWingLocation;
+};
+
 public class Tibco {
 	File file = new File("ProgramFiles\\Tibco.txt");
 	String[] numServers;
@@ -290,5 +297,25 @@ public class Tibco {
 	
 	public Tibco() {
 		parseTibcoFile();
+	}
+
+	public dataCenterRtn dataCenterUpdate(String selectedOption) {
+		dataCenterRtn retOpts = new dataCenterRtn();
+		
+		if(selectedOption.equals("Hudson")) {
+			retOpts.addWingLocation = true;
+			retOpts.wingLocationOptions = wingLocationOpts;
+			retOpts.securityZoneOptions = securityZoneHudsonOpts;
+		}
+		else if(selectedOption.equals("Rochelle")) {
+			retOpts.addWingLocation = false;
+			retOpts.securityZoneOptions = securityZoneRochelleOpts;
+		}
+		else {
+			retOpts.addWingLocation = false;
+			retOpts.securityZoneOptions = securityZoneZeroOpts;
+		}
+		
+		return retOpts;
 	}
 }
